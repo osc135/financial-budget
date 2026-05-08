@@ -1,0 +1,14 @@
+apiVersion: v2
+name: financial-budget
+description: A Helm chart for Financial Budget
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: postgresql
+    version: 15.5.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: redis
+    version: 19.6.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: redis.enabled

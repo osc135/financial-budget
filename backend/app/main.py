@@ -20,7 +20,7 @@ from app.auth import (
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Budget Tracker API")
+app = FastAPI(title="Financial Budget API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,7 +32,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Budget Tracker API"}
+    return {"message": "Financial Budget API"}
 
 @app.get("/health")
 def health():

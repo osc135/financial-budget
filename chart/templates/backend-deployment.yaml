@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-backend
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+    app.kubernetes.io/component: backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      {{- include "financial-budget.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        {{- include "financial-budget.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: backend
+    spec:
+      initContainers:
+        - name: wait-for-db
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z {{ include "financial-budget.postgresql.host" . }} 5432; do
+                echo "Waiting for database..."
+                sleep 2
+              done
+              echo "Database is ready!"
+          resources:
+            requests:
+              memory: "16Mi"
+              cpu: "10m"
+            limits:
+              memory: "32Mi"
+              cpu: "50m"
+      containers:
+        - name: backend
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          ports:
+            - containerPort: 8000
+              name: http
+          env:
+            - name: DATABASE_URL
+              value: {{ include "financial-budget.database.url" . | quote }}
+          {{- if .Values.backend.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.backend.livenessProbe.path }}
+              port: {{ .Values.backend.livenessProbe.port }}
+            initialDelaySeconds: {{ .Values.backend.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.backend.livenessProbe.periodSeconds }}
+          {{- end }}
+          {{- if .Values.backend.readinessProbe.enabled }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.backend.readinessProbe.path }}
+              port: {{ .Values.backend.readinessProbe.port }}
+            initialDelaySeconds: {{ .Values.backend.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.backend.readinessProbe.periodSeconds }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.backend.resources | nindent 12 }}
