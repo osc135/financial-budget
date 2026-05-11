@@ -114,7 +114,7 @@ jobs:
         uses: replicatedhq/replicated-actions/create-release@v1
         with:
           app-slug: financial-budget
-          api-token: ${{ secrets.REPLICATED_API_TOKEN }}
+          api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
           chart: ./${{ steps.package.outputs.chart-file }}
 
       - name: Verify release exists
