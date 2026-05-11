@@ -88,49 +88,13 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  bump-version-and-promote:
+  package-and-promote:
     runs-on: ubuntu-latest
     needs: [lint-helm, build-and-push-backend, build-and-push-frontend]
     if: github.actor != 'github-actions[bot]'
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Bump chart version
-        run: |
-          CURRENT_VERSION=$(grep "^version:" chart/Chart.yaml | sed 's/version: //')
-          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
-          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
-          PATCH=$(echo $CURRENT_VERSION | cut -d. -f3)
-          NEW_MINOR=$((MINOR + 1))
-          NEW_VERSION="$MAJOR.$NEW_MINOR.0"
-          sed -i "s/^version: .*/version: $NEW_VERSION/" chart/Chart.yaml
-          echo "Bumped version: $CURRENT_VERSION -> $NEW_VERSION"
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-
-      - name: Update appVersion
-        run: |
-          sed -i 's/^appVersion: ".*"/appVersion: "${{ github.sha }}"/' chart/Chart.yaml
-
-      - name: Update image tags in values.yaml
-        run: |
-          sed -i 's|tag: redis-cache|tag: ${{ github.sha }}|' chart/values.yaml
-          sed -i 's|tag: latest|tag: ${{ github.sha }}|' chart/values.yaml
-
-      - name: Commit version bump
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add chart/Chart.yaml chart/values.yaml
-          git commit -m "Bump chart version to ${{ env.NEW_VERSION }} and update image tags [ci skip]" || echo "No changes to commit"
-
-      - name: Push version bump
-        run: |
-          git push origin main
 
       - name: Set up Helm
         uses: azure/setup-helm@v4
@@ -144,6 +108,13 @@ jobs:
           CHART_FILE=$(ls financial-budget-*.tgz | head -1)
           echo "chart-file=$CHART_FILE" >> $GITHUB_OUTPUT
           echo "Packaged: $CHART_FILE"
+
+      - name: Get chart version
+        id: chart-version
+        run: |
+          VERSION=$(grep "^version:" chart/Chart.yaml | sed 's/version: //')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Chart version: $VERSION"
 
       - name: Create Replicated release
         id: create-release
@@ -160,4 +131,4 @@ jobs:
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
           channel-to: Unstable
           release-sequence: ${{ steps.create-release.outputs.release-sequence }}
-          release-version: ${{ env.NEW_VERSION }}
+          release-version: ${{ steps.chart-version.outputs.version }}
