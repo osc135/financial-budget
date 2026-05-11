@@ -84,6 +84,47 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  bump-version:
+    runs-on: ubuntu-latest
+    needs: [lint-helm, build-and-push-backend, build-and-push-frontend]
+    if: github.event.action == 'opened'
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump chart version
+        run: |
+          CURRENT_VERSION=$(grep "^version:" chart/Chart.yaml | sed 's/version: //')
+          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
+          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
+          NEW_MINOR=$((MINOR + 1))
+          NEW_VERSION="$MAJOR.$NEW_MINOR.0"
+          sed -i "s/^version: .*/version: $NEW_VERSION/" chart/Chart.yaml
+          echo "Bumped version: $CURRENT_VERSION -> $NEW_VERSION"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Update appVersion
+        run: |
+          sed -i 's/^appVersion: ".*"/appVersion: "${{ github.sha }}"/' chart/Chart.yaml
+
+      - name: Update image tags in values.yaml
+        run: |
+          sed -i 's|tag: redis-cache|tag: ${{ github.sha }}|' chart/values.yaml
+          sed -i 's|tag: latest|tag: ${{ github.sha }}|' chart/values.yaml
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chart/Chart.yaml chart/values.yaml
+          git commit -m "Bump chart version to $NEW_VERSION and update image tags for PR #${{ github.event.number }}" || echo "No changes to commit"
+          git push origin ${{ github.head_ref }}
+
   create-replicated-release:
     runs-on: ubuntu-latest
     needs: [lint-helm, build-and-push-backend, build-and-push-frontend]
@@ -95,11 +136,6 @@ jobs:
         uses: azure/setup-helm@v4
         with:
           version: '3.14.0'
-
-      - name: Update image tags in values.yaml
-        run: |
-          sed -i 's|tag: redis-cache|tag: ${{ github.sha }}|' chart/values.yaml
-          sed -i 's|tag: latest|tag: ${{ github.sha }}|' chart/values.yaml
 
       - name: Package Helm chart
         id: package
