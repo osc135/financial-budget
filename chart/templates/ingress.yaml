@@ -5,9 +5,17 @@ metadata:
   name: {{ include "financial-budget.fullname" . }}
   labels:
     {{- include "financial-budget.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+    {{- if or .Values.ingress.annotations .Values.tls.auto .Values.tls.enabled }}
   annotations:
+    {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.tls.auto }}
+    cert-manager.io/cluster-issuer: letsencrypt-cloudflare
+    {{- end }}
+    {{- if .Values.tls.enabled }}
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    {{- end }}
   {{- end }}
 spec:
   {{- if .Values.ingress.className }}
@@ -34,6 +42,6 @@ spec:
         {{- range .Values.ingress.hosts }}
         - {{ .host | quote }}
         {{- end }}
-      secretName: {{ if .Values.tls.existingSecret }}{{ .Values.tls.existingSecret }}{{ else }}{{ include "financial-budget.fullname" . }}-tls{{ end }}
+      secretName: {{ if .Values.tls.auto }}{{ include "financial-budget.fullname" . }}-tls-auto{{ else if .Values.tls.existingSecret }}{{ .Values.tls.existingSecret }}{{ else }}{{ include "financial-budget.fullname" . }}-tls{{ end }}
   {{- end }}
 {{- end }}
