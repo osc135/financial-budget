@@ -125,11 +125,13 @@ jobs:
           chart: ./${{ steps.package.outputs.chart-file }}
 
       - name: Install Replicated CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          version=$(curl -s https://api.github.com/repos/replicatedhq/replicated/releases/latest | grep -m1 -Po '"tag_name":\s*"v\K[^"]+')
-          curl -Ls "https://github.com/replicatedhq/replicated/releases/download/v${version}/replicated_${version}_linux_amd64.tar.gz" -o replicated.tar.gz
-          tar xf replicated.tar.gz replicated && rm replicated.tar.gz
-          sudo mv replicated /usr/local/bin/replicated
+          gh release download --repo replicatedhq/replicated --pattern '*linux_amd64.tar.gz' --dir /tmp
+          tar xf /tmp/replicated_*_linux_amd64.tar.gz -C /tmp replicated
+          chmod +x /tmp/replicated
+          sudo mv /tmp/replicated /usr/local/bin/replicated
 
       - name: Promote to Unstable
         env:
