@@ -46,6 +46,10 @@ spec:
           env:
             - name: DATABASE_URL
               value: {{ include "financial-budget.database.url" . | quote }}
+            - name: REDIS_HOST
+              value: {{ include "financial-budget.redis.host" . | quote }}
+            - name: REDIS_PORT
+              value: "6379"
           {{- if .Values.backend.livenessProbe.enabled }}
           livenessProbe:
             httpGet:

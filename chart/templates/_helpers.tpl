@@ -48,3 +48,11 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- printf "postgresql://%s:%s@%s:%s/%s" .Values.database.external.username .Values.database.external.password .Values.database.external.host (.Values.database.external.port | toString) .Values.database.external.database }}
 {{- end }}
 {{- end }}
+
+{{- define "financial-budget.redis.host" -}}
+{{- if .Values.redis.enabled }}
+{{- printf "%s-redis-master" (include "financial-budget.fullname" .) }}
+{{- else }}
+{{- .Values.database.external.redis.host | default "" }}
+{{- end }}
+{{- end }}

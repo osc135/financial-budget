@@ -1,7 +1,7 @@
 backend:
   image:
     repository: ghcr.io/osc135/financial-budget-backend
-    tag: latest
+    tag: redis-cache
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -76,7 +76,8 @@ postgresql:
       size: 1Gi
 
 redis:
-  enabled: false
+  enabled: true
+  architecture: standalone
   image:
     registry: docker.io
     repository: bitnami/redis
