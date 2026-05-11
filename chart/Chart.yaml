@@ -12,3 +12,7 @@ dependencies:
     version: 19.6.0
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
+  - name: replicated
+    alias: financial-budget-sdk
+    version: 1.19.3
+    repository: oci://registry.replicated.com/library
