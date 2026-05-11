@@ -124,11 +124,16 @@ jobs:
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
           chart: ./${{ steps.package.outputs.chart-file }}
 
+      - name: Install Replicated CLI
+        run: |
+          version=$(curl -s https://api.github.com/repos/replicatedhq/replicated/releases/latest | grep -m1 -Po '"tag_name":\s*"v\K[^"]+')
+          curl -Ls "https://github.com/replicatedhq/replicated/releases/download/v${version}/replicated_${version}_linux_amd64.tar.gz" -o replicated.tar.gz
+          tar xf replicated.tar.gz replicated && rm replicated.tar.gz
+          sudo mv replicated /usr/local/bin/replicated
+
       - name: Promote to Unstable
-        uses: replicatedhq/replicated-actions/promote-release@v1
-        with:
-          app-slug: financial-budget
-          api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
-          channel-to: 3DSFSLLOlnuk21EjOnqdzrh8fDI
-          release-sequence: ${{ steps.create-release.outputs.release-sequence }}
-          release-version: ${{ steps.chart-version.outputs.version }}
+        env:
+          REPLICATED_API_TOKEN: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
+          REPLICATED_APP: financial-budget
+        run: |
+          replicated release promote ${{ steps.create-release.outputs.release-sequence }} Unstable
