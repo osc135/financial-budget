@@ -1,0 +1,5 @@
+appSlug: financial-budget
+charts:
+  - path: ./chart
+manifests:
+  - ./manifests/*.yaml

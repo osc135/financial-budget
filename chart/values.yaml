@@ -88,20 +88,27 @@ redis:
 tls:
   enabled: true
   existingSecret: ""
+  auto: false
 
 ingress:
   enabled: false
   className: nginx
   annotations: {}
   hosts:
-    - host: financial-budget.local
+    - host: app.budget-helping.com
       paths:
         - path: /
           pathType: Prefix
   tls:
     - secretName: ""
       hosts:
-        - financial-budget.local
+        - app.budget-helping.com
+
+cloudflared:
+  enabled: false
+  tunnelToken: ""
+
+imagePullSecrets: []
 
 service:
   type: ClusterIP
