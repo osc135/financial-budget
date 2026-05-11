@@ -129,6 +129,6 @@ jobs:
         with:
           app-slug: financial-budget
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
-          channel-to: Unstable
+          channel-to: 3DSFSLLOlnuk21EjOnqdzrh8fDI
           release-sequence: ${{ steps.create-release.outputs.release-sequence }}
           release-version: ${{ steps.chart-version.outputs.version }}
