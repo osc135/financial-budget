@@ -41,7 +41,7 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h1>Budget Tracker</h1>
+        <h1>Financial Budget</h1>
         <p className="text-sm">Sign in to your account</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

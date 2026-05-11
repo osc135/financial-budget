@@ -1,0 +1,107 @@
+backend:
+  image:
+    repository: ghcr.io/osc135/financial-budget-backend
+    tag: redis-cache
+    pullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+  livenessProbe:
+    enabled: true
+    path: /health
+    port: 8000
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  readinessProbe:
+    enabled: true
+    path: /health
+    port: 8000
+    initialDelaySeconds: 5
+    periodSeconds: 5
+
+frontend:
+  image:
+    repository: ghcr.io/osc135/financial-budget-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+  livenessProbe:
+    enabled: true
+    path: /
+    port: 80
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  readinessProbe:
+    enabled: true
+    path: /
+    port: 80
+    initialDelaySeconds: 5
+    periodSeconds: 5
+
+database:
+  embedded:
+    enabled: true
+  external:
+    host: ""
+    port: 5432
+    username: ""
+    password: ""
+    database: ""
+
+postgresql:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: latest
+  auth:
+    username: budgetuser
+    password: budgetpass
+    database: budgetdb
+  primary:
+    persistence:
+      enabled: true
+      size: 1Gi
+
+redis:
+  enabled: true
+  architecture: standalone
+  image:
+    registry: docker.io
+    repository: bitnami/redis
+    tag: latest
+  auth:
+    enabled: false
+
+tls:
+  enabled: true
+  existingSecret: ""
+
+ingress:
+  enabled: false
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: financial-budget.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: ""
+      hosts:
+        - financial-budget.local
+
+service:
+  type: ClusterIP

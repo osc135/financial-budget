@@ -17,10 +17,13 @@ from app.auth import (
     get_password_hash, verify_password, create_access_token,
     get_current_user, ACCESS_TOKEN_EXPIRE_MINUTES
 )
+from app.cache import (
+    get_dashboard_cache, set_dashboard_cache, invalidate_dashboard_cache
+)
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Budget Tracker API")
+app = FastAPI(title="Financial Budget API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,7 +35,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Budget Tracker API"}
+    return {"message": "Financial Budget API"}
 
 @app.get("/health")
 def health():
@@ -79,6 +82,7 @@ def create_budget(
     db.add(budget)
     db.commit()
     db.refresh(budget)
+    invalidate_dashboard_cache(current_user.id)
     return budget
 
 @app.get("/budget/transactions", response_model=list[TransactionResponse])
@@ -108,6 +112,7 @@ def create_transaction(
     db.add(tx)
     db.commit()
     db.refresh(tx)
+    invalidate_dashboard_cache(current_user.id)
     return tx
 
 @app.delete("/budget/transactions/{tx_id}")
@@ -124,26 +129,32 @@ def delete_transaction(
         raise HTTPException(status_code=404, detail="Transaction not found")
     db.delete(tx)
     db.commit()
+    invalidate_dashboard_cache(current_user.id)
     return {"message": "Transaction deleted"}
 
 @app.get("/budget/dashboard", response_model=DashboardData)
 def get_dashboard(current_user: Annotated[User, Depends(get_current_user)], db: Session = Depends(get_db)):
+    # Check Redis cache first
+    cached = get_dashboard_cache(current_user.id)
+    if cached:
+        return DashboardData(**cached)
+
     budget = db.query(Budget).filter(Budget.user_id == current_user.id).first()
     if not budget:
         raise HTTPException(status_code=404, detail="Budget not found")
-    
+
     monthly_income = budget.monthly_income
     needs_target = monthly_income * 0.50
     wants_target = monthly_income * 0.30
     savings_target = monthly_income * 0.20
-    
+
     transactions = db.query(Transaction).filter(Transaction.budget_id == budget.id).all()
-    
+
     needs_spent = sum(tx.amount for tx in transactions if tx.category == "needs")
     wants_spent = sum(tx.amount for tx in transactions if tx.category == "wants")
     savings_spent = sum(tx.amount for tx in transactions if tx.category == "savings")
-    
-    return DashboardData(
+
+    result = DashboardData(
         monthly_income=monthly_income,
         needs_target=needs_target,
         wants_target=wants_target,
@@ -164,3 +175,7 @@ def get_dashboard(current_user: Annotated[User, Depends(get_current_user)], db: 
             for tx in sorted(transactions, key=lambda t: t.created_at or t.date, reverse=True)
         ]
     )
+
+    # Cache the computed dashboard for 60 seconds
+    set_dashboard_cache(current_user.id, result.model_dump(mode="json"))
+    return result

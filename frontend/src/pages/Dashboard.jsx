@@ -90,7 +90,7 @@ export default function Dashboard() {
   return (
     <div className="container">
       <div className="header">
-        <h1>Budget Tracker</h1>
+        <h1>Financial Budget</h1>
         <button className="btn btn-secondary" onClick={logout}>
           Logout
         </button>
