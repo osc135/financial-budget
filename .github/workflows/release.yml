@@ -133,7 +133,14 @@ jobs:
 
       - name: Install Replicated CLI
         run: |
-          curl -s https://get.replicated.com | bash
+          curl -s https://api.github.com/repos/replicatedhq/replicated/releases/latest | \
+            grep "browser_download_url.*linux_amd64.tar.gz" | \
+            cut -d : -f 2,3 | \
+            tr -d \" | \
+            wget -O replicated.tar.gz -qi -
+          tar xf replicated.tar.gz replicated
+          chmod +x replicated
+          sudo mv replicated /usr/local/bin/
 
       - name: Create Replicated release
         env:
