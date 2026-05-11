@@ -110,6 +110,7 @@ jobs:
           NEW_VERSION="$MAJOR.$NEW_MINOR.0"
           sed -i "s/^version: .*/version: $NEW_VERSION/" chart/Chart.yaml
           echo "Bumped version: $CURRENT_VERSION -> $NEW_VERSION"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
       - name: Update appVersion
         run: |
@@ -125,40 +126,37 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add chart/Chart.yaml chart/values.yaml
-          git commit -m "Bump chart version and update image tags [ci skip]" || echo "No changes to commit"
+          git commit -m "Bump chart version to ${{ env.NEW_VERSION }} and update image tags [ci skip]" || echo "No changes to commit"
 
       - name: Push version bump
         run: |
           git push origin main
 
-      - name: Install Replicated CLI
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: '3.14.0'
+
+      - name: Package Helm chart
+        id: package
         run: |
-          curl -s https://api.github.com/repos/replicatedhq/replicated/releases/latest | \
-            grep "browser_download_url.*linux_amd64.tar.gz" | \
-            cut -d : -f 2,3 | \
-            tr -d \" | \
-            wget -O replicated.tar.gz -qi -
-          tar xf replicated.tar.gz replicated
-          chmod +x replicated
-          sudo mv replicated /usr/local/bin/
+          helm package ./chart
+          CHART_FILE=$(ls financial-budget-*.tgz | head -1)
+          echo "chart-file=$CHART_FILE" >> $GITHUB_OUTPUT
+          echo "Packaged: $CHART_FILE"
 
       - name: Create Replicated release
-        env:
-          REPLICATED_API_TOKEN: ${{ secrets.REPLICATED_API_TOKEN }}
-          REPLICATED_APP: financial-budget
-        run: |
-          NEW_VERSION=$(grep "^version:" chart/Chart.yaml | sed 's/version: //')
-          replicated release create \
-            --yaml-dir ./chart \
-            --version "$NEW_VERSION"
+        id: create-release
+        uses: replicatedhq/replicated-actions/create-release@v1
+        with:
+          app-slug: financial-budget
+          api-token: ${{ secrets.REPLICATED_API_TOKEN }}
+          chart: ./${{ steps.package.outputs.chart-file }}
 
       - name: Promote to Unstable
-        env:
-          REPLICATED_API_TOKEN: ${{ secrets.REPLICATED_API_TOKEN }}
-          REPLICATED_APP: financial-budget
-        run: |
-          NEW_VERSION=$(grep "^version:" chart/Chart.yaml | sed 's/version: //')
-          # Get the sequence number of the latest release
-          SEQUENCE=$(replicated release ls | grep "$NEW_VERSION" | awk '{print $1}')
-          echo "Promoting sequence $SEQUENCE to Unstable"
-          replicated release promote "$SEQUENCE" Unstable
+        uses: replicatedhq/replicated-actions/promote-release@v1
+        with:
+          app-slug: financial-budget
+          api-token: ${{ secrets.REPLICATED_API_TOKEN }}
+          channel-to: Unstable
+          release-sequence: ${{ steps.create-release.outputs.release-sequence }}
