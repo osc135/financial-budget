@@ -160,3 +160,4 @@ jobs:
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
           channel-to: Unstable
           release-sequence: ${{ steps.create-release.outputs.release-sequence }}
+          release-version: ${{ env.NEW_VERSION }}
