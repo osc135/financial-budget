@@ -65,7 +65,7 @@ postgresql:
   image:
     registry: docker.io
     repository: bitnami/postgresql
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: latest
   auth:
     username: budgetuser
     password: budgetpass
@@ -81,7 +81,7 @@ redis:
   image:
     registry: docker.io
     repository: bitnami/redis
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: latest
   auth:
     enabled: false
 

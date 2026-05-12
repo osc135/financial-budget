@@ -112,10 +112,13 @@ jobs:
         run: |
           sed -i 's/^appVersion: ".*"/appVersion: "${{ github.sha }}"/' chart/Chart.yaml
 
+      - name: Install yq
+        uses: mikefarah/yq@v4.42.1
+
       - name: Update image tags in values.yaml
         run: |
-          sed -i 's|tag: redis-cache|tag: ${{ github.sha }}|' chart/values.yaml
-          sed -i 's|tag: latest|tag: ${{ github.sha }}|' chart/values.yaml
+          yq e '.backend.image.tag = "${{ github.sha }}"' -i chart/values.yaml
+          yq e '.frontend.image.tag = "${{ github.sha }}"' -i chart/values.yaml
 
       - name: Commit version bump
         run: |
