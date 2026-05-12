@@ -1,13 +1,13 @@
 backend:
   image:
-    repository: ghcr.io/osc135/financial-budget-backend
+    repository: proxy.budget-helping.com/osc135/financial-budget-backend
     tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
     requests:
       memory: "256Mi"
-      cpu: "250m"
+      cpu: "100m"
     limits:
       memory: "512Mi"
       cpu: "500m"
@@ -25,7 +25,7 @@ backend:
     periodSeconds: 5
 frontend:
   image:
-    repository: ghcr.io/osc135/financial-budget-frontend
+    repository: proxy.budget-helping.com/osc135/financial-budget-frontend
     tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
     pullPolicy: IfNotPresent
   replicas: 1
@@ -60,7 +60,7 @@ database:
 postgresql:
   enabled: true
   image:
-    registry: docker.io
+    registry: proxy.budget-helping.com
     repository: bitnami/postgresql
     tag: latest
   auth:
@@ -75,7 +75,7 @@ redis:
   enabled: true
   architecture: standalone
   image:
-    registry: docker.io
+    registry: proxy.budget-helping.com
     repository: bitnami/redis
     tag: latest
   auth:
@@ -100,6 +100,10 @@ ingress:
 cloudflared:
   enabled: false
   tunnelToken: ""
-imagePullSecrets: []
+imagePullSecrets:
+  - name: enterprise-pull-secret
+global:
+  imagePullSecrets:
+    - name: enterprise-pull-secret
 service:
   type: ClusterIP
