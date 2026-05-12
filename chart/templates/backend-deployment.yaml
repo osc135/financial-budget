@@ -55,7 +55,7 @@ spec:
             - name: REDIS_PORT
               value: "6379"
             - name: REPLICATED_SDK_URL
-              value: "http://replicated:3000"
+              value: "http://financial-budget-sdk:3000"
           {{- if .Values.backend.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
