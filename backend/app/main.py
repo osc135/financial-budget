@@ -23,7 +23,10 @@ from app.cache import (
     get_dashboard_cache, set_dashboard_cache, invalidate_dashboard_cache
 )
 from app.metrics import send_custom_metrics
-from app.entitlements import is_custom_categories_enabled, get_all_entitlements
+from app.entitlements import (
+    is_custom_categories_enabled, get_all_entitlements,
+    get_license_status, is_license_valid, get_available_updates,
+)
 
 Base.metadata.create_all(bind=engine)
 
@@ -37,15 +40,35 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+def require_valid_license():
+    """
+    FastAPI dependency that raises 403 Forbidden when the license is
+    expired or otherwise invalid. Applied to all protected routes so
+    the app actively blocks access when the license is not valid.
+    """
+    status_info = get_license_status()
+    if not status_info.get("valid", False):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=status_info.get(
+                "reason", "License expired or invalid. Please contact support to renew your license."
+            ),
+        )
+
+
 @app.get("/")
 def root():
     return {"message": "Financial Budget API"}
+
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
-@app.post("/auth/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+
+@app.post("/auth/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED,
+          dependencies=[Depends(require_valid_license)])
 def register(user: UserCreate, db: Session = Depends(get_db)):
     existing = db.query(User).filter(User.username == user.username).first()
     if existing:
@@ -60,7 +83,8 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     threading.Thread(target=send_custom_metrics, daemon=True).start()
     return new_user
 
-@app.post("/auth/login")
+
+@app.post("/auth/login", dependencies=[Depends(require_valid_license)])
 def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == form_data.username).first()
     if not user or not verify_password(form_data.password, user.password_hash):
@@ -69,17 +93,34 @@ def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Sessio
     access_token = create_access_token(data={"sub": str(user.id)}, expires_delta=access_token_expires)
     return {"access_token": access_token, "token_type": "bearer", "user": {"id": user.id, "username": user.username}}
 
+
 @app.get("/license/entitlements")
 def license_entitlements():
     """Return current license entitlements for the frontend."""
     return get_all_entitlements()
 
-@app.get("/budget", response_model=BudgetResponse | None)
+
+@app.get("/license/status")
+def license_status():
+    """Return the current license validity status for the frontend banner."""
+    return get_license_status()
+
+
+@app.get("/license/updates")
+def license_updates():
+    """Return whether a newer release is available on the channel."""
+    return get_available_updates()
+
+
+@app.get("/budget", response_model=BudgetResponse | None,
+         dependencies=[Depends(require_valid_license)])
 def get_budget(current_user: Annotated[User, Depends(get_current_user)], db: Session = Depends(get_db)):
     budget = db.query(Budget).filter(Budget.user_id == current_user.id).first()
     return budget
 
-@app.post("/budget", response_model=BudgetResponse, status_code=status.HTTP_201_CREATED)
+
+@app.post("/budget", response_model=BudgetResponse, status_code=status.HTTP_201_CREATED,
+          dependencies=[Depends(require_valid_license)])
 def create_budget(
     budget_data: BudgetCreate,
     current_user: Annotated[User, Depends(get_current_user)],
@@ -96,14 +137,18 @@ def create_budget(
     threading.Thread(target=send_custom_metrics, daemon=True).start()
     return budget
 
-@app.get("/budget/transactions", response_model=list[TransactionResponse])
+
+@app.get("/budget/transactions", response_model=list[TransactionResponse],
+         dependencies=[Depends(require_valid_license)])
 def get_transactions(current_user: Annotated[User, Depends(get_current_user)], db: Session = Depends(get_db)):
     budget = db.query(Budget).filter(Budget.user_id == current_user.id).first()
     if not budget:
         raise HTTPException(status_code=404, detail="Budget not found")
     return db.query(Transaction).filter(Transaction.budget_id == budget.id).order_by(Transaction.created_at.desc()).all()
 
-@app.post("/budget/transactions", response_model=TransactionResponse, status_code=status.HTTP_201_CREATED)
+
+@app.post("/budget/transactions", response_model=TransactionResponse, status_code=status.HTTP_201_CREATED,
+          dependencies=[Depends(require_valid_license)])
 def create_transaction(
     tx_data: TransactionCreate,
     current_user: Annotated[User, Depends(get_current_user)],
@@ -128,7 +173,8 @@ def create_transaction(
     threading.Thread(target=send_custom_metrics, daemon=True).start()
     return tx
 
-@app.delete("/budget/transactions/{tx_id}")
+
+@app.delete("/budget/transactions/{tx_id}", dependencies=[Depends(require_valid_license)])
 def delete_transaction(
     tx_id: int,
     current_user: Annotated[User, Depends(get_current_user)],
@@ -146,7 +192,9 @@ def delete_transaction(
     threading.Thread(target=send_custom_metrics, daemon=True).start()
     return {"message": "Transaction deleted"}
 
-@app.get("/budget/dashboard", response_model=DashboardData)
+
+@app.get("/budget/dashboard", response_model=DashboardData,
+         dependencies=[Depends(require_valid_license)])
 def get_dashboard(current_user: Annotated[User, Depends(get_current_user)], db: Session = Depends(get_db)):
     # Check Redis cache first
     cached = get_dashboard_cache(current_user.id)
