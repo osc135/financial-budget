@@ -30,7 +30,7 @@ spec:
             - name: TUNNEL_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "financial-budget.fullname" . }}-cloudflared
+                  name: financial-budget-cloudflared
                   key: tunnel-token
           resources:
             requests:
@@ -39,14 +39,4 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "100m"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ include "financial-budget.fullname" . }}-cloudflared
-  labels:
-    {{- include "financial-budget.labels" . | nindent 4 }}
-type: Opaque
-stringData:
-  tunnel-token: {{ .Values.cloudflared.tunnelToken }}
 {{- end }}

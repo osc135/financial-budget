@@ -98,7 +98,7 @@ ingress:
       hosts:
         - app.budget-helping.com
 cloudflared:
-  enabled: false
+  enabled: true
   tunnelToken: ""
 imagePullSecrets:
   - name: enterprise-pull-secret
