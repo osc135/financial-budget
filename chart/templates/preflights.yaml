@@ -20,11 +20,8 @@ spec:
           url: https://api.replicated.com
           insecureSkipVerify: false
 
-    # 3. Cluster resource check + 4. Kubernetes version + 5. Distribution check
-    # These are all gathered by the clusterResources and distribution collectors
+    # 3. Cluster resource check — node info and cluster version / distribution
     - clusterResources: {}
-
-    - distribution: {}
 
   analyzers:
     {{- if not .Values.postgresql.enabled }}
@@ -51,48 +48,43 @@ spec:
           - fail:
               when: "error"
               message: "Cannot reach api.replicated.com. The Replicated SDK requires outbound HTTPS access to sync license data, metrics, and updates. Check firewall rules and DNS configuration."
-          - warn:
-              when: "statusCode != 200"
-              message: "Received a non-200 status code from api.replicated.com. This may indicate routing or authentication issues."
           - pass:
-              when: "statusCode == 200"
               message: "Successfully reached api.replicated.com. The Replicated SDK can sync with the Vendor Portal."
 
     # 3. Cluster resource check — CPU
-    - clusterResources:
+    - nodeResources:
         checkName: Sufficient CPU
         outcomes:
           - fail:
-              when: "total_cpu < 1"
-              message: "Cluster has less than 1 CPU core available. Financial Budget requires at least 1 CPU core for the backend, frontend, PostgreSQL, Redis, and Replicated SDK components."
+              when: "sum(cpuCapacity) < 1"
+              message: "Cluster has less than 1 CPU core available (found: {{ .CPUCapacity }} total). Financial Budget requires at least 1 CPU core for the backend, frontend, PostgreSQL, Redis, and Replicated SDK components."
           - warn:
-              when: "total_cpu < 2"
-              message: "Cluster has limited CPU resources. The app will run but performance may be degraded under load."
+              when: "sum(cpuCapacity) < 2"
+              message: "Cluster has limited CPU resources ({{ .CPUCapacity }} total). The app will run but performance may be degraded under load."
           - pass:
               message: "Cluster has sufficient CPU cores available, meeting the minimum requirement of 1 core."
 
     # 3. Cluster resource check — Memory
-    - clusterResources:
+    - nodeResources:
         checkName: Sufficient Memory
         outcomes:
           - fail:
-              when: "total_memory < 2Gi"
-              message: "Cluster has less than 2Gi of memory available. Financial Budget requires at least 2Gi for all components including backend, frontend, PostgreSQL, Redis, and Replicated SDK."
+              when: "min(memoryCapacity) < 2Gi"
+              message: "Cluster has less than 2Gi of memory available on the smallest node. Financial Budget requires at least 2Gi for all components including backend, frontend, PostgreSQL, Redis, and Replicated SDK."
           - warn:
-              when: "total_memory < 4Gi"
-              message: "Cluster has limited memory available. OK for development but consider 4Gi+ for production workloads."
+              when: "min(memoryCapacity) < 4Gi"
+              message: "Cluster has limited memory available (smallest node has {{ .MemoryCapacity }}). OK for development but consider 4Gi+ for production workloads."
           - pass:
               message: "Cluster has sufficient memory available, meeting the minimum requirement of 2Gi."
 
     # 4. Kubernetes version check
-    - distribution:
+    - clusterVersion:
         checkName: Kubernetes Version
         outcomes:
           - fail:
               when: "< 1.31.0"
               message: "Kubernetes version is below the minimum supported version 1.31.0. Please upgrade your cluster before installing Financial Budget."
           - pass:
-              when: ">= 1.31.0"
               message: "Kubernetes version meets the minimum requirement of 1.31.0."
 
     # 5. Distribution check
@@ -121,4 +113,4 @@ spec:
               when: "== aks"
               message: "Azure AKS detected. Supported for production deployments."
           - warn:
-              message: "Distribution {{ .Distribution }} is not explicitly tested. Financial Budget may work but is not officially supported. Please use EKS, GKE, AKS, or Kind for best results."
+              message: "Distribution is not explicitly tested. Financial Budget may work but is not officially supported. Please use EKS, GKE, AKS, or Kind for best results."
