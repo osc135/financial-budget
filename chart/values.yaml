@@ -1,7 +1,7 @@
 backend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
-    tag: 21e129afa067661ea1c609774d78ee686bea0834
+    tag: 460ab9c5e7f8114e4cc3f59ee1cc25ef0b986599
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -26,7 +26,7 @@ backend:
 frontend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
-    tag: 21e129afa067661ea1c609774d78ee686bea0834
+    tag: 460ab9c5e7f8114e4cc3f59ee1cc25ef0b986599
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -98,7 +98,7 @@ ingress:
       hosts:
         - app.budget-helping.com
 cloudflared:
-  enabled: false
+  enabled: true
   tunnelToken: ""
 imagePullSecrets:
   - name: enterprise-pull-secret
