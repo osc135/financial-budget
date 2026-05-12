@@ -1,7 +1,7 @@
 backend:
   image:
-    repository: proxy.budget-helping.com/osc135/financial-budget-backend
-    tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
+    repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
+    tag: 3ab0a0293593e11c9a3f1ef4750da85f910efe48
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -25,8 +25,8 @@ backend:
     periodSeconds: 5
 frontend:
   image:
-    repository: proxy.budget-helping.com/osc135/financial-budget-frontend
-    tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
+    repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
+    tag: 3ab0a0293593e11c9a3f1ef4750da85f910efe48
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -60,7 +60,7 @@ database:
 postgresql:
   enabled: true
   image:
-    registry: proxy.budget-helping.com
+    registry: proxy.budget-helping.com/proxy/financial-budget/index.docker.io
     repository: bitnami/postgresql
     tag: latest
   auth:
@@ -75,7 +75,7 @@ redis:
   enabled: true
   architecture: standalone
   image:
-    registry: proxy.budget-helping.com
+    registry: proxy.budget-helping.com/proxy/financial-budget/index.docker.io
     repository: bitnami/redis
     tag: latest
   auth:
