@@ -1,3 +1,5 @@
+import asyncio
+
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
@@ -20,6 +22,7 @@ from app.auth import (
 from app.cache import (
     get_dashboard_cache, set_dashboard_cache, invalidate_dashboard_cache
 )
+from app.metrics import send_custom_metrics
 
 Base.metadata.create_all(bind=engine)
 
@@ -53,6 +56,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
     return new_user
 
 @app.post("/auth/login")
@@ -83,6 +87,7 @@ def create_budget(
     db.commit()
     db.refresh(budget)
     invalidate_dashboard_cache(current_user.id)
+    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
     return budget
 
 @app.get("/budget/transactions", response_model=list[TransactionResponse])
@@ -113,6 +118,7 @@ def create_transaction(
     db.commit()
     db.refresh(tx)
     invalidate_dashboard_cache(current_user.id)
+    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
     return tx
 
 @app.delete("/budget/transactions/{tx_id}")
@@ -130,6 +136,7 @@ def delete_transaction(
     db.delete(tx)
     db.commit()
     invalidate_dashboard_cache(current_user.id)
+    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
     return {"message": "Transaction deleted"}
 
 @app.get("/budget/dashboard", response_model=DashboardData)
