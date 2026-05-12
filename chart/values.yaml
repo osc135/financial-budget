@@ -1,7 +1,7 @@
 backend:
   image:
     repository: ghcr.io/osc135/financial-budget-backend
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -23,11 +23,10 @@ backend:
     port: 8000
     initialDelaySeconds: 5
     periodSeconds: 5
-
 frontend:
   image:
     repository: ghcr.io/osc135/financial-budget-frontend
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: a88efc6af3ddfcf7e284d29b1f76b1ff2608c763
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -49,7 +48,6 @@ frontend:
     port: 80
     initialDelaySeconds: 5
     periodSeconds: 5
-
 database:
   embedded:
     enabled: true
@@ -59,13 +57,12 @@ database:
     username: ""
     password: ""
     database: ""
-
 postgresql:
   enabled: true
   image:
     registry: docker.io
     repository: bitnami/postgresql
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: latest
   auth:
     username: budgetuser
     password: budgetpass
@@ -74,22 +71,19 @@ postgresql:
     persistence:
       enabled: true
       size: 1Gi
-
 redis:
   enabled: true
   architecture: standalone
   image:
     registry: docker.io
     repository: bitnami/redis
-    tag: 12032602f6397732028c9b801cf99c85087992c2
+    tag: latest
   auth:
     enabled: false
-
 tls:
   enabled: true
   existingSecret: ""
   auto: false
-
 ingress:
   enabled: false
   className: nginx
@@ -103,12 +97,9 @@ ingress:
     - secretName: ""
       hosts:
         - app.budget-helping.com
-
 cloudflared:
   enabled: false
   tunnelToken: ""
-
 imagePullSecrets: []
-
 service:
   type: ClusterIP
