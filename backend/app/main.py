@@ -1,4 +1,4 @@
-import asyncio
+import threading
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,6 +23,7 @@ from app.cache import (
     get_dashboard_cache, set_dashboard_cache, invalidate_dashboard_cache
 )
 from app.metrics import send_custom_metrics
+from app.entitlements import is_custom_categories_enabled, get_all_entitlements
 
 Base.metadata.create_all(bind=engine)
 
@@ -56,7 +57,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
+    threading.Thread(target=send_custom_metrics, daemon=True).start()
     return new_user
 
 @app.post("/auth/login")
@@ -67,6 +68,11 @@ def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Sessio
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(data={"sub": str(user.id)}, expires_delta=access_token_expires)
     return {"access_token": access_token, "token_type": "bearer", "user": {"id": user.id, "username": user.username}}
+
+@app.get("/license/entitlements")
+def license_entitlements():
+    """Return current license entitlements for the frontend."""
+    return get_all_entitlements()
 
 @app.get("/budget", response_model=BudgetResponse | None)
 def get_budget(current_user: Annotated[User, Depends(get_current_user)], db: Session = Depends(get_db)):
@@ -87,7 +93,7 @@ def create_budget(
     db.commit()
     db.refresh(budget)
     invalidate_dashboard_cache(current_user.id)
-    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
+    threading.Thread(target=send_custom_metrics, daemon=True).start()
     return budget
 
 @app.get("/budget/transactions", response_model=list[TransactionResponse])
@@ -106,8 +112,9 @@ def create_transaction(
     budget = db.query(Budget).filter(Budget.user_id == current_user.id).first()
     if not budget:
         raise HTTPException(status_code=404, detail="Budget not found")
-    if tx_data.category not in ("needs", "wants", "savings"):
-        raise HTTPException(status_code=400, detail="Category must be needs, wants, or savings")
+    # Check license entitlement for custom categories
+    if not is_custom_categories_enabled() and tx_data.category not in ("needs", "wants", "savings"):
+        raise HTTPException(status_code=400, detail="Category must be needs, wants, or savings. Upgrade to Premium for custom categories.")
     tx = Transaction(
         budget_id=budget.id,
         category=tx_data.category,
@@ -118,7 +125,7 @@ def create_transaction(
     db.commit()
     db.refresh(tx)
     invalidate_dashboard_cache(current_user.id)
-    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
+    threading.Thread(target=send_custom_metrics, daemon=True).start()
     return tx
 
 @app.delete("/budget/transactions/{tx_id}")
@@ -136,7 +143,7 @@ def delete_transaction(
     db.delete(tx)
     db.commit()
     invalidate_dashboard_cache(current_user.id)
-    asyncio.create_task(asyncio.to_thread(send_custom_metrics))
+    threading.Thread(target=send_custom_metrics, daemon=True).start()
     return {"message": "Transaction deleted"}
 
 @app.get("/budget/dashboard", response_model=DashboardData)
