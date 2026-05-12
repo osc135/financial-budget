@@ -1,0 +1,121 @@
+# This is a DEMO preflight spec with absurd thresholds to force failures.
+# Use this to demonstrate preflight failures on a real cluster.
+# It is NOT deployed with the application — use it with:
+#   helm template test-release chart/ -s templates/preflights-failing-demo.yaml | kubectl preflight -
+apiVersion: troubleshoot.sh/v1beta2
+kind: Preflight
+metadata:
+  name: financial-budget-preflights-failing-demo
+spec:
+  collectors:
+    {{- if not .Values.postgresql.enabled }}
+    # 1. Database connectivity — only when using BYO external PostgreSQL
+    - postgres:
+        collectorName: external-db
+        uri: postgresql://{{ .Values.database.external.username }}:{{ .Values.database.external.password }}@{{ .Values.database.external.host }}:{{ .Values.database.external.port }}/{{ .Values.database.external.database }}
+    {{- end }}
+
+    # 2. Required external endpoint connectivity — Unreachable endpoint to force failure
+    - http:
+        collectorName: unreachable-endpoint
+        get:
+          url: https://this-domain-does-not-exist-12345.invalid
+          insecureSkipVerify: false
+
+    # 3. Cluster resource check — node info
+    - clusterResources: {}
+
+  analyzers:
+    {{- if not .Values.postgresql.enabled }}
+    # 1. Database connectivity analyzer — FAILS because external DB is not configured
+    - postgres:
+        checkName: External Database Connectivity
+        collectorName: external-db
+        outcomes:
+          - fail:
+              when: "connected == false"
+              message: "Cannot connect to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}. Ensure the database is running and the credentials in values.yaml are correct."
+          - fail:
+              when: "version == 0"
+              message: "Connected to the external database but could not determine the PostgreSQL version. Check that the database is healthy and accessible."
+          - pass:
+              message: "Successfully connected to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}."
+    {{- end }}
+
+    # 2. Required external endpoint connectivity — FAILS because domain does not exist
+    - http:
+        checkName: Replicated API Reachable
+        collectorName: unreachable-endpoint
+        outcomes:
+          - fail:
+              when: "error"
+              message: "Cannot reach api.replicated.com. The Replicated SDK requires outbound HTTPS access to sync license data, metrics, and updates. Check firewall rules and DNS configuration."
+          - pass:
+              message: "Successfully reached api.replicated.com. The Replicated SDK can sync with the Vendor Portal."
+
+    # 3. Cluster resource check — CPU (absurd requirement)
+    - nodeResources:
+        checkName: Sufficient CPU
+        outcomes:
+          - fail:
+              when: "sum(cpuCapacity) < 45"
+              message: "Cluster has less than 45 CPU cores available. Financial Budget requires at least 45 CPU cores for the backend, frontend, PostgreSQL, Redis, and Replicated SDK components. Please provision a much larger cluster."
+          - pass:
+              message: "Cluster has sufficient CPU cores available."
+
+    # 3. Cluster resource check — Memory (absurd requirement)
+    - nodeResources:
+        checkName: Sufficient Memory
+        outcomes:
+          - fail:
+              when: "min(memoryCapacity) < 100Gi"
+              message: "Cluster has less than 100Gi of memory available on the smallest node. Financial Budget requires at least 100Gi for all components including backend, frontend, PostgreSQL, Redis, and Replicated SDK. Please provision a much larger cluster."
+          - pass:
+              message: "Cluster has sufficient memory available."
+
+    # 4. Kubernetes version check (impossible version)
+    - clusterVersion:
+        checkName: Kubernetes Version
+        outcomes:
+          - fail:
+              when: "< 99.0.0"
+              message: "Kubernetes version is below the minimum supported version 99.0.0. Please upgrade your cluster to Kubernetes 99 or later before installing Financial Budget."
+          - pass:
+              message: "Kubernetes version meets the minimum requirement."
+
+    # 5. Distribution check — block all known distributions
+    - distribution:
+        checkName: Supported Kubernetes Distribution
+        outcomes:
+          - fail:
+              when: "== docker-desktop"
+              message: "Docker Desktop is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+          - fail:
+              when: "== microk8s"
+              message: "MicroK8s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+          - fail:
+              when: "== k3s"
+              message: "K3s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+          - fail:
+              when: "== kind"
+              message: "Kind is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. See: https://kubernetes.io/docs/setup/production-environment/"
+          - fail:
+              when: "== eks"
+              message: "EKS is not supported."
+          - fail:
+              when: "== gke"
+              message: "GKE is not supported."
+          - fail:
+              when: "== aks"
+              message: "AKS is not supported."
+          - fail:
+              when: "== minikube"
+              message: "Minikube is not supported."
+          - fail:
+              when: "== kurl"
+              message: "kURL is not supported."
+          - fail:
+              when: "== embedded-cluster"
+              message: "Embedded Cluster is not supported."
+          - pass:
+              message: "This distribution is theoretically supported (but you will never see this)."
