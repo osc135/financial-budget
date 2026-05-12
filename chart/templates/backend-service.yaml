@@ -6,7 +6,7 @@ metadata:
     {{- include "financial-budget.labels" . | nindent 4 }}
     app.kubernetes.io/component: backend
 spec:
-  type: ClusterIP
+  type: {{ .Values.service.type }}
   ports:
     - port: 8000
       targetPort: http
