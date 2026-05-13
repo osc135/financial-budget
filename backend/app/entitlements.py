@@ -4,6 +4,10 @@ import urllib.request
 import logging
 from datetime import datetime, timezone
 
+# Ensure warnings are visible in container logs (Python's default is to
+# silently discard them if no handler is configured).
+logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
+
 logger = logging.getLogger(__name__)
 
 REPLICATED_SDK_URL = os.getenv("REPLICATED_SDK_URL", "http://financial-budget-sdk:3000")
