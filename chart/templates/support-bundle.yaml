@@ -143,7 +143,7 @@ stringData:
         - statefulsetStatus:
             checkName: Redis StatefulSet Ready
             namespace: {{ .Release.Namespace }}
-            name: {{ include "financial-budget.fullname" . }}-redis
+            name: {{ include "financial-budget.fullname" . }}-redis-master
             outcomes:
               - fail:
                   when: "absent"
@@ -168,13 +168,4 @@ stringData:
               - pass:
                   message: "Replicated SDK deployment is healthy with ready replicas."
 
-        - replicasetStatus:
-            checkName: Backend ReplicaSet Healthy
-            namespace: {{ .Release.Namespace }}
-            name: {{ include "financial-budget.fullname" . }}-backend
-            outcomes:
-              - fail:
-                  message: "Backend ReplicaSet is not healthy. The deployment cannot maintain the desired number of pods."
-              - pass:
-                  when: ">= 1"
-                  message: "Backend ReplicaSet has sufficient ready replicas."
+
