@@ -82,3 +82,99 @@ stringData:
                   message: "Backend health check failed. The API is not responding with a healthy status. Users cannot log in or access budget data. Check that the backend pod is Running and the database is accessible."
               - pass:
                   message: "Backend health endpoint returns status 'ok'. The API is serving requests normally."
+
+        # 3.4: Deployment and StatefulSet status analyzers
+        - deploymentStatus:
+            checkName: Backend Deployment Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-backend
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "Backend deployment is missing. The API cannot serve requests and users cannot log in or access budget data."
+              - fail:
+                  when: "< 1"
+                  message: "Backend deployment has no ready replicas. Check backend pod logs for crashes or database connection failures."
+              - pass:
+                  message: "Backend deployment is healthy with ready replicas."
+
+        - deploymentStatus:
+            checkName: Frontend Deployment Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-frontend
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "Frontend deployment is missing. Users cannot access the web UI."
+              - fail:
+                  when: "< 1"
+                  message: "Frontend deployment has no ready replicas. The web UI is unavailable. Check frontend pod logs."
+              - pass:
+                  message: "Frontend deployment is healthy with ready replicas."
+
+        - deploymentStatus:
+            checkName: Cloudflared Tunnel Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-cloudflared
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "Cloudflared deployment is missing. The secure tunnel to the internet is down. Users cannot access the app via the custom domain."
+              - fail:
+                  when: "< 1"
+                  message: "Cloudflared has no ready replicas. External access via tunnel is unavailable. Check cloudflared pod logs for token or connectivity issues."
+              - pass:
+                  message: "Cloudflared tunnel is healthy with ready replicas."
+
+        - statefulsetStatus:
+            checkName: PostgreSQL StatefulSet Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-postgresql
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "PostgreSQL StatefulSet is missing. All persistent data storage is unavailable. The app cannot read or write budget data."
+              - fail:
+                  when: "< 1"
+                  message: "PostgreSQL has no ready replicas. Database is down. Check PVC binding and postgresql pod logs."
+              - pass:
+                  message: "PostgreSQL StatefulSet is healthy with ready replicas."
+
+        - statefulsetStatus:
+            checkName: Redis StatefulSet Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-redis
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "Redis StatefulSet is missing. Session cache and rate limiting are unavailable. Users may experience login issues or degraded performance."
+              - fail:
+                  when: "< 1"
+                  message: "Redis has no ready replicas. Cache layer is down. Check redis pod logs and PVC status."
+              - pass:
+                  message: "Redis StatefulSet is healthy with ready replicas."
+
+        - deploymentStatus:
+            checkName: Replicated SDK Deployment Ready
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-sdk
+            outcomes:
+              - fail:
+                  when: "absent"
+                  message: "Replicated SDK deployment is missing. License validation, metrics, and update checks are unavailable. The app cannot verify entitlements."
+              - fail:
+                  when: "< 1"
+                  message: "Replicated SDK has no ready replicas. License enforcement and vendor portal sync are down. Check sdk pod logs."
+              - pass:
+                  message: "Replicated SDK deployment is healthy with ready replicas."
+
+        - replicasetStatus:
+            checkName: Backend ReplicaSet Healthy
+            namespace: {{ .Release.Namespace }}
+            name: {{ include "financial-budget.fullname" . }}-backend
+            outcomes:
+              - fail:
+                  message: "Backend ReplicaSet is not healthy. The deployment cannot maintain the desired number of pods."
+              - pass:
+                  when: ">= 1"
+                  message: "Backend ReplicaSet has sufficient ready replicas."
