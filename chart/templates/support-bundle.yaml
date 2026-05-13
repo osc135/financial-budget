@@ -74,7 +74,7 @@ stringData:
         # 3.3: Backend health endpoint analyzer
         - textAnalyze:
             checkName: Backend Health Endpoint
-            fileName: http-backend-health.json
+            fileName: backend-health.json
             regex: '"status": "ok"'
             outcomes:
               - fail:
