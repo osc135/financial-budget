@@ -168,4 +168,16 @@ stringData:
               - pass:
                   message: "Replicated SDK deployment is healthy with ready replicas."
 
+        # 3.5: License query failure pattern analyzer
+        - textAnalyze:
+            checkName: License Query Failures
+            fileName: "*.log"
+            regex: 'Failed to query license field'
+            outcomes:
+              - fail:
+                  when: "true"
+                  message: "Backend cannot query license fields from the Replicated SDK. License entitlements (custom categories, etc.) cannot be verified. Check that the Replicated SDK pod is Running and the SDK service is accessible."
+              - pass:
+                  message: "No license query failures found in application logs."
+
 
