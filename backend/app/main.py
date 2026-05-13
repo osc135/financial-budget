@@ -27,10 +27,24 @@ from app.entitlements import (
     is_custom_categories_enabled, get_all_entitlements,
     get_license_status, is_license_valid, get_available_updates,
 )
+import time
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Financial Budget API")
+
+# Start a background thread that periodically queries the license
+# so that license connectivity failures are logged even when no user
+# requests are being made.
+def _license_check_loop():
+    while True:
+        try:
+            get_license_status()
+        except Exception:
+            pass
+        time.sleep(30)
+
+threading.Thread(target=_license_check_loop, daemon=True).start()
 
 app.add_middleware(
     CORSMiddleware,
