@@ -1,116 +1,123 @@
-apiVersion: troubleshoot.sh/v1beta2
-kind: Preflight
+apiVersion: v1
+kind: Secret
 metadata:
   name: financial-budget-preflights
   labels:
     {{- include "financial-budget.labels" . | nindent 4 }}
-spec:
-  collectors:
-    {{- if not .Values.postgresql.enabled }}
-    # 1. Database connectivity — only when using BYO external PostgreSQL
-    - postgres:
-        collectorName: external-db
-        uri: postgresql://{{ .Values.database.external.username }}:{{ .Values.database.external.password }}@{{ .Values.database.external.host }}:{{ .Values.database.external.port }}/{{ .Values.database.external.database }}
-    {{- end }}
+    troubleshoot.sh/kind: preflight
+stringData:
+  preflight.yaml: |
+    apiVersion: troubleshoot.sh/v1beta2
+    kind: Preflight
+    metadata:
+      name: financial-budget-preflights
+    spec:
+      collectors:
+        {{- if not .Values.postgresql.enabled }}
+        # 1. Database connectivity — only when using BYO external PostgreSQL
+        - postgres:
+            collectorName: external-db
+            uri: postgresql://{{ .Values.database.external.username }}:{{ .Values.database.external.password }}@{{ .Values.database.external.host }}:{{ .Values.database.external.port }}/{{ .Values.database.external.database }}
+        {{- end }}
 
-    # 2. Required external endpoint connectivity — Replicated API
-    - http:
-        collectorName: replicated-api
-        get:
-          url: https://api.replicated.com
-          insecureSkipVerify: false
+        # 2. Required external endpoint connectivity — Replicated API
+        - http:
+            collectorName: replicated-api
+            get:
+              url: https://api.replicated.com
+              insecureSkipVerify: false
 
-    # 3. Cluster resource check — node info and cluster version / distribution
-    - clusterResources: {}
+        # 3. Cluster resource check — node info and cluster version / distribution
+        - clusterResources: {}
 
-  analyzers:
-    {{- if not .Values.postgresql.enabled }}
-    # 1. Database connectivity analyzer
-    - postgres:
-        checkName: External Database Connectivity
-        collectorName: external-db
-        outcomes:
-          - fail:
-              when: "connected == false"
-              message: "Cannot connect to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}. Ensure the database is running and the credentials in values.yaml are correct."
-          - fail:
-              when: "version == 0"
-              message: "Connected to the external database but could not determine the PostgreSQL version. Check that the database is healthy and accessible."
-          - pass:
-              message: "Successfully connected to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}."
-    {{- end }}
+      analyzers:
+        {{- if not .Values.postgresql.enabled }}
+        # 1. Database connectivity analyzer
+        - postgres:
+            checkName: External Database Connectivity
+            collectorName: external-db
+            outcomes:
+              - fail:
+                  when: "connected == false"
+                  message: "Cannot connect to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}. Ensure the database is running and the credentials in values.yaml are correct."
+              - fail:
+                  when: "version == 0"
+                  message: "Connected to the external database but could not determine the PostgreSQL version. Check that the database is healthy and accessible."
+              - pass:
+                  message: "Successfully connected to the external PostgreSQL database at {{ .Values.database.external.host }}:{{ .Values.database.external.port }}."
+        {{- end }}
 
-    # 2. Required external endpoint connectivity — Replicated API
-    - http:
-        checkName: Replicated API Reachable
-        collectorName: replicated-api
-        outcomes:
-          - fail:
-              when: "error"
-              message: "Cannot reach api.replicated.com. The Replicated SDK requires outbound HTTPS access to sync license data, metrics, and updates. Check firewall rules and DNS configuration."
-          - pass:
-              message: "Successfully reached api.replicated.com. The Replicated SDK can sync with the Vendor Portal."
+        # 2. Required external endpoint connectivity — Replicated API
+        - http:
+            checkName: Replicated API Reachable
+            collectorName: replicated-api
+            outcomes:
+              - fail:
+                  when: "error"
+                  message: "Cannot reach api.replicated.com. The Replicated SDK requires outbound HTTPS access to sync license data, metrics, and updates. Check firewall rules and DNS configuration."
+              - pass:
+                  message: "Successfully reached api.replicated.com. The Replicated SDK can sync with the Vendor Portal."
 
-    # 3. Cluster resource check — CPU
-    - nodeResources:
-        checkName: Sufficient CPU
-        outcomes:
-          - fail:
-              when: "sum(cpuCapacity) < 1"
-              message: "Cluster has less than 1 CPU core available (found: {{ .CPUCapacity }} total). Financial Budget requires at least 1 CPU core for the backend, frontend, PostgreSQL, Redis, and Replicated SDK components."
-          - warn:
-              when: "sum(cpuCapacity) < 2"
-              message: "Cluster has limited CPU resources ({{ .CPUCapacity }} total). The app will run but performance may be degraded under load."
-          - pass:
-              message: "Cluster has sufficient CPU cores available, meeting the minimum requirement of 1 core."
+        # 3. Cluster resource check — CPU
+        - nodeResources:
+            checkName: Sufficient CPU
+            outcomes:
+              - fail:
+                  when: "sum(cpuCapacity) < 1"
+                  message: "Cluster has less than 1 CPU core available (found: {{ .CPUCapacity }} total). Financial Budget requires at least 1 CPU core for the backend, frontend, PostgreSQL, Redis, and Replicated SDK components."
+              - warn:
+                  when: "sum(cpuCapacity) < 2"
+                  message: "Cluster has limited CPU resources ({{ .CPUCapacity }} total). The app will run but performance may be degraded under load."
+              - pass:
+                  message: "Cluster has sufficient CPU cores available, meeting the minimum requirement of 1 core."
 
-    # 3. Cluster resource check — Memory
-    - nodeResources:
-        checkName: Sufficient Memory
-        outcomes:
-          - fail:
-              when: "min(memoryCapacity) < 2Gi"
-              message: "Cluster has less than 2Gi of memory available on the smallest node. Financial Budget requires at least 2Gi for all components including backend, frontend, PostgreSQL, Redis, and Replicated SDK."
-          - warn:
-              when: "min(memoryCapacity) < 4Gi"
-              message: "Cluster has limited memory available (smallest node has {{ .MemoryCapacity }}). OK for development but consider 4Gi+ for production workloads."
-          - pass:
-              message: "Cluster has sufficient memory available, meeting the minimum requirement of 2Gi."
+        # 3. Cluster resource check — Memory
+        - nodeResources:
+            checkName: Sufficient Memory
+            outcomes:
+              - fail:
+                  when: "min(memoryCapacity) < 2Gi"
+                  message: "Cluster has less than 2Gi of memory available on the smallest node. Financial Budget requires at least 2Gi for all components including backend, frontend, PostgreSQL, Redis, and Replicated SDK."
+              - warn:
+                  when: "min(memoryCapacity) < 4Gi"
+                  message: "Cluster has limited memory available (smallest node has {{ .MemoryCapacity }}). OK for development but consider 4Gi+ for production workloads."
+              - pass:
+                  message: "Cluster has sufficient memory available, meeting the minimum requirement of 2Gi."
 
-    # 4. Kubernetes version check
-    - clusterVersion:
-        checkName: Kubernetes Version
-        outcomes:
-          - fail:
-              when: "< 1.31.0"
-              message: "Kubernetes version is below the minimum supported version 1.31.0. Please upgrade your cluster before installing Financial Budget."
-          - pass:
-              message: "Kubernetes version meets the minimum requirement of 1.31.0."
+        # 4. Kubernetes version check
+        - clusterVersion:
+            checkName: Kubernetes Version
+            outcomes:
+              - fail:
+                  when: "< 1.31.0"
+                  message: "Kubernetes version is below the minimum supported version 1.31.0. Please upgrade your cluster before installing Financial Budget."
+              - pass:
+                  message: "Kubernetes version meets the minimum requirement of 1.31.0."
 
-    # 5. Distribution check
-    - distribution:
-        checkName: Supported Kubernetes Distribution
-        outcomes:
-          - fail:
-              when: "== docker-desktop"
-              message: "Docker Desktop is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
-          - fail:
-              when: "== microk8s"
-              message: "MicroK8s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
-          - fail:
-              when: "== k3s"
-              message: "K3s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
-          - pass:
-              when: "== kind"
-              message: "Kind cluster detected. Suitable for development and testing environments."
-          - pass:
-              when: "== eks"
-              message: "Amazon EKS detected. Supported for production deployments."
-          - pass:
-              when: "== gke"
-              message: "Google GKE detected. Supported for production deployments."
-          - pass:
-              when: "== aks"
-              message: "Azure AKS detected. Supported for production deployments."
-          - warn:
-              message: "Distribution is not explicitly tested. Financial Budget may work but is not officially supported. Please use EKS, GKE, AKS, or Kind for best results."
+        # 5. Distribution check
+        - distribution:
+            checkName: Supported Kubernetes Distribution
+            outcomes:
+              - fail:
+                  when: "== docker-desktop"
+                  message: "Docker Desktop is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+              - fail:
+                  when: "== microk8s"
+                  message: "MicroK8s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+              - fail:
+                  when: "== k3s"
+                  message: "K3s is not supported for production deployments. Please use a production-grade distribution such as EKS, GKE, or AKS. For development, Kind is supported. See: https://kubernetes.io/docs/setup/production-environment/"
+              - pass:
+                  when: "== kind"
+                  message: "Kind cluster detected. Suitable for development and testing environments."
+              - pass:
+                  when: "== eks"
+                  message: "Amazon EKS detected. Supported for production deployments."
+              - pass:
+                  when: "== gke"
+                  message: "Google GKE detected. Supported for production deployments."
+              - pass:
+                  when: "== aks"
+                  message: "Azure AKS detected. Supported for production deployments."
+              - warn:
+                  message: "Distribution is not explicitly tested. Financial Budget may work but is not officially supported. Please use EKS, GKE, AKS, or Kind for best results."

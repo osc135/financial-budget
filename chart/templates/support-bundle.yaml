@@ -1,57 +1,64 @@
-apiVersion: troubleshoot.sh/v1beta2
-kind: SupportBundle
+apiVersion: v1
+kind: Secret
 metadata:
   name: financial-budget-support-bundle
   labels:
     {{- include "financial-budget.labels" . | nindent 4 }}
-spec:
-  collectors:
-    # 1. Backend logs
-    - logs:
-        selector:
-          - app.kubernetes.io/component=backend
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+    troubleshoot.sh/kind: support-bundle
+stringData:
+  support-bundle-spec: |
+    apiVersion: troubleshoot.sh/v1beta2
+    kind: SupportBundle
+    metadata:
+      name: financial-budget-support-bundle
+    spec:
+      collectors:
+        # 1. Backend logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=backend
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
 
-    # 2. Frontend logs
-    - logs:
-        selector:
-          - app.kubernetes.io/component=frontend
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+        # 2. Frontend logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=frontend
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
 
-    # 3. Cloudflared logs
-    - logs:
-        selector:
-          - app.kubernetes.io/component=cloudflared
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+        # 3. Cloudflared logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=cloudflared
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
 
-    # 4. PostgreSQL logs (Bitnami uses component=primary)
-    - logs:
-        selector:
-          - app.kubernetes.io/component=primary
-          - app.kubernetes.io/name=postgresql
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+        # 4. PostgreSQL logs (Bitnami uses component=primary)
+        - logs:
+            selector:
+              - app.kubernetes.io/component=primary
+              - app.kubernetes.io/name=postgresql
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
 
-    # 5. Redis logs (Bitnami uses component=master)
-    - logs:
-        selector:
-          - app.kubernetes.io/component=master
-          - app.kubernetes.io/name=redis
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+        # 5. Redis logs (Bitnami uses component=master)
+        - logs:
+            selector:
+              - app.kubernetes.io/component=master
+              - app.kubernetes.io/name=redis
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
 
-    # 6. Replicated SDK logs
-    - logs:
-        selector:
-          - app.kubernetes.io/name=financial-budget-sdk
-        namespace: {{ .Release.Namespace }}
-        limits:
-          maxLines: 10000
+        # 6. Replicated SDK logs
+        - logs:
+            selector:
+              - app.kubernetes.io/name=financial-budget-sdk
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
