@@ -42,7 +42,7 @@ def _license_check_loop():
             get_license_status()
         except Exception:
             pass
-        time.sleep(30)
+        time.sleep(10)
 
 threading.Thread(target=_license_check_loop, daemon=True).start()
 
