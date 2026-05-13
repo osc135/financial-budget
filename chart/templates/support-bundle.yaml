@@ -67,7 +67,7 @@ stringData:
         - http:
             collectorName: backend-health
             get:
-              url: http://financial-budget-backend:8000/health
+              url: http://backend.{{ .Release.Namespace }}.svc.cluster.local:8000/health
               insecureSkipVerify: false
 
       analyzers:
