@@ -62,3 +62,23 @@ stringData:
             namespace: {{ .Release.Namespace }}
             limits:
               maxLines: 10000
+
+        # 7. Backend health endpoint
+        - http:
+            collectorName: backend-health
+            get:
+              url: http://financial-budget-backend:8000/health
+              insecureSkipVerify: false
+
+      analyzers:
+        # 3.3: Backend health endpoint analyzer
+        - textAnalyze:
+            checkName: Backend Health Endpoint
+            fileName: http-backend-health.json
+            regex: '"status": "ok"'
+            outcomes:
+              - fail:
+                  when: "false"
+                  message: "Backend health check failed. The API is not responding with a healthy status. Users cannot log in or access budget data. Check that the backend pod is Running and the database is accessible."
+              - pass:
+                  message: "Backend health endpoint returns status 'ok'. The API is serving requests normally."
