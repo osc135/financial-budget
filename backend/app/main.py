@@ -32,7 +32,11 @@ from app.entitlements import (
     is_custom_categories_enabled, get_all_entitlements,
     get_license_status, is_license_valid, get_available_updates,
 )
+import os
 import time
+
+from kubernetes import client as k8s_client, config as k8s_config
+from kubernetes.client.rest import ApiException
 
 logger = logging.getLogger(__name__)
 
@@ -131,6 +135,92 @@ def license_status():
 def license_updates():
     """Return whether a newer release is available on the channel."""
     return get_available_updates()
+
+
+@app.post("/support-bundle/generate", status_code=status.HTTP_202_ACCEPTED)
+def generate_support_bundle(
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    """Create a Kubernetes Job that collects a support bundle and uploads
+    it to the Vendor Portal via the Replicated SDK."""
+    try:
+        k8s_config.load_incluster_config()
+    except k8s_config.ConfigException:
+        k8s_config.load_kube_config()
+
+    namespace = os.environ.get("POD_NAMESPACE", "default")
+    runner_sa = os.environ.get("SUPPORT_BUNDLE_RUNNER_SA", "financial-budget-bundle-runner")
+    sdk_url = os.environ.get("REPLICATED_SDK_URL", "http://financial-budget-sdk:3000")
+
+    upload_cmd = (
+        "curl -fsS -X POST "
+        "-H 'Content-Type: application/gzip' "
+        f"--data-binary @/data/bundle.tar.gz "
+        f"{sdk_url}/api/v1/supportbundle"
+    )
+
+    job_manifest = {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "metadata": {
+            "generateName": "support-bundle-",
+            "namespace": namespace,
+            "labels": {"app.kubernetes.io/component": "support-bundle-runner"},
+        },
+        "spec": {
+            "backoffLimit": 0,
+            "ttlSecondsAfterFinished": 600,
+            "template": {
+                "metadata": {
+                    "labels": {"app.kubernetes.io/component": "support-bundle-runner"},
+                },
+                "spec": {
+                    "serviceAccountName": runner_sa,
+                    "restartPolicy": "Never",
+                    "initContainers": [
+                        {
+                            "name": "collect",
+                            "image": "replicated/troubleshoot:latest",
+                            "command": ["/support-bundle"],
+                            "args": [
+                                "--interactive=false",
+                                "--selector", "troubleshoot.sh/kind=support-bundle",
+                                "-o", "/data/bundle.tar.gz",
+                            ],
+                            "volumeMounts": [{"name": "data", "mountPath": "/data"}],
+                        },
+                    ],
+                    "containers": [
+                        {
+                            "name": "upload",
+                            "image": "curlimages/curl:8.5.0",
+                            "command": ["sh", "-c"],
+                            "args": [upload_cmd],
+                            "volumeMounts": [{"name": "data", "mountPath": "/data"}],
+                        },
+                    ],
+                    "volumes": [{"name": "data", "emptyDir": {}}],
+                },
+            },
+        },
+    }
+
+    batch_v1 = k8s_client.BatchV1Api()
+    try:
+        created = batch_v1.create_namespaced_job(namespace=namespace, body=job_manifest)
+    except ApiException as e:
+        logger.exception("Failed to create support bundle Job")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Could not start support bundle collection: {e.reason}",
+        )
+
+    return {
+        "job_name": created.metadata.name,
+        "namespace": namespace,
+        "status": "started",
+        "message": "Support bundle collection started. It will appear in the Vendor Portal in 1-2 minutes.",
+    }
 
 
 @app.get("/budget", response_model=BudgetResponse | None,

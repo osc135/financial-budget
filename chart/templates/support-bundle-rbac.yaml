@@ -1,0 +1,84 @@
+---
+# ServiceAccount for the backend pod.
+# Backend uses this identity to create Job objects (for tier 3.7 support bundle generation).
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-backend
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+---
+# Role granting the backend pod permission to manage Jobs in its own namespace.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-backend-jobs
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+rules:
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["create", "get", "list", "watch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-backend-jobs
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "financial-budget.fullname" . }}-backend
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: Role
+  name: {{ include "financial-budget.fullname" . }}-backend-jobs
+  apiGroup: rbac.authorization.k8s.io
+---
+# ServiceAccount for the support bundle collection Job.
+# Separate from the backend SA so the Job has only read access for collection,
+# and the backend has only Job-management access.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-bundle-runner
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+---
+# Cluster-wide read access so support-bundle CLI can collect node, storage class,
+# CRD, and other cluster-scoped resources referenced by the bundle spec.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-bundle-runner
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+rules:
+  - apiGroups: [""]
+    resources: ["*"]
+    verbs: ["get", "list"]
+  - apiGroups: ["apps", "batch", "extensions", "rbac.authorization.k8s.io", "storage.k8s.io", "networking.k8s.io", "apiextensions.k8s.io"]
+    resources: ["*"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-bundle-runner
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "financial-budget.fullname" . }}-bundle-runner
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "financial-budget.fullname" . }}-bundle-runner
+  apiGroup: rbac.authorization.k8s.io
