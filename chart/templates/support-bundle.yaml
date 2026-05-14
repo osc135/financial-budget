@@ -176,7 +176,7 @@ stringData:
         # 3.5: App-specific budget data corruption analyzer
         - textAnalyze:
             checkName: Invalid Budget Income Data
-            fileName: "*/backend.log"
+            fileName: backend.log
             regex: 'Invalid budget data: monthly income is'
             outcomes:
               - fail:
