@@ -101,7 +101,10 @@ jobs:
           sed -i 's/appVersion: ".*"/appVersion: "${{ github.sha }}"/' chart/Chart.yaml
 
       - name: Install yq
-        uses: mikefarah/yq@v4.42.1
+        run: |
+          wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64
+          chmod +x /usr/local/bin/yq
+          yq --version
 
       - name: Update image tags in values.yaml
         run: |
