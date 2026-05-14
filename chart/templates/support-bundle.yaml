@@ -73,13 +73,13 @@ stringData:
                   command: ["sh", "-c"]
                   args:
                     - |
-                      curl -sf http://backend.{{ .Release.Namespace }}.svc.cluster.local:8000/health > /tmp/health_response.json || echo '{"status": "failed"}' > /tmp/health_response.json
+                      curl -sf http://backend.{{ .Release.Namespace }}.svc.cluster.local:8000/health || echo '{"status": "failed"}'
 
       analyzers:
         # 3.3: Backend health endpoint analyzer
         - textAnalyze:
             checkName: Backend Health Endpoint
-            fileName: runPod/backend-health/health_response.json
+            fileName: backend-health.log
             regex: '"status": "ok"'
             outcomes:
               - fail:
