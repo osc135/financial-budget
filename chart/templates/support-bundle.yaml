@@ -64,17 +64,22 @@ stringData:
               maxLines: 10000
 
         # 7. Backend health endpoint
-        - http:
+        - runPod:
             collectorName: backend-health
-            get:
-              url: http://backend.{{ .Release.Namespace }}.svc.cluster.local:8000/health
-              insecureSkipVerify: false
+            podSpec:
+              containers:
+                - name: curl
+                  image: curlimages/curl:latest
+                  command: ["sh", "-c"]
+                  args:
+                    - |
+                      curl -sf http://backend.{{ .Release.Namespace }}.svc.cluster.local:8000/health > /tmp/health_response.json || echo '{"status": "failed"}' > /tmp/health_response.json
 
       analyzers:
         # 3.3: Backend health endpoint analyzer
         - textAnalyze:
             checkName: Backend Health Endpoint
-            fileName: backend-health.json
+            fileName: runPod/backend-health/health_response.json
             regex: '"status": "ok"'
             outcomes:
               - fail:
