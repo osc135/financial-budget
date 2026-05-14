@@ -15,6 +15,7 @@ stringData:
       collectors:
         # 1. Backend logs
         - logs:
+            collectorName: backend-logs
             selector:
               - app.kubernetes.io/component=backend
             namespace: {{ .Release.Namespace }}
@@ -176,7 +177,7 @@ stringData:
         # 3.5: App-specific budget data corruption analyzer
         - textAnalyze:
             checkName: Invalid Budget Income Data
-            fileName: backend.log
+            fileName: backend-logs/*/backend.log
             regex: 'Invalid budget data: monthly income is'
             outcomes:
               - fail:
