@@ -1,6 +1,10 @@
 import logging
 import threading
 
+# Ensure warnings are visible in container logs (Python's default is to
+# silently discard them if no handler is configured).
+logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
+
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
