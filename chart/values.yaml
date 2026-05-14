@@ -1,7 +1,7 @@
 backend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
-    tag: 8519278212fab7660acfe25ea29217e92d6a2216
+    tag: a2bb76bc7aae73b7289633d505bb27063a36a11f
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -26,7 +26,7 @@ backend:
 frontend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
-    tag: 8519278212fab7660acfe25ea29217e92d6a2216
+    tag: a2bb76bc7aae73b7289633d505bb27063a36a11f
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
