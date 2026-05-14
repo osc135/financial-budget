@@ -186,4 +186,27 @@ stringData:
                   when: "false"
                   message: "No corrupted budget income data detected. All budget records have valid positive monthly income values."
 
+        # 3.6: Default storage class present
+        - storageClass:
+            checkName: Default Storage Class Present
+            storageClassName: ""
+            outcomes:
+              - fail:
+                  message: "No default storage class found in the cluster. PostgreSQL and Redis cannot provision persistent volumes, so the app will fail on first install. Run 'kubectl get storageclass' to see available classes, then mark one as default with: kubectl patch storageclass <name> -p '{\"metadata\":{\"annotations\":{\"storageclass.kubernetes.io/is-default-class\":\"true\"}}}'"
+              - pass:
+                  message: "A default storage class is configured. Persistent volumes can be provisioned for stateful components."
+
+        # 3.6: All cluster nodes are Ready
+        - nodeResources:
+            checkName: All Nodes Ready
+            outcomes:
+              - fail:
+                  when: "nodeCondition(Ready) == False"
+                  message: "One or more nodes are reporting Ready=False. Pods scheduled on those nodes will be unreachable, which may cause partial outages or full unavailability of the app. Run 'kubectl get nodes' to identify the affected node, then 'kubectl describe node <name>' to inspect conditions (DiskPressure, MemoryPressure, NetworkUnavailable) and follow the indicated remediation."
+              - fail:
+                  when: "nodeCondition(Ready) == Unknown"
+                  message: "One or more nodes are reporting Ready=Unknown, typically meaning the kubelet has not reported in. The control plane has lost contact with the node and pods on it may be unreachable. Run 'kubectl get nodes' to identify the affected node and 'kubectl describe node <name>' for details; check kubelet status and network connectivity from that node back to the API server."
+              - pass:
+                  message: "All cluster nodes are in Ready state."
+
 
