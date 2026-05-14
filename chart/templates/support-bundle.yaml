@@ -80,7 +80,7 @@ stringData:
         - textAnalyze:
             checkName: Backend Health Endpoint
             fileName: backend-health.log
-            regex: '"status": "ok"'
+            regex: '"status":\s*"ok"'
             outcomes:
               - fail:
                   when: "false"
