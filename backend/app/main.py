@@ -181,7 +181,7 @@ def generate_support_bundle(
                         {
                             "name": "collect",
                             "image": "replicated/troubleshoot:latest",
-                            "command": ["/support-bundle"],
+                            "command": ["/troubleshoot/support-bundle"],
                             "args": [
                                 "--interactive=false",
                                 "--selector", "troubleshoot.sh/kind=support-bundle",
