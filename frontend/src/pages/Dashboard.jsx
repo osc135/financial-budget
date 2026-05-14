@@ -12,6 +12,8 @@ export default function Dashboard() {
   const [dashboard, setDashboard] = useState(null);
   const [incomeInput, setIncomeInput] = useState('');
   const [error, setError] = useState('');
+  const [bundleStatus, setBundleStatus] = useState('');
+  const [bundleLoading, setBundleLoading] = useState(false);
 
   const authHeaders = {
     Authorization: `Bearer ${token}`,
@@ -73,6 +75,27 @@ export default function Dashboard() {
     }
   }
 
+  async function generateSupportBundle() {
+    setBundleStatus('');
+    setBundleLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/support-bundle/generate`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.detail || 'Failed to start support bundle generation');
+      }
+      setBundleStatus(data.message || 'Support bundle collection started.');
+    } catch (err) {
+      setBundleStatus(`Error: ${err.message}`);
+    } finally {
+      setBundleLoading(false);
+      setTimeout(() => setBundleStatus(''), 8000);
+    }
+  }
+
   async function deleteTransaction(id) {
     try {
       const res = await fetch(`${API_BASE}/budget/transactions/${id}`, {
@@ -91,10 +114,25 @@ export default function Dashboard() {
     <div className="container">
       <div className="header">
         <h1>Financial Budget</h1>
-        <button className="btn btn-secondary" onClick={logout}>
-          Logout
-        </button>
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <button
+            className="btn btn-secondary"
+            onClick={generateSupportBundle}
+            disabled={bundleLoading}
+            title="Collect a support bundle and upload it to the Vendor Portal"
+          >
+            {bundleLoading ? 'Generating…' : 'Generate Support Bundle'}
+          </button>
+          <button className="btn btn-secondary" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </div>
+      {bundleStatus && (
+        <div className="card" style={{ marginBottom: '1rem' }}>
+          <p className="text-sm" style={{ margin: 0, color: '#475569' }}>{bundleStatus}</p>
+        </div>
+      )}
 
       {!budget ? (
         <div className="card">

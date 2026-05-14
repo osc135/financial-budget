@@ -17,6 +17,7 @@ spec:
         {{- include "financial-budget.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/component: backend
     spec:
+      serviceAccountName: {{ include "financial-budget.fullname" . }}-backend
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -56,6 +57,12 @@ spec:
               value: "6379"
             - name: REPLICATED_SDK_URL
               value: "http://financial-budget-sdk:3000"
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: SUPPORT_BUNDLE_RUNNER_SA
+              value: {{ include "financial-budget.fullname" . }}-bundle-runner
           {{- if .Values.backend.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
