@@ -1,0 +1,8 @@
+{
+  "kind": "PodDisruptionBudgetList",
+  "apiVersion": "policy/v1",
+  "metadata": {
+    "resourceVersion": "11058"
+  },
+  "items": null
+}

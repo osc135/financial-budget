@@ -1,0 +1,161 @@
+[
+    {
+        "name": "backend.health.endpoint",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_text_analyze",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+        },
+        "insight": {
+            "name": "backend.health.endpoint",
+            "labels": {
+                "iconKey": "kubernetes_text_analyze",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+            },
+            "primary": "Backend Health Endpoint",
+            "detail": "Backend health endpoint returns status 'ok'. The API is serving requests normally.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.backend.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_deployment_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+        },
+        "insight": {
+            "name": "financial.budget.backend.status",
+            "labels": {
+                "iconKey": "kubernetes_deployment_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+            },
+            "primary": "financial-budget-backend Status",
+            "detail": "Backend deployment is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.frontend.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_deployment_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+        },
+        "insight": {
+            "name": "financial.budget.frontend.status",
+            "labels": {
+                "iconKey": "kubernetes_deployment_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+            },
+            "primary": "financial-budget-frontend Status",
+            "detail": "Frontend deployment is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.cloudflared.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_deployment_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+        },
+        "insight": {
+            "name": "financial.budget.cloudflared.status",
+            "labels": {
+                "iconKey": "kubernetes_deployment_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+            },
+            "primary": "financial-budget-cloudflared Status",
+            "detail": "Cloudflared tunnel is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.postgresql.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_statefulset_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/statefulset-status.svg?w=23\u0026h=14"
+        },
+        "insight": {
+            "name": "financial.budget.postgresql.status",
+            "labels": {
+                "iconKey": "kubernetes_statefulset_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/statefulset-status.svg?w=23\u0026h=14"
+            },
+            "primary": "financial-budget-postgresql Status",
+            "detail": "PostgreSQL StatefulSet is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.redis.master.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_statefulset_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/statefulset-status.svg?w=23\u0026h=14"
+        },
+        "insight": {
+            "name": "financial.budget.redis.master.status",
+            "labels": {
+                "iconKey": "kubernetes_statefulset_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/statefulset-status.svg?w=23\u0026h=14"
+            },
+            "primary": "financial-budget-redis-master Status",
+            "detail": "Redis StatefulSet is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "financial.budget.sdk.status",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_deployment_status",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+        },
+        "insight": {
+            "name": "financial.budget.sdk.status",
+            "labels": {
+                "iconKey": "kubernetes_deployment_status",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/deployment-status.svg?w=17\u0026h=17"
+            },
+            "primary": "financial-budget-sdk Status",
+            "detail": "Replicated SDK deployment is healthy with ready replicas.",
+            "severity": "debug"
+        },
+        "severity": "debug",
+        "analyzerSpec": ""
+    },
+    {
+        "name": "license.query.failures",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_text_analyze",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+        },
+        "insight": {
+            "name": "license.query.failures",
+            "labels": {
+                "iconKey": "kubernetes_text_analyze",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+            },
+            "primary": "License Query Failures",
+            "detail": ""
+        },
+        "severity": "",
+        "analyzerSpec": ""
+    }
+]

@@ -1,0 +1,8 @@
+{
+  "kind": "ValidatingWebhookConfigurationList",
+  "apiVersion": "admissionregistration.k8s.io/v1",
+  "metadata": {
+    "resourceVersion": "29066"
+  },
+  "items": null
+}

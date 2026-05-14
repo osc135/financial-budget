@@ -1,0 +1,27 @@
+============ Collectors summary =============
+Succeeded (S), eXcluded (X), Failed (F)
+=============================================
+cluster-resources (S)                                                          : 37,794ms
+exec/replicated-app-updates (S)                                                : 1,852ms
+exec/replicated-license-info (S)                                               : 1,261ms
+logs/app.kubernetes.io/component=backend (S)                                   : 1,210ms
+exec/replicated-app-history (S)                                                : 931ms
+exec/replicated-app-info (S)                                                   : 923ms
+logs/app.kubernetes.io/component=frontend (S)                                  : 771ms
+logs/replicated-logs (S)                                                       : 758ms
+logs/app.kubernetes.io/component=primary,app.kubernetes.io/name=postgresql (S) : 731ms
+logs/app.kubernetes.io/component=master,app.kubernetes.io/name=redis (S)       : 727ms
+logs/app.kubernetes.io/name=financial-budget-sdk (S)                           : 724ms
+logs/app.kubernetes.io/component=cloudflared (S)                               : 584ms
+secret (S)                                                                     : 287ms
+cluster-info (S)                                                               : 145ms
+
+============ Redactors summary =============
+In-cluster collectors : 232ms
+
+============= Analyzers summary =============
+Succeeded (S), eXcluded (X), Failed (F)
+=============================================
+Replicated SDK App Status (F) : 0ms
+
+Duration: 54,663ms

@@ -1,0 +1,520 @@
+{
+  "kind": "NodeList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "29049"
+  },
+  "items": [
+    {
+      "kind": "Node",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "1b3bd0d71-control-plane",
+        "uid": "81202cfe-ed2f-47cf-b249-295899beb46a",
+        "resourceVersion": "28936",
+        "creationTimestamp": "2026-05-13T15:36:53Z",
+        "labels": {
+          "beta.kubernetes.io/arch": "amd64",
+          "beta.kubernetes.io/os": "linux",
+          "kubernetes.io/arch": "amd64",
+          "kubernetes.io/hostname": "1b3bd0d71-control-plane",
+          "kubernetes.io/os": "linux",
+          "node-role.kubernetes.io/control-plane": ""
+        },
+        "annotations": {
+          "node.alpha.kubernetes.io/ttl": "0",
+          "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+        },
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:36:53Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:volumes.kubernetes.io/controller-managed-attach-detach": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:beta.kubernetes.io/arch": {},
+                  "f:beta.kubernetes.io/os": {},
+                  "f:kubernetes.io/arch": {},
+                  "f:kubernetes.io/hostname": {},
+                  "f:kubernetes.io/os": {}
+                }
+              },
+              "f:spec": {
+                "f:providerID": {}
+              }
+            }
+          },
+          {
+            "manager": "kubeadm",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:36:55Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  "f:node-role.kubernetes.io/control-plane": {}
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:37:00Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:node.alpha.kubernetes.io/ttl": {}
+                }
+              },
+              "f:spec": {
+                "f:podCIDR": {},
+                "f:podCIDRs": {
+                  ".": {},
+                  "v:\"10.244.0.0/24\"": {}
+                }
+              }
+            }
+          },
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T21:16:14Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:conditions": {
+                  "k:{\"type\":\"DiskPressure\"}": {
+                    "f:lastHeartbeatTime": {}
+                  },
+                  "k:{\"type\":\"MemoryPressure\"}": {
+                    "f:lastHeartbeatTime": {}
+                  },
+                  "k:{\"type\":\"PIDPressure\"}": {
+                    "f:lastHeartbeatTime": {}
+                  },
+                  "k:{\"type\":\"Ready\"}": {
+                    "f:lastHeartbeatTime": {},
+                    "f:lastTransitionTime": {},
+                    "f:message": {},
+                    "f:reason": {},
+                    "f:status": {}
+                  }
+                },
+                "f:images": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "podCIDR": "10.244.0.0/24",
+        "podCIDRs": [
+          "10.244.0.0/24"
+        ],
+        "providerID": "kind://docker/1b3bd0d71/1b3bd0d71-control-plane"
+      },
+      "status": {
+        "capacity": {
+          "cpu": "2",
+          "ephemeral-storage": "51527500Ki",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "memory": "8146032Ki",
+          "pods": "110"
+        },
+        "allocatable": {
+          "cpu": "2",
+          "ephemeral-storage": "51527500Ki",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "memory": "8146032Ki",
+          "pods": "110"
+        },
+        "conditions": [
+          {
+            "type": "MemoryPressure",
+            "status": "False",
+            "lastHeartbeatTime": "2026-05-13T21:16:14Z",
+            "lastTransitionTime": "2026-05-13T15:36:52Z",
+            "reason": "KubeletHasSufficientMemory",
+            "message": "kubelet has sufficient memory available"
+          },
+          {
+            "type": "DiskPressure",
+            "status": "False",
+            "lastHeartbeatTime": "2026-05-13T21:16:14Z",
+            "lastTransitionTime": "2026-05-13T15:36:52Z",
+            "reason": "KubeletHasNoDiskPressure",
+            "message": "kubelet has no disk pressure"
+          },
+          {
+            "type": "PIDPressure",
+            "status": "False",
+            "lastHeartbeatTime": "2026-05-13T21:16:14Z",
+            "lastTransitionTime": "2026-05-13T15:36:52Z",
+            "reason": "KubeletHasSufficientPID",
+            "message": "kubelet has sufficient PID available"
+          },
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastHeartbeatTime": "2026-05-13T21:16:14Z",
+            "lastTransitionTime": "2026-05-13T15:37:13Z",
+            "reason": "KubeletReady",
+            "message": "kubelet is posting ready status"
+          }
+        ],
+        "addresses": [
+          {
+            "type": "InternalIP",
+            "address": "172.18.0.2"
+          },
+          {
+            "type": "Hostname",
+            "address": "1b3bd0d71-control-plane"
+          }
+        ],
+        "daemonEndpoints": {
+          "kubeletEndpoint": {
+            "Port": 10250
+          }
+        },
+        "nodeInfo": {
+          "machineID": "472874fd6fe54aeca32e658ea27b2948",
+          "systemUUID": "472874fd6fe54aeca32e658ea27b2948",
+          "bootID": "3c0e11d3-6aa6-4649-a574-59977e29c58b",
+          "kernelVersion": "5.15.204",
+          "osImage": "Debian GNU/Linux 13 (trixie)",
+          "containerRuntimeVersion": "containerd://2.2.1",
+          "kubeletVersion": "v1.35.1",
+          "kubeProxyVersion": "",
+          "operatingSystem": "linux",
+          "architecture": "amd64"
+        },
+        "images": [
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/index.docker.io/bitnami/postgresql@sha256:08ae741c264bd7f36eaec3bd79b861ac50c22969bd54cbba4817daa0991731f8",
+              "proxy.budget-helping.com/proxy/financial-budget/index.docker.io/bitnami/postgresql:latest"
+            ],
+            "sizeBytes": 129759868
+          },
+          {
+            "names": [
+              "docker.io/sonobuoy/systemd-logs@sha256:0b8b2b7b43b03f7db26e7e4b99be402495b77b496f5a5b0425b3c226bc1e9cbd",
+              "docker.io/sonobuoy/systemd-logs:v0.4"
+            ],
+            "sizeBytes": 127795048
+          },
+          {
+            "names": [
+              "registry.k8s.io/conformance@sha256:76df9c319d1b2e74933fd2d8e37520ecfaa41b97d73df60d7194e54bf1c54c3d",
+              "registry.k8s.io/conformance:v1.35.1"
+            ],
+            "sizeBytes": 92168930
+          },
+          {
+            "names": [
+              "registry.k8s.io/kube-apiserver-amd64:v1.35.1",
+              "registry.k8s.io/kube-apiserver:v1.35.1"
+            ],
+            "sizeBytes": 90851068
+          },
+          {
+            "names": [
+              "registry.k8s.io/kube-controller-manager-amd64:v1.35.1",
+              "registry.k8s.io/kube-controller-manager:v1.35.1"
+            ],
+            "sizeBytes": 76891746
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:b660f5f634d800a1680d74ceb26a536d72af4b728af421c9b30a448190f0471f",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:b59122119e0333c305db984def47e32a55102a26"
+            ],
+            "sizeBytes": 74230510
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:0b3b8b9f653bc59a2e4443843a2aa38d1bf3fc1d13a558eacf752f93a0618c25",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:a4a85b839ff695963a6f795026a60c4d61ef56b7"
+            ],
+            "sizeBytes": 74230421
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:996df8442b19c2aafdadc96bd6b731282e116772489f1f9a93841b9a5c448ec9",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:91c49c045fbc333386d61987263c773d34dd3438"
+            ],
+            "sizeBytes": 74230405
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:04adf41dd4fb6e800d61266f778453c62e124a984302d8191110c643eea70af1",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:c84bd49f933fd9adef5b2dbc3aeadcff097dabbb"
+            ],
+            "sizeBytes": 74230390
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:ec00d96b138ac5d0e117a5a70bb5d80d82f9dcfaa3413a7e7628ae9114846891",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:07e0a88bdd9ed7e0fd00e545bd3f6f6026a77205"
+            ],
+            "sizeBytes": 74230364
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:9f33f8d70ec89143aa37e4e74f43455e38fc820af33b8f7c51506dc515b2a876",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:58d78a444c7168ac674c9eee7f468cc25bfc47b1"
+            ],
+            "sizeBytes": 74230253
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:0079a6e7b79c1713673d596d36cf1458f82af41cf08da9594ab0607923ede399",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:7a43339fdeb208f930d5a3310d2d08be1ef7c7f3"
+            ],
+            "sizeBytes": 74230229
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:9bca06ecaa3cf3250f6b3a9258f93fbfbc1e0e8a4e7fdc86f0f9bda6a259a7a8",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:6c499e935ac6e1896f06930d9bcc134a56257122"
+            ],
+            "sizeBytes": 74230180
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:c88ed0e8857ca26f0080180f9e1d9c4fe234b718a76a18ba48dfecea8ba641ba",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:f11f5b8ae10e83d977979c778f468c10ffdddef8"
+            ],
+            "sizeBytes": 74230134
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:686ad0d4d4baa3e24cb967acd91663f3d06093647ccb36a897cacca66fdd76b6",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:99770ae303ae64a1eaf84ed9a7e9b4325cbb78b8"
+            ],
+            "sizeBytes": 74228469
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend@sha256:f8e8b6666e6ffd985c56ca61513128f42b3b568159390e5e5df37a61636fdeb3",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:fd2313ca30652860284f00cbcd89383904cfd28c"
+            ],
+            "sizeBytes": 74228438
+          },
+          {
+            "names": [
+              "registry.k8s.io/kube-proxy-amd64:v1.35.1",
+              "registry.k8s.io/kube-proxy:v1.35.1"
+            ],
+            "sizeBytes": 71663305
+          },
+          {
+            "names": [
+              "registry.k8s.io/kube-scheduler-amd64:v1.35.1",
+              "registry.k8s.io/kube-scheduler:v1.35.1"
+            ],
+            "sizeBytes": 52762210
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/index.docker.io/bitnami/redis@sha256:1347d526ecec0c6537e99eac09e7c3405c21664f6044ff60e78b0898da37abd2",
+              "proxy.budget-helping.com/proxy/financial-budget/index.docker.io/bitnami/redis:latest"
+            ],
+            "sizeBytes": 49792958
+          },
+          {
+            "names": [
+              "docker.io/kindest/kindnetd:v20260213-ea8e5717"
+            ],
+            "sizeBytes": 42628416
+          },
+          {
+            "names": [
+              "docker.io/cloudflare/cloudflared@sha256:59bab8d3aceec09bf6bdb07d6beca0225ca5cd7ab79436a87ea97978fe1dc4f9",
+              "docker.io/cloudflare/cloudflared:latest"
+            ],
+            "sizeBytes": 28373391
+          },
+          {
+            "names": [
+              "proxy.replicated.com/library/replicated-sdk-image@sha256:e6930f58c2c27392149eb32037849d76d63f5abbafc4e599f704eeeecdc81f2b",
+              "proxy.replicated.com/library/replicated-sdk-image:1.19.3"
+            ],
+            "sizeBytes": 27284960
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:dc152e70d42cc8c98edd437da0ad2bf847f1e45855840dd616530aee85044675",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:6c499e935ac6e1896f06930d9bcc134a56257122"
+            ],
+            "sizeBytes": 26084055
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:58a6899d69862e6dae380272e53659c2b01de2956f82388f04ba9450d23808f4",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:c84bd49f933fd9adef5b2dbc3aeadcff097dabbb"
+            ],
+            "sizeBytes": 26084054
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:2bcc2a1eb84ea7045c8fccb0b4ee2697b8ea807536530422209ce8867ee24771",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:fd2313ca30652860284f00cbcd89383904cfd28c"
+            ],
+            "sizeBytes": 26084053
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:d568558341c07e992f8a5cbdddbc7111385ed3a0a63da3959f523a139f200ddd",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:07e0a88bdd9ed7e0fd00e545bd3f6f6026a77205"
+            ],
+            "sizeBytes": 26084053
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:6f5a14fb8335005d7045dcb0a5ecfea25f8b916c29164ebc63616d1dca16fb08",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:f11f5b8ae10e83d977979c778f468c10ffdddef8"
+            ],
+            "sizeBytes": 26084051
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:9beac749a85f920514342b17b6c9f9556629e46a15900d06b0f0da3b211f8533",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:a4a85b839ff695963a6f795026a60c4d61ef56b7"
+            ],
+            "sizeBytes": 26084051
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:16a7ce7ac20289e8cf27848f5aedb1661a073b6291a4a97048521cfb3ff9472a",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:58d78a444c7168ac674c9eee7f468cc25bfc47b1"
+            ],
+            "sizeBytes": 26084051
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:855f4e7741a4069b92a24a137f49c780bb0474ac9fd62b4af560fc575c08d78d",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:91c49c045fbc333386d61987263c773d34dd3438"
+            ],
+            "sizeBytes": 26084050
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:689246ade6e0f2dd815cabdb67a84ecf261408eed49030731619bdbebc41007b",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:b59122119e0333c305db984def47e32a55102a26"
+            ],
+            "sizeBytes": 26084049
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:b0974c458cc51f7999ce732a6d10a94109822ef1f1ed0686e18e1f78dc4e9f63",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:7a43339fdeb208f930d5a3310d2d08be1ef7c7f3"
+            ],
+            "sizeBytes": 26084046
+          },
+          {
+            "names": [
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend@sha256:9fa369cd2479dc545d4a0e138e722e18938a30dcda027b8630f0768d9c771894",
+              "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:99770ae303ae64a1eaf84ed9a7e9b4325cbb78b8"
+            ],
+            "sizeBytes": 26084046
+          },
+          {
+            "names": [
+              "docker.io/sonobuoy/sonobuoy@sha256:69d1ddf7bf84deb02807a415c0ff469358046aaf9c69409ef4c4a943d663201f",
+              "docker.io/sonobuoy/sonobuoy:v0.57.3"
+            ],
+            "sizeBytes": 25625368
+          },
+          {
+            "names": [
+              "registry.k8s.io/etcd:3.6.6-0"
+            ],
+            "sizeBytes": 23641797
+          },
+          {
+            "names": [
+              "registry.k8s.io/coredns/coredns:v1.13.1"
+            ],
+            "sizeBytes": 23553139
+          },
+          {
+            "names": [
+              "docker.io/kindest/local-path-provisioner:v20260213-ea8e5717"
+            ],
+            "sizeBytes": 15481535
+          },
+          {
+            "names": [
+              "docker.io/kindest/local-path-helper:v20260131-7181c60a"
+            ],
+            "sizeBytes": 2872608
+          },
+          {
+            "names": [
+              "docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662",
+              "docker.io/library/busybox:1.36"
+            ],
+            "sizeBytes": 2217006
+          },
+          {
+            "names": [
+              "registry.k8s.io/pause@sha256:278fb9dbcca9518083ad1e11276933a2e96f23de604a3a08cc3c80002767d24c",
+              "registry.k8s.io/pause:3.10.1"
+            ],
+            "sizeBytes": 320448
+          },
+          {
+            "names": [
+              "registry.k8s.io/pause:3.10"
+            ],
+            "sizeBytes": 320368
+          }
+        ],
+        "runtimeHandlers": [
+          {
+            "name": "",
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            }
+          },
+          {
+            "name": "runc",
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            }
+          },
+          {
+            "name": "test-handler",
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            }
+          }
+        ],
+        "features": {
+          "supplementalGroupsPolicy": true
+        }
+      }
+    }
+  ]
+}

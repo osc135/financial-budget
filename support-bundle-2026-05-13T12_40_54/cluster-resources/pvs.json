@@ -1,0 +1,249 @@
+{
+  "kind": "PersistentVolumeList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "11084"
+  },
+  "items": [
+    {
+      "kind": "PersistentVolume",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pvc-5d8013f8-d2c3-4f6d-b6cc-764ae3b88afd",
+        "uid": "99abb268-2a83-4f3f-8a8d-201b1199e207",
+        "resourceVersion": "1797",
+        "creationTimestamp": "2026-05-13T15:50:17Z",
+        "annotations": {
+          "local.path.provisioner/selected-node": "1b3bd0d71-control-plane",
+          "pv.kubernetes.io/provisioned-by": "rancher.io/local-path"
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection"
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:17Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "local-path-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:17Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:local.path.provisioner/selected-node": {},
+                  "f:pv.kubernetes.io/provisioned-by": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:hostPath": {
+                  ".": {},
+                  "f:path": {},
+                  "f:type": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "8Gi"
+        },
+        "hostPath": {
+          "path": "/var/local-path-provisioner/pvc-5d8013f8-d2c3-4f6d-b6cc-764ae3b88afd_financial-budget_redis-data-financial-budget-redis-master-0",
+          "type": "DirectoryOrCreate"
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "financial-budget",
+          "name": "redis-data-financial-budget-redis-master-0",
+          "uid": "5d8013f8-d2c3-4f6d-b6cc-764ae3b88afd",
+          "apiVersion": "v1",
+          "resourceVersion": "1757"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "standard",
+        "volumeMode": "Filesystem",
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "kubernetes.io/hostname",
+                    "operator": "In",
+                    "values": [
+                      "1b3bd0d71-control-plane"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound",
+        "lastPhaseTransitionTime": "2026-05-13T15:50:17Z"
+      }
+    },
+    {
+      "kind": "PersistentVolume",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pvc-8988a7cb-23af-4c2a-8356-f29cf3f9906b",
+        "uid": "05e36d3e-3ac2-4b1d-805b-75a18719bea8",
+        "resourceVersion": "1803",
+        "creationTimestamp": "2026-05-13T15:50:17Z",
+        "annotations": {
+          "local.path.provisioner/selected-node": "1b3bd0d71-control-plane",
+          "pv.kubernetes.io/provisioned-by": "rancher.io/local-path"
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection"
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:17Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "local-path-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:17Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:local.path.provisioner/selected-node": {},
+                  "f:pv.kubernetes.io/provisioned-by": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:hostPath": {
+                  ".": {},
+                  "f:path": {},
+                  "f:type": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "1Gi"
+        },
+        "hostPath": {
+          "path": "/var/local-path-provisioner/pvc-8988a7cb-23af-4c2a-8356-f29cf3f9906b_financial-budget_data-financial-budget-postgresql-0",
+          "type": "DirectoryOrCreate"
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "financial-budget",
+          "name": "data-financial-budget-postgresql-0",
+          "uid": "8988a7cb-23af-4c2a-8356-f29cf3f9906b",
+          "apiVersion": "v1",
+          "resourceVersion": "1764"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "standard",
+        "volumeMode": "Filesystem",
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "kubernetes.io/hostname",
+                    "operator": "In",
+                    "values": [
+                      "1b3bd0d71-control-plane"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound",
+        "lastPhaseTransitionTime": "2026-05-13T15:50:17Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "error": {
+    "message": "Get \"http://financial-budget-backend:8000/health\": dial tcp: lookup financial-budget-backend: no such host"
+  }
+}

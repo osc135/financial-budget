@@ -1,0 +1,449 @@
+{
+  "kind": "ServiceAccountList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "29062"
+  },
+  "items": [
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "attachdetach-controller",
+        "namespace": "kube-system",
+        "uid": "ab4b4ac0-a93c-4172-b9bb-e43aa27e45a7",
+        "resourceVersion": "306",
+        "creationTimestamp": "2026-05-13T15:36:58Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "bootstrap-signer",
+        "namespace": "kube-system",
+        "uid": "99a83c52-5104-49ef-8775-a94ef89a0073",
+        "resourceVersion": "300",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "certificate-controller",
+        "namespace": "kube-system",
+        "uid": "ea0233bf-8f8d-4e56-9522-67b4e327358e",
+        "resourceVersion": "226",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "clusterrole-aggregation-controller",
+        "namespace": "kube-system",
+        "uid": "88504c29-a5e1-4020-b7bd-faa5ab581bd1",
+        "resourceVersion": "307",
+        "creationTimestamp": "2026-05-13T15:36:58Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "coredns",
+        "namespace": "kube-system",
+        "uid": "39eda66b-6766-428f-8ff9-a95b2dbd0ef7",
+        "resourceVersion": "245",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "cronjob-controller",
+        "namespace": "kube-system",
+        "uid": "6343d6b4-7fbe-4c5e-944e-d3a2720c7a1a",
+        "resourceVersion": "305",
+        "creationTimestamp": "2026-05-13T15:36:58Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "daemon-set-controller",
+        "namespace": "kube-system",
+        "uid": "3061acb1-a8e6-46c6-82cf-d8a6552441d4",
+        "resourceVersion": "312",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "default",
+        "namespace": "kube-system",
+        "uid": "7059ac24-478f-479f-b9a3-cc1548170063",
+        "resourceVersion": "327",
+        "creationTimestamp": "2026-05-13T15:37:00Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "deployment-controller",
+        "namespace": "kube-system",
+        "uid": "7de3f38f-446c-4dd1-a8f2-de9530c1057b",
+        "resourceVersion": "221",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "disruption-controller",
+        "namespace": "kube-system",
+        "uid": "ff149126-3dfd-4d36-b2b1-1ac46efb082e",
+        "resourceVersion": "241",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "endpoint-controller",
+        "namespace": "kube-system",
+        "uid": "c300fbb7-79e0-4692-a2d6-331e2ef56cd2",
+        "resourceVersion": "233",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "endpointslice-controller",
+        "namespace": "kube-system",
+        "uid": "2f731e2f-cf53-4724-b8dc-c1b64c32f35d",
+        "resourceVersion": "286",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "endpointslicemirroring-controller",
+        "namespace": "kube-system",
+        "uid": "f4d4f099-7849-49f8-9371-d27b49696a36",
+        "resourceVersion": "303",
+        "creationTimestamp": "2026-05-13T15:36:58Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "ephemeral-volume-controller",
+        "namespace": "kube-system",
+        "uid": "20758920-8891-433b-a99c-d1ab08688411",
+        "resourceVersion": "310",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "expand-controller",
+        "namespace": "kube-system",
+        "uid": "1030ed34-eb03-494a-be0e-f06c805210dd",
+        "resourceVersion": "315",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "generic-garbage-collector",
+        "namespace": "kube-system",
+        "uid": "bbacdbaa-4b55-457e-ba56-e7bf42917f04",
+        "resourceVersion": "217",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "horizontal-pod-autoscaler",
+        "namespace": "kube-system",
+        "uid": "11a9ed28-4316-4a12-817f-fb6e2864fb70",
+        "resourceVersion": "304",
+        "creationTimestamp": "2026-05-13T15:36:58Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "job-controller",
+        "namespace": "kube-system",
+        "uid": "1f24623e-fd68-464c-91e7-0baaa9d5c08c",
+        "resourceVersion": "287",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kindnet",
+        "namespace": "kube-system",
+        "uid": "3e602228-3b12-4031-a338-54425792a1bb",
+        "resourceVersion": "282",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kube-proxy",
+        "namespace": "kube-system",
+        "uid": "398cb329-fcbd-4889-b631-e7c76442ab0d",
+        "resourceVersion": "251",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "legacy-service-account-token-cleaner",
+        "namespace": "kube-system",
+        "uid": "e29eef64-fe34-4580-8524-0fc98bd5f271",
+        "resourceVersion": "231",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "namespace-controller",
+        "namespace": "kube-system",
+        "uid": "9d83db39-3557-42f1-ae4c-393994bf6024",
+        "resourceVersion": "262",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "node-controller",
+        "namespace": "kube-system",
+        "uid": "cf0e08bb-de51-4f31-96e2-5aac9e495e72",
+        "resourceVersion": "232",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "persistent-volume-binder",
+        "namespace": "kube-system",
+        "uid": "1c571f16-0f9f-4b05-ab8c-591b1a7acf83",
+        "resourceVersion": "267",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-garbage-collector",
+        "namespace": "kube-system",
+        "uid": "81e62927-c3dd-45bf-a0da-56d88cb8da64",
+        "resourceVersion": "234",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pv-protection-controller",
+        "namespace": "kube-system",
+        "uid": "d80042fd-4f09-49b1-9cc2-867a8fcc2602",
+        "resourceVersion": "308",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pvc-protection-controller",
+        "namespace": "kube-system",
+        "uid": "46e09113-8318-4a7b-ad0b-ba2c972eec53",
+        "resourceVersion": "212",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "replicaset-controller",
+        "namespace": "kube-system",
+        "uid": "b0413fa1-28d5-43e8-bf57-5ed670f6248e",
+        "resourceVersion": "280",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "replication-controller",
+        "namespace": "kube-system",
+        "uid": "aba415e4-cafe-4e9d-86ce-418997218aad",
+        "resourceVersion": "311",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "resource-claim-controller",
+        "namespace": "kube-system",
+        "uid": "25b4ad86-5449-4102-81d3-5e66a071819e",
+        "resourceVersion": "269",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "resourcequota-controller",
+        "namespace": "kube-system",
+        "uid": "b223868e-b85a-49d8-9129-6cd7a96297f8",
+        "resourceVersion": "236",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "root-ca-cert-publisher",
+        "namespace": "kube-system",
+        "uid": "dfdd63b7-d442-41d0-b720-14ca315fc66c",
+        "resourceVersion": "230",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "service-account-controller",
+        "namespace": "kube-system",
+        "uid": "7cb4d0fc-2294-4e19-9415-dc46ebfa12d1",
+        "resourceVersion": "238",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "service-cidrs-controller",
+        "namespace": "kube-system",
+        "uid": "672c1f5d-459f-40a5-8e83-8b3a85ce35ec",
+        "resourceVersion": "271",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "statefulset-controller",
+        "namespace": "kube-system",
+        "uid": "2075acf3-a6f3-4088-9184-7102c0b7b415",
+        "resourceVersion": "265",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "token-cleaner",
+        "namespace": "kube-system",
+        "uid": "63eaf17a-59d0-4396-9a7f-987b87632083",
+        "resourceVersion": "314",
+        "creationTimestamp": "2026-05-13T15:36:59Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "ttl-after-finished-controller",
+        "namespace": "kube-system",
+        "uid": "32c37d46-66c1-41aa-814d-46f5913fd3e7",
+        "resourceVersion": "256",
+        "creationTimestamp": "2026-05-13T15:36:56Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "ttl-controller",
+        "namespace": "kube-system",
+        "uid": "5e8b395a-af01-4731-95a2-9d300ea002e0",
+        "resourceVersion": "285",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "validatingadmissionpolicy-status-controller",
+        "namespace": "kube-system",
+        "uid": "191d124e-8318-41e0-929a-cdeed065a4b4",
+        "resourceVersion": "301",
+        "creationTimestamp": "2026-05-13T15:36:57Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "volumeattributesclass-protection-controller",
+        "namespace": "kube-system",
+        "uid": "7c71388b-0a9a-49c7-8693-93df81b5f98f",
+        "resourceVersion": "229",
+        "creationTimestamp": "2026-05-13T15:36:55Z"
+      }
+    }
+  ]
+}

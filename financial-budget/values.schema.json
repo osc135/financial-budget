@@ -1,0 +1,272 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "properties": {
+    "backend": {
+      "properties": {
+        "image": {
+          "properties": {
+            "pullPolicy": {
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ],
+              "type": "string"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "replicas": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "resources": {
+          "properties": {
+            "limits": {
+              "properties": {
+                "cpu": {
+                  "type": "string"
+                },
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "requests": {
+              "properties": {
+                "cpu": {
+                  "type": "string"
+                },
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "cloudflared": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "tunnelToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "database": {
+      "properties": {
+        "embedded": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "external": {
+          "properties": {
+            "database": {
+              "type": "string"
+            },
+            "host": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "financial-budget-sdk": {
+      "additionalProperties": true,
+      "properties": {
+        "license": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "frontend": {
+      "properties": {
+        "image": {
+          "properties": {
+            "pullPolicy": {
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ],
+              "type": "string"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "replicas": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "resources": {
+          "properties": {
+            "limits": {
+              "properties": {
+                "cpu": {
+                  "type": "string"
+                },
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "requests": {
+              "properties": {
+                "cpu": {
+                  "type": "string"
+                },
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "global": {
+      "properties": {
+        "replicated": {
+          "additionalProperties": true,
+          "properties": {
+            "channelName": {
+              "type": "string"
+            },
+            "customerEmail": {
+              "type": "string"
+            },
+            "customerName": {
+              "type": "string"
+            },
+            "dockerconfigjson": {
+              "type": "string"
+            },
+            "licenseFields": {
+              "additionalProperties": {
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "helmPath": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "signature": {},
+                  "title": {
+                    "type": "string"
+                  },
+                  "value": {},
+                  "valueType": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "licenseID": {
+              "type": "string"
+            },
+            "licenseType": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ingress": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "postgresql": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "redis": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "tls": {
+      "properties": {
+        "auto": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "existingSecret": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

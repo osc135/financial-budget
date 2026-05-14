@@ -1,0 +1,100 @@
+{
+  "kind": "RoleList",
+  "apiVersion": "rbac.authorization.k8s.io/v1",
+  "metadata": {
+    "resourceVersion": "11087"
+  },
+  "items": [
+    {
+      "kind": "Role",
+      "apiVersion": "rbac.authorization.k8s.io/v1",
+      "metadata": {
+        "name": "financial-budget-sdk-role",
+        "namespace": "financial-budget",
+        "uid": "411b2a0c-567e-4d76-bfd1-49375bcd9c51",
+        "resourceVersion": "1654",
+        "creationTimestamp": "2026-05-13T15:50:12Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "time": "2026-05-13T15:50:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:rules": {}
+            }
+          }
+        ]
+      },
+      "rules": [
+        {
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ],
+          "apiGroups": [
+            "*"
+          ],
+          "resources": [
+            "*"
+          ]
+        },
+        {
+          "verbs": [
+            "create"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ]
+        },
+        {
+          "verbs": [
+            "update"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ],
+          "resourceNames": [
+            "financial-budget-sdk",
+            "replicated-instance-report",
+            "replicated-custom-app-metrics-report",
+            "replicated-meta-data",
+            "replicated-support-metadata"
+          ]
+        }
+      ]
+    }
+  ]
+}

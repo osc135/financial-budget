@@ -1,3 +1,4 @@
+import logging
 import threading
 
 from fastapi import FastAPI, Depends, HTTPException, status
@@ -28,6 +29,8 @@ from app.entitlements import (
     get_license_status, is_license_valid, get_available_updates,
 )
 import time
+
+logger = logging.getLogger(__name__)
 
 Base.metadata.create_all(bind=engine)
 
@@ -220,6 +223,12 @@ def get_dashboard(current_user: Annotated[User, Depends(get_current_user)], db: 
         raise HTTPException(status_code=404, detail="Budget not found")
 
     monthly_income = budget.monthly_income
+    if monthly_income <= 0:
+        logger.warning(
+            "Invalid budget data: monthly income is %.2f for user %d. "
+            "This indicates corrupted budget data that bypassed validation.",
+            monthly_income, current_user.id
+        )
     needs_target = monthly_income * 0.50
     wants_target = monthly_income * 0.30
     savings_target = monthly_income * 0.20

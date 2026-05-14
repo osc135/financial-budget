@@ -1,0 +1,162 @@
+{
+  "kind": "ServiceAccountList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "8351"
+  },
+  "items": [
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "default",
+        "namespace": "financial-budget",
+        "uid": "283e70c4-259b-4c01-8b40-deaa594dc666",
+        "resourceVersion": "1626",
+        "creationTimestamp": "2026-05-13T15:50:10Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-postgresql",
+        "namespace": "financial-budget",
+        "uid": "05f9bf58-a084-46eb-9e12-593c6b4ddf48",
+        "resourceVersion": "1641",
+        "creationTimestamp": "2026-05-13T15:50:11Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "helm.sh/chart": "postgresql-15.5.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:automountServiceAccountToken": {},
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "automountServiceAccountToken": false
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-master",
+        "namespace": "financial-budget",
+        "uid": "22e5ed34-b920-493d-bb6d-35bf8aaf1527",
+        "resourceVersion": "1642",
+        "creationTimestamp": "2026-05-13T15:50:11Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:automountServiceAccountToken": {},
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "automountServiceAccountToken": false
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk",
+        "namespace": "financial-budget",
+        "uid": "b5d6cab1-0d42-44fd-8d12-7d1592c1c427",
+        "resourceVersion": "1643",
+        "creationTimestamp": "2026-05-13T15:50:11Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

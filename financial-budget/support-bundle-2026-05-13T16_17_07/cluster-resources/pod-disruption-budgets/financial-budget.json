@@ -1,0 +1,225 @@
+{
+  "kind": "PodDisruptionBudgetList",
+  "apiVersion": "policy/v1",
+  "metadata": {
+    "resourceVersion": "29023"
+  },
+  "items": [
+    {
+      "kind": "PodDisruptionBudget",
+      "apiVersion": "policy/v1",
+      "metadata": {
+        "name": "financial-budget-postgresql",
+        "namespace": "financial-budget",
+        "uid": "5c083c51-bc1c-46b2-bcf3-440c124cb6d2",
+        "resourceVersion": "1988",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T15:50:11Z",
+        "labels": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "helm.sh/chart": "postgresql-15.5.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "policy/v1",
+            "time": "2026-05-13T15:50:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:maxUnavailable": {},
+                "f:selector": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "policy/v1",
+            "time": "2026-05-13T15:51:39Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:conditions": {
+                  ".": {},
+                  "k:{\"type\":\"DisruptionAllowed\"}": {
+                    ".": {},
+                    "f:lastTransitionTime": {},
+                    "f:message": {},
+                    "f:observedGeneration": {},
+                    "f:reason": {},
+                    "f:status": {},
+                    "f:type": {}
+                  }
+                },
+                "f:currentHealthy": {},
+                "f:disruptionsAllowed": {},
+                "f:expectedPods": {},
+                "f:observedGeneration": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "primary",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "postgresql"
+          }
+        },
+        "maxUnavailable": 1
+      },
+      "status": {
+        "observedGeneration": 1,
+        "disruptionsAllowed": 1,
+        "currentHealthy": 1,
+        "desiredHealthy": 0,
+        "expectedPods": 1,
+        "conditions": [
+          {
+            "type": "DisruptionAllowed",
+            "status": "True",
+            "observedGeneration": 1,
+            "lastTransitionTime": "2026-05-13T15:51:39Z",
+            "reason": "SufficientPods",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PodDisruptionBudget",
+      "apiVersion": "policy/v1",
+      "metadata": {
+        "name": "financial-budget-redis-master",
+        "namespace": "financial-budget",
+        "uid": "1ab08aa9-e2e8-4d43-a166-c5e2ff966c54",
+        "resourceVersion": "1963",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T15:50:11Z",
+        "labels": {
+          "app.kubernetes.io/component": "master",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "policy/v1",
+            "time": "2026-05-13T15:50:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:maxUnavailable": {},
+                "f:selector": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "policy/v1",
+            "time": "2026-05-13T15:51:29Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:conditions": {
+                  ".": {},
+                  "k:{\"type\":\"DisruptionAllowed\"}": {
+                    ".": {},
+                    "f:lastTransitionTime": {},
+                    "f:message": {},
+                    "f:observedGeneration": {},
+                    "f:reason": {},
+                    "f:status": {},
+                    "f:type": {}
+                  }
+                },
+                "f:currentHealthy": {},
+                "f:disruptionsAllowed": {},
+                "f:expectedPods": {},
+                "f:observedGeneration": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "master",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "redis"
+          }
+        },
+        "maxUnavailable": 1
+      },
+      "status": {
+        "observedGeneration": 1,
+        "disruptionsAllowed": 1,
+        "currentHealthy": 1,
+        "desiredHealthy": 0,
+        "expectedPods": 1,
+        "conditions": [
+          {
+            "type": "DisruptionAllowed",
+            "status": "True",
+            "observedGeneration": 1,
+            "lastTransitionTime": "2026-05-13T15:51:29Z",
+            "reason": "SufficientPods",
+            "message": ""
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: financial-budget-support-bundle
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+    troubleshoot.sh/kind: support-bundle
+stringData:
+  support-bundle-spec: |
+    apiVersion: troubleshoot.sh/v1beta2
+    kind: SupportBundle
+    metadata:
+      name: financial-budget-support-bundle
+    spec:
+      collectors:
+        # 1. Backend logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=backend
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 2. Frontend logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=frontend
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 3. Cloudflared logs
+        - logs:
+            selector:
+              - app.kubernetes.io/component=cloudflared
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 4. PostgreSQL logs (Bitnami uses component=primary)
+        - logs:
+            selector:
+              - app.kubernetes.io/component=primary
+              - app.kubernetes.io/name=postgresql
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 5. Redis logs (Bitnami uses component=master)
+        - logs:
+            selector:
+              - app.kubernetes.io/component=master
+              - app.kubernetes.io/name=redis
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 6. Replicated SDK logs
+        - logs:
+            selector:
+              - app.kubernetes.io/name=financial-budget-sdk
+            namespace: {{ .Release.Namespace }}
+            limits:
+              maxLines: 10000
+
+        # 7. Backend health endpoint
+        - http:
+            collectorName: backend-health
+            get:
+              url: http://financial-budget-backend:8000/health
+              insecureSkipVerify: false
+
+      analyzers:
+        # 3.3: Backend health endpoint analyzer
+        - textAnalyze:
+            checkName: Backend Health Endpoint
+            fileName: http-backend-health.json
+            regex: '"status": "ok"'
+            outcomes:
+              - fail:
+                  when: "false"
+                  message: "Backend health check failed. The API is not responding with a healthy status. Users cannot log in or access budget data. Check that the backend pod is Running and the database is accessible."
+              - pass:
+                  message: "Backend health endpoint returns status 'ok'. The API is serving requests normally."

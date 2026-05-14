@@ -1,0 +1,8 @@
+{
+  "kind": "IngressClassList",
+  "apiVersion": "networking.k8s.io/v1",
+  "metadata": {
+    "resourceVersion": "30021"
+  },
+  "items": null
+}
