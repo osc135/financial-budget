@@ -1,0 +1,3709 @@
+{
+  "kind": "ReplicaSetList",
+  "apiVersion": "apps/v1",
+  "metadata": {
+    "resourceVersion": "8319"
+  },
+  "items": [
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-backend-677b8f9fc",
+        "namespace": "financial-budget",
+        "uid": "6eddfc62-5a3c-4a42-a488-36a8f0cf4b26",
+        "resourceVersion": "7315",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "677b8f9fc"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-backend",
+            "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"7d1b4a89-d929-4f13-b796-d7b041e4aff4\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"backend\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"DATABASE_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_HOST\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_PORT\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_SDK_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":8000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:initContainers": {
+                      ".": {},
+                      "k:{\"name\":\"wait-for-db\"}": {
+                        ".": {},
+                        "f:command": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:21Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "backend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "677b8f9fc"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "backend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "677b8f9fc"
+            }
+          },
+          "spec": {
+            "initContainers": [
+              {
+                "name": "wait-for-db",
+                "image": "busybox:1.36",
+                "command": [
+                  "sh",
+                  "-c",
+                  "until nc -z financial-budget-postgresql 5432; do\n  echo \"Waiting for database...\"\n  sleep 2\ndone\necho \"Database is ready!\"\n"
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "50m",
+                    "memory": "32Mi"
+                  },
+                  "requests": {
+                    "cpu": "10m",
+                    "memory": "16Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "containers": [
+              {
+                "name": "backend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:99770ae303ae64a1eaf84ed9a7e9b4325cbb78b8",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 8000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "DATABASE_URL",
+                    "value": "***HIDDEN***"
+                  },
+                  {
+                    "name": "REDIS_HOST",
+                    "value": "financial-budget-redis-master"
+                  },
+                  {
+                    "name": "REDIS_PORT",
+                    "value": "6379"
+                  },
+                  {
+                    "name": "REPLICATED_SDK_URL",
+                    "value": "http://financial-budget-sdk:3000"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "256Mi"
+                  }
+                },
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 30,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-backend-7b45bf784f",
+        "namespace": "financial-budget",
+        "uid": "7e09e1ff-fe8a-40a4-873a-82e7df5770cd",
+        "resourceVersion": "8165",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T17:05:52Z",
+        "labels": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "7b45bf784f"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "3",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-backend",
+            "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:52Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"7d1b4a89-d929-4f13-b796-d7b041e4aff4\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"backend\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"DATABASE_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_HOST\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_PORT\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_SDK_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":8000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:initContainers": {
+                      ".": {},
+                      "k:{\"name\":\"wait-for-db\"}": {
+                        ".": {},
+                        "f:command": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:availableReplicas": {},
+                "f:fullyLabeledReplicas": {},
+                "f:observedGeneration": {},
+                "f:readyReplicas": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "backend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "7b45bf784f"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "backend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "7b45bf784f"
+            }
+          },
+          "spec": {
+            "initContainers": [
+              {
+                "name": "wait-for-db",
+                "image": "busybox:1.36",
+                "command": [
+                  "sh",
+                  "-c",
+                  "until nc -z financial-budget-postgresql 5432; do\n  echo \"Waiting for database...\"\n  sleep 2\ndone\necho \"Database is ready!\"\n"
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "50m",
+                    "memory": "32Mi"
+                  },
+                  "requests": {
+                    "cpu": "10m",
+                    "memory": "16Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "containers": [
+              {
+                "name": "backend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:f11f5b8ae10e83d977979c778f468c10ffdddef8",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 8000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "DATABASE_URL",
+                    "value": "***HIDDEN***"
+                  },
+                  {
+                    "name": "REDIS_HOST",
+                    "value": "financial-budget-redis-master"
+                  },
+                  {
+                    "name": "REDIS_PORT",
+                    "value": "6379"
+                  },
+                  {
+                    "name": "REPLICATED_SDK_URL",
+                    "value": "http://financial-budget-sdk:3000"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "256Mi"
+                  }
+                },
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 30,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 1,
+        "fullyLabeledReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "terminatingReplicas": 0,
+        "observedGeneration": 1
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-backend-d47cdc7c4",
+        "namespace": "financial-budget",
+        "uid": "c1ef6d3e-6ee4-4032-ad44-14f812526856",
+        "resourceVersion": "8182",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T16:57:00Z",
+        "labels": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "d47cdc7c4"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-backend",
+            "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"7d1b4a89-d929-4f13-b796-d7b041e4aff4\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"backend\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"DATABASE_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_HOST\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REDIS_PORT\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_SDK_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":8000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:initContainers": {
+                      ".": {},
+                      "k:{\"name\":\"wait-for-db\"}": {
+                        ".": {},
+                        "f:command": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "backend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "d47cdc7c4"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "backend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "d47cdc7c4"
+            }
+          },
+          "spec": {
+            "initContainers": [
+              {
+                "name": "wait-for-db",
+                "image": "busybox:1.36",
+                "command": [
+                  "sh",
+                  "-c",
+                  "until nc -z financial-budget-postgresql 5432; do\n  echo \"Waiting for database...\"\n  sleep 2\ndone\necho \"Database is ready!\"\n"
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "50m",
+                    "memory": "32Mi"
+                  },
+                  "requests": {
+                    "cpu": "10m",
+                    "memory": "16Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "containers": [
+              {
+                "name": "backend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:58d78a444c7168ac674c9eee7f468cc25bfc47b1",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 8000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "DATABASE_URL",
+                    "value": "***HIDDEN***"
+                  },
+                  {
+                    "name": "REDIS_HOST",
+                    "value": "financial-budget-redis-master"
+                  },
+                  {
+                    "name": "REDIS_PORT",
+                    "value": "6379"
+                  },
+                  {
+                    "name": "REPLICATED_SDK_URL",
+                    "value": "http://financial-budget-sdk:3000"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "256Mi"
+                  }
+                },
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 30,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-cloudflared-5b568b487f",
+        "namespace": "financial-budget",
+        "uid": "966bb7ed-d623-4570-b5d2-e27b3106e040",
+        "resourceVersion": "8067",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T17:05:53Z",
+        "labels": {
+          "app.kubernetes.io/component": "cloudflared",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "cloudflared",
+          "pod-template-hash": "5b568b487f"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-cloudflared",
+            "uid": "9d61578a-acb6-420f-8f7e-c178710fc676",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:53Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"9d61578a-acb6-420f-8f7e-c178710fc676\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"cloudflared\"}": {
+                        ".": {},
+                        "f:args": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"TUNNEL_TOKEN\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:secretKeyRef": {}
+                            }
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:availableReplicas": {},
+                "f:fullyLabeledReplicas": {},
+                "f:observedGeneration": {},
+                "f:readyReplicas": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "cloudflared",
+            "pod-template-hash": "5b568b487f"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "cloudflared",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "cloudflared",
+              "pod-template-hash": "5b568b487f"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "cloudflared",
+                "image": "cloudflare/cloudflared:latest",
+                "args": [
+                  "tunnel",
+                  "--no-autoupdate",
+                  "run",
+                  "--token",
+                  "$(TUNNEL_TOKEN)"
+                ],
+                "env": [
+                  {
+                    "name": "TUNNEL_TOKEN",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "name": "financial-budget-cloudflared",
+                        "key": "tunnel-token"
+                      }
+                    }
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "Always"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 1,
+        "fullyLabeledReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "terminatingReplicas": 0,
+        "observedGeneration": 1
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-cloudflared-67bb7d7f8c",
+        "namespace": "financial-budget",
+        "uid": "cf758db5-5029-43d2-9981-2f4073da3763",
+        "resourceVersion": "8084",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "cloudflared",
+          "pod-template-hash": "67bb7d7f8c"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-cloudflared",
+            "uid": "9d61578a-acb6-420f-8f7e-c178710fc676",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"9d61578a-acb6-420f-8f7e-c178710fc676\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"cloudflared\"}": {
+                        ".": {},
+                        "f:args": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"TUNNEL_TOKEN\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:secretKeyRef": {}
+                            }
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {}
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "cloudflared",
+            "pod-template-hash": "67bb7d7f8c"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "cloudflared",
+              "pod-template-hash": "67bb7d7f8c"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "cloudflared",
+                "image": "cloudflare/cloudflared:latest",
+                "args": [
+                  "tunnel",
+                  "--no-autoupdate",
+                  "run",
+                  "--token",
+                  "$(TUNNEL_TOKEN)"
+                ],
+                "env": [
+                  {
+                    "name": "TUNNEL_TOKEN",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "name": "financial-budget-cloudflared",
+                        "key": "tunnel-token"
+                      }
+                    }
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "Always"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-frontend-5c5b6686b9",
+        "namespace": "financial-budget",
+        "uid": "9b4e670c-4e53-417e-87b1-c255a1f675ce",
+        "resourceVersion": "7284",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "5c5b6686b9"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-frontend",
+            "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"a92728a9-0fb8-471c-9701-fbbae3e81c22\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"frontend\"}": {
+                        ".": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":80,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          },
+                          "k:{\"containerPort\":443,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/nginx/ssl\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"tls-certs\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "frontend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "5c5b6686b9"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "frontend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "5c5b6686b9"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "tls-certs",
+                "secret": {
+                  "secretName": "financial-budget-tls",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "frontend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:99770ae303ae64a1eaf84ed9a7e9b4325cbb78b8",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 80,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "https",
+                    "containerPort": 443,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "tls-certs",
+                    "readOnly": true,
+                    "mountPath": "/etc/nginx/ssl"
+                  }
+                ],
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-frontend-69dfdc8489",
+        "namespace": "financial-budget",
+        "uid": "c2325212-1df2-4a32-89cc-1eb943eb8ea4",
+        "resourceVersion": "8117",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T17:05:53Z",
+        "labels": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "69dfdc8489"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "3",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-frontend",
+            "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:53Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"a92728a9-0fb8-471c-9701-fbbae3e81c22\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"frontend\"}": {
+                        ".": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":80,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          },
+                          "k:{\"containerPort\":443,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/nginx/ssl\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"tls-certs\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:availableReplicas": {},
+                "f:fullyLabeledReplicas": {},
+                "f:observedGeneration": {},
+                "f:readyReplicas": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "frontend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "69dfdc8489"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "frontend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "69dfdc8489"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "tls-certs",
+                "secret": {
+                  "secretName": "financial-budget-tls",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "frontend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:f11f5b8ae10e83d977979c778f468c10ffdddef8",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 80,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "https",
+                    "containerPort": 443,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "tls-certs",
+                    "readOnly": true,
+                    "mountPath": "/etc/nginx/ssl"
+                  }
+                ],
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 1,
+        "fullyLabeledReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "terminatingReplicas": 0,
+        "observedGeneration": 1
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-frontend-6bf994f6b8",
+        "namespace": "financial-budget",
+        "uid": "748ac616-ae33-4b06-a8ae-d7454d4cda29",
+        "resourceVersion": "8150",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T16:57:01Z",
+        "labels": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget",
+          "pod-template-hash": "6bf994f6b8"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-frontend",
+            "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"a92728a9-0fb8-471c-9701-fbbae3e81c22\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/component": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"frontend\"}": {
+                        ".": {},
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:livenessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":80,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          },
+                          "k:{\"containerPort\":443,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/nginx/ssl\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"tls-certs\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "frontend",
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget",
+            "pod-template-hash": "6bf994f6b8"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "frontend",
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/name": "financial-budget",
+              "pod-template-hash": "6bf994f6b8"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "tls-certs",
+                "secret": {
+                  "secretName": "financial-budget-tls",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "frontend",
+                "image": "proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:58d78a444c7168ac674c9eee7f468cc25bfc47b1",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 80,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "https",
+                    "containerPort": 443,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "tls-certs",
+                    "readOnly": true,
+                    "mountPath": "/etc/nginx/ssl"
+                  }
+                ],
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/",
+                    "port": 80,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {},
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-sdk-6d776cf89b",
+        "namespace": "financial-budget",
+        "uid": "f913c74b-a909-4194-815e-0ad2f53a67ca",
+        "resourceVersion": "7259",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3",
+          "pod-template-hash": "6d776cf89b"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-sdk",
+            "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"d47b897f-0d86-4863-8c9b-02be9f3bd985\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:annotations": {
+                      ".": {},
+                      "f:checksum/replicated-secret": {}
+                    },
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/managed-by": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:app.kubernetes.io/version": {},
+                      "f:helm.sh/chart": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"HELM_DRIVER\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_PARENT_CHART_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"IS_HELM_MANAGED\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_CONFIG_FILE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_DEPLOYMENT_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_POD_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_SECRET_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":3000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:securityContext": {
+                          ".": {},
+                          "f:allowPrivilegeEscalation": {},
+                          "f:capabilities": {
+                            ".": {},
+                            "f:drop": {}
+                          },
+                          "f:readOnlyRootFilesystem": {},
+                          "f:runAsNonRoot": {}
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/replicated/config.yaml\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {},
+                            "f:subPath": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {
+                      ".": {},
+                      "f:fsGroup": {},
+                      "f:runAsGroup": {},
+                      "f:runAsUser": {},
+                      "f:seccompProfile": {
+                        ".": {},
+                        "f:type": {}
+                      },
+                      "f:supplementalGroups": {}
+                    },
+                    "f:serviceAccount": {},
+                    "f:serviceAccountName": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T16:57:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget-sdk",
+            "pod-template-hash": "6d776cf89b"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "financial-budget-sdk",
+              "app.kubernetes.io/version": "1.19.3",
+              "helm.sh/chart": "financial-budget-sdk-1.19.3",
+              "pod-template-hash": "6d776cf89b"
+            },
+            "annotations": {
+              "checksum/replicated-secret": "922e4294b9157661486f247e944c65c48453f37fa0934f30db99589947fb6486"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "replicated",
+                "secret": {
+                  "secretName": "financial-budget-sdk",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "replicated",
+                "image": "proxy.replicated.com/library/replicated-sdk-image:1.19.3",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 3000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "REPLICATED_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.namespace"
+                      }
+                    }
+                  },
+                  {
+                    "name": "REPLICATED_POD_NAME",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.name"
+                      }
+                    }
+                  },
+                  {
+                    "name": "IS_HELM_MANAGED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAME",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAMESPACE",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_PARENT_CHART_URL",
+                    "value": "oci://registry.replicated.com/financial-budget/unstable/financial-budget"
+                  },
+                  {
+                    "name": "HELM_DRIVER",
+                    "value": "secret"
+                  },
+                  {
+                    "name": "REPLICATED_SECRET_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_DEPLOYMENT_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_CONFIG_FILE",
+                    "value": "/etc/replicated/config.yaml"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "500Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "100Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "replicated",
+                    "readOnly": true,
+                    "mountPath": "/etc/replicated/config.yaml",
+                    "subPath": "config.yaml"
+                  }
+                ],
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/healthz",
+                    "port": 3000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+                  "readOnlyRootFilesystem": true,
+                  "allowPrivilegeEscalation": false
+                }
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "serviceAccountName": "financial-budget-sdk",
+            "serviceAccount": "financial-budget-sdk",
+            "securityContext": {
+              "runAsUser": 1001,
+              "runAsGroup": 1001,
+              "supplementalGroups": [
+                1001
+              ],
+              "fsGroup": 1001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-sdk-766f4bcc7d",
+        "namespace": "financial-budget",
+        "uid": "a481c72d-0d31-4b7e-9358-bc643907ef8b",
+        "resourceVersion": "8112",
+        "generation": 1,
+        "creationTimestamp": "2026-05-13T17:05:52Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3",
+          "pod-template-hash": "766f4bcc7d"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "3",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-sdk",
+            "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:05:52Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"d47b897f-0d86-4863-8c9b-02be9f3bd985\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:annotations": {
+                      ".": {},
+                      "f:checksum/replicated-secret": {}
+                    },
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/managed-by": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:app.kubernetes.io/version": {},
+                      "f:helm.sh/chart": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"HELM_DRIVER\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_PARENT_CHART_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"IS_HELM_MANAGED\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_CONFIG_FILE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_DEPLOYMENT_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_POD_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_SECRET_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":3000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:securityContext": {
+                          ".": {},
+                          "f:allowPrivilegeEscalation": {},
+                          "f:capabilities": {
+                            ".": {},
+                            "f:drop": {}
+                          },
+                          "f:readOnlyRootFilesystem": {},
+                          "f:runAsNonRoot": {}
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/replicated/config.yaml\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {},
+                            "f:subPath": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {
+                      ".": {},
+                      "f:fsGroup": {},
+                      "f:runAsGroup": {},
+                      "f:runAsUser": {},
+                      "f:seccompProfile": {
+                        ".": {},
+                        "f:type": {}
+                      },
+                      "f:supplementalGroups": {}
+                    },
+                    "f:serviceAccount": {},
+                    "f:serviceAccountName": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:availableReplicas": {},
+                "f:fullyLabeledReplicas": {},
+                "f:observedGeneration": {},
+                "f:readyReplicas": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget-sdk",
+            "pod-template-hash": "766f4bcc7d"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "financial-budget-sdk",
+              "app.kubernetes.io/version": "1.19.3",
+              "helm.sh/chart": "financial-budget-sdk-1.19.3",
+              "pod-template-hash": "766f4bcc7d"
+            },
+            "annotations": {
+              "checksum/replicated-secret": "b86450f08d1ba63d1b27cb61651bac1ddc1b83934ca8785a484894c2e9e32b74"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "replicated",
+                "secret": {
+                  "secretName": "financial-budget-sdk",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "replicated",
+                "image": "proxy.replicated.com/library/replicated-sdk-image:1.19.3",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 3000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "REPLICATED_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.namespace"
+                      }
+                    }
+                  },
+                  {
+                    "name": "REPLICATED_POD_NAME",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.name"
+                      }
+                    }
+                  },
+                  {
+                    "name": "IS_HELM_MANAGED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAME",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAMESPACE",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_PARENT_CHART_URL",
+                    "value": "oci://registry.replicated.com/financial-budget/unstable/financial-budget"
+                  },
+                  {
+                    "name": "HELM_DRIVER",
+                    "value": "secret"
+                  },
+                  {
+                    "name": "REPLICATED_SECRET_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_DEPLOYMENT_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_CONFIG_FILE",
+                    "value": "/etc/replicated/config.yaml"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "500Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "100Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "replicated",
+                    "readOnly": true,
+                    "mountPath": "/etc/replicated/config.yaml",
+                    "subPath": "config.yaml"
+                  }
+                ],
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/healthz",
+                    "port": 3000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+                  "readOnlyRootFilesystem": true,
+                  "allowPrivilegeEscalation": false
+                }
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "serviceAccountName": "financial-budget-sdk",
+            "serviceAccount": "financial-budget-sdk",
+            "securityContext": {
+              "runAsUser": 1001,
+              "runAsGroup": 1001,
+              "supplementalGroups": [
+                1001
+              ],
+              "fsGroup": 1001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 1,
+        "fullyLabeledReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "terminatingReplicas": 0,
+        "observedGeneration": 1
+      }
+    },
+    {
+      "kind": "ReplicaSet",
+      "apiVersion": "apps/v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7c5674477d",
+        "namespace": "financial-budget",
+        "uid": "0fb5251c-856c-49e1-8aa9-48458d203d5c",
+        "resourceVersion": "8145",
+        "generation": 2,
+        "creationTimestamp": "2026-05-13T16:57:00Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3",
+          "pod-template-hash": "7c5674477d"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "financial-budget-sdk",
+            "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:deployment.kubernetes.io/desired-replicas": {},
+                  "f:deployment.kubernetes.io/max-replicas": {},
+                  "f:deployment.kubernetes.io/revision": {},
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {},
+                  "f:pod-template-hash": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"d47b897f-0d86-4863-8c9b-02be9f3bd985\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:replicas": {},
+                "f:selector": {},
+                "f:template": {
+                  "f:metadata": {
+                    "f:annotations": {
+                      ".": {},
+                      "f:checksum/replicated-secret": {}
+                    },
+                    "f:labels": {
+                      ".": {},
+                      "f:app.kubernetes.io/instance": {},
+                      "f:app.kubernetes.io/managed-by": {},
+                      "f:app.kubernetes.io/name": {},
+                      "f:app.kubernetes.io/version": {},
+                      "f:helm.sh/chart": {},
+                      "f:pod-template-hash": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:containers": {
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:env": {
+                          ".": {},
+                          "k:{\"name\":\"HELM_DRIVER\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_PARENT_CHART_URL\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"HELM_RELEASE_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"IS_HELM_MANAGED\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_CONFIG_FILE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_DEPLOYMENT_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          },
+                          "k:{\"name\":\"REPLICATED_NAMESPACE\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_POD_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:valueFrom": {
+                              ".": {},
+                              "f:fieldRef": {}
+                            }
+                          },
+                          "k:{\"name\":\"REPLICATED_SECRET_NAME\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:value": {}
+                          }
+                        },
+                        "f:image": {},
+                        "f:imagePullPolicy": {},
+                        "f:name": {},
+                        "f:ports": {
+                          ".": {},
+                          "k:{\"containerPort\":3000,\"protocol\":\"TCP\"}": {
+                            ".": {},
+                            "f:containerPort": {},
+                            "f:name": {},
+                            "f:protocol": {}
+                          }
+                        },
+                        "f:readinessProbe": {
+                          ".": {},
+                          "f:failureThreshold": {},
+                          "f:httpGet": {
+                            ".": {},
+                            "f:path": {},
+                            "f:port": {},
+                            "f:scheme": {}
+                          },
+                          "f:initialDelaySeconds": {},
+                          "f:periodSeconds": {},
+                          "f:successThreshold": {},
+                          "f:timeoutSeconds": {}
+                        },
+                        "f:resources": {
+                          ".": {},
+                          "f:limits": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          },
+                          "f:requests": {
+                            ".": {},
+                            "f:cpu": {},
+                            "f:memory": {}
+                          }
+                        },
+                        "f:securityContext": {
+                          ".": {},
+                          "f:allowPrivilegeEscalation": {},
+                          "f:capabilities": {
+                            ".": {},
+                            "f:drop": {}
+                          },
+                          "f:readOnlyRootFilesystem": {},
+                          "f:runAsNonRoot": {}
+                        },
+                        "f:terminationMessagePath": {},
+                        "f:terminationMessagePolicy": {},
+                        "f:volumeMounts": {
+                          ".": {},
+                          "k:{\"mountPath\":\"/etc/replicated/config.yaml\"}": {
+                            ".": {},
+                            "f:mountPath": {},
+                            "f:name": {},
+                            "f:readOnly": {},
+                            "f:subPath": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:dnsPolicy": {},
+                    "f:imagePullSecrets": {
+                      ".": {},
+                      "k:{\"name\":\"enterprise-pull-secret\"}": {}
+                    },
+                    "f:restartPolicy": {},
+                    "f:schedulerName": {},
+                    "f:securityContext": {
+                      ".": {},
+                      "f:fsGroup": {},
+                      "f:runAsGroup": {},
+                      "f:runAsUser": {},
+                      "f:seccompProfile": {
+                        ".": {},
+                        "f:type": {}
+                      },
+                      "f:supplementalGroups": {}
+                    },
+                    "f:serviceAccount": {},
+                    "f:serviceAccountName": {},
+                    "f:terminationGracePeriodSeconds": {},
+                    "f:volumes": {
+                      ".": {},
+                      "k:{\"name\":\"replicated\"}": {
+                        ".": {},
+                        "f:name": {},
+                        "f:secret": {
+                          ".": {},
+                          "f:defaultMode": {},
+                          "f:secretName": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "time": "2026-05-13T17:06:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:observedGeneration": {},
+                "f:replicas": {},
+                "f:terminatingReplicas": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "financial-budget",
+            "app.kubernetes.io/name": "financial-budget-sdk",
+            "pod-template-hash": "7c5674477d"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "financial-budget",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "financial-budget-sdk",
+              "app.kubernetes.io/version": "1.19.3",
+              "helm.sh/chart": "financial-budget-sdk-1.19.3",
+              "pod-template-hash": "7c5674477d"
+            },
+            "annotations": {
+              "checksum/replicated-secret": "37f29c404e0430a91e3ed67d387733c4763f64d57d302e4cc5c6d8718c8fc6dc"
+            }
+          },
+          "spec": {
+            "volumes": [
+              {
+                "name": "replicated",
+                "secret": {
+                  "secretName": "financial-budget-sdk",
+                  "defaultMode": 420
+                }
+              }
+            ],
+            "containers": [
+              {
+                "name": "replicated",
+                "image": "proxy.replicated.com/library/replicated-sdk-image:1.19.3",
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 3000,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "REPLICATED_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.namespace"
+                      }
+                    }
+                  },
+                  {
+                    "name": "REPLICATED_POD_NAME",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "apiVersion": "v1",
+                        "fieldPath": "metadata.name"
+                      }
+                    }
+                  },
+                  {
+                    "name": "IS_HELM_MANAGED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAME",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_RELEASE_NAMESPACE",
+                    "value": "financial-budget"
+                  },
+                  {
+                    "name": "HELM_PARENT_CHART_URL",
+                    "value": "oci://registry.replicated.com/financial-budget/unstable/financial-budget"
+                  },
+                  {
+                    "name": "HELM_DRIVER",
+                    "value": "secret"
+                  },
+                  {
+                    "name": "REPLICATED_SECRET_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_DEPLOYMENT_NAME",
+                    "value": "financial-budget-sdk"
+                  },
+                  {
+                    "name": "REPLICATED_CONFIG_FILE",
+                    "value": "/etc/replicated/config.yaml"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "500Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "100Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "replicated",
+                    "readOnly": true,
+                    "mountPath": "/etc/replicated/config.yaml",
+                    "subPath": "config.yaml"
+                  }
+                ],
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/healthz",
+                    "port": 3000,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+                  "readOnlyRootFilesystem": true,
+                  "allowPrivilegeEscalation": false
+                }
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "serviceAccountName": "financial-budget-sdk",
+            "serviceAccount": "financial-budget-sdk",
+            "securityContext": {
+              "runAsUser": 1001,
+              "runAsGroup": 1001,
+              "supplementalGroups": [
+                1001
+              ],
+              "fsGroup": 1001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "imagePullSecrets": [
+              {
+                "name": "enterprise-pull-secret"
+              }
+            ],
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "replicas": 0,
+        "terminatingReplicas": 0,
+        "observedGeneration": 2
+      }
+    }
+  ]
+}

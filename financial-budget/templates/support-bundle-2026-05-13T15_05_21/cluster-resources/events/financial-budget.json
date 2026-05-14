@@ -1,0 +1,4030 @@
+{
+  "kind": "EventList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "22683"
+  },
+  "items": [
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-569bfc9d5d-wldkl.18af37b8586c488e",
+        "namespace": "financial-budget",
+        "uid": "5e166182-2f31-4309-a4a0-48a3a4a08689",
+        "resourceVersion": "21017",
+        "creationTimestamp": "2026-05-13T19:47:22Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-569bfc9d5d-wldkl",
+        "uid": "59b9dae2-96f3-47df-bc17-c999d7be1945",
+        "apiVersion": "v1",
+        "resourceVersion": "10553",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container backend",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:22Z",
+      "lastTimestamp": "2026-05-13T19:47:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-569bfc9d5d.18af37b85859a67a",
+        "namespace": "financial-budget",
+        "uid": "341a5182-308c-4df0-8095-432ef7e73b37",
+        "resourceVersion": "21019",
+        "creationTimestamp": "2026-05-13T19:47:22Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-569bfc9d5d",
+        "uid": "c104710e-4cc5-49e1-aaca-54513df5508a",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21013"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-backend-569bfc9d5d-wldkl",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:22Z",
+      "lastTimestamp": "2026-05-13T19:47:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38af74b7d79f",
+        "namespace": "financial-budget",
+        "uid": "a0985f59-4c40-403a-8040-dedd472c4a12",
+        "resourceVersion": "22513",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22508"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-backend-57b49484c-rftwl to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38af908e2376",
+        "namespace": "financial-budget",
+        "uid": "4cf23b34-e8f7-4939-8b62-e5f4c2e75603",
+        "resourceVersion": "22522",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Pulled",
+      "message": "Container image \"busybox:1.36\" already present on machine and can be accessed by the pod",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38af9134e442",
+        "namespace": "financial-budget",
+        "uid": "204f161f-4979-4c4e-a02b-e03ca072ac69",
+        "resourceVersion": "22523",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38af972e86c5",
+        "namespace": "financial-budget",
+        "uid": "fea0d61b-295c-476e-81d7-356173014df7",
+        "resourceVersion": "22524",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38afbf1910ac",
+        "namespace": "financial-budget",
+        "uid": "7daa2ea0-c42d-433a-95c1-5e5728e80cb0",
+        "resourceVersion": "22536",
+        "creationTimestamp": "2026-05-13T20:05:05Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Pulling",
+      "message": "Pulling image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:6c499e935ac6e1896f06930d9bcc134a56257122\"",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:05Z",
+      "lastTimestamp": "2026-05-13T20:05:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38b158fe6044",
+        "namespace": "financial-budget",
+        "uid": "8393c26c-0100-46be-9981-2d5158713e5b",
+        "resourceVersion": "22556",
+        "creationTimestamp": "2026-05-13T20:05:12Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Pulled",
+      "message": "Successfully pulled image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:6c499e935ac6e1896f06930d9bcc134a56257122\" in 6.876s (6.876s including waiting). Image size: 74230180 bytes.",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:12Z",
+      "lastTimestamp": "2026-05-13T20:05:12Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38b15abaa24d",
+        "namespace": "financial-budget",
+        "uid": "0cd2d39b-b0f5-464c-a995-dd357c984c6e",
+        "resourceVersion": "22557",
+        "creationTimestamp": "2026-05-13T20:05:12Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:12Z",
+      "lastTimestamp": "2026-05-13T20:05:12Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c-rftwl.18af38b15ec031de",
+        "namespace": "financial-budget",
+        "uid": "6f330233-8ac4-43a0-bb0a-ae7c1bfae5f5",
+        "resourceVersion": "22558",
+        "creationTimestamp": "2026-05-13T20:05:12Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c-rftwl",
+        "uid": "54210293-ce08-4b21-9a67-eb923c30a42d",
+        "apiVersion": "v1",
+        "resourceVersion": "22512",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:12Z",
+      "lastTimestamp": "2026-05-13T20:05:12Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-57b49484c.18af38af741e659f",
+        "namespace": "financial-budget",
+        "uid": "98d08d49-2dda-4a8c-a2c7-86cc681c216c",
+        "resourceVersion": "22511",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-57b49484c",
+        "uid": "6e9f1d4f-9d1f-484d-993a-6b39c12bd796",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22507"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-backend-57b49484c-rftwl",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b549edde6f",
+        "namespace": "financial-budget",
+        "uid": "10fc6c64-0a1a-45c6-8948-44482f501ef8",
+        "resourceVersion": "20928",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20922"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-backend-6694d9f46d-cdgh4 to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b561eabec9",
+        "namespace": "financial-budget",
+        "uid": "93a6dee9-4cc5-4ceb-a4bf-24b275d910b0",
+        "resourceVersion": "20939",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Pulled",
+      "message": "Container image \"busybox:1.36\" already present on machine and can be accessed by the pod",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b5632d7beb",
+        "namespace": "financial-budget",
+        "uid": "218a9a5f-bfb5-4007-bbfd-56760d83e85d",
+        "resourceVersion": "20940",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b568c96b0c",
+        "namespace": "financial-budget",
+        "uid": "c36f9eb7-e2d7-444a-bd41-11787072908b",
+        "resourceVersion": "20941",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.initContainers{wait-for-db}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b586fc3c40",
+        "namespace": "financial-budget",
+        "uid": "6051ecf4-26fd-4330-99b1-03140447a894",
+        "resourceVersion": "20955",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Pulling",
+      "message": "Pulling image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:fd2313ca30652860284f00cbcd89383904cfd28c\"",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b6e5baad8f",
+        "namespace": "financial-budget",
+        "uid": "f7cd4ebe-b25d-4098-b2a6-0aafae5ccd76",
+        "resourceVersion": "20970",
+        "creationTimestamp": "2026-05-13T19:47:16Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Pulled",
+      "message": "Successfully pulled image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend:fd2313ca30652860284f00cbcd89383904cfd28c\" in 5.884s (5.884s including waiting). Image size: 74228438 bytes.",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:16Z",
+      "lastTimestamp": "2026-05-13T19:47:16Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b6e699bf9a",
+        "namespace": "financial-budget",
+        "uid": "263f33d6-13b0-454d-aae1-3098b917eb70",
+        "resourceVersion": "20971",
+        "creationTimestamp": "2026-05-13T19:47:16Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:16Z",
+      "lastTimestamp": "2026-05-13T19:47:16Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af37b6ea28bf6a",
+        "namespace": "financial-budget",
+        "uid": "dc81d32d-f098-497d-9c24-b50ddb38fa35",
+        "resourceVersion": "20972",
+        "creationTimestamp": "2026-05-13T19:47:16Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:16Z",
+      "lastTimestamp": "2026-05-13T19:47:16Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d-cdgh4.18af38b2ce00b814",
+        "namespace": "financial-budget",
+        "uid": "ded662ca-ebd5-4af7-a0ef-991aea3d0531",
+        "resourceVersion": "22605",
+        "creationTimestamp": "2026-05-13T20:05:18Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:18Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d-cdgh4",
+        "uid": "e4e58272-7fa9-492b-bc28-aed7ab131f66",
+        "apiVersion": "v1",
+        "resourceVersion": "20924",
+        "fieldPath": "spec.containers{backend}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container backend",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:18Z",
+      "lastTimestamp": "2026-05-13T20:05:18Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d.18af37b5481464c4",
+        "namespace": "financial-budget",
+        "uid": "5edae207-7a5b-45d3-8ffe-9e42838db319",
+        "resourceVersion": "20926",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d",
+        "uid": "6c9df6d5-1871-4a9c-936a-85da74be8ca1",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20920"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-backend-6694d9f46d-cdgh4",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend-6694d9f46d.18af38b2ce3ff39c",
+        "namespace": "financial-budget",
+        "uid": "319f8ebf-578f-4c5c-ac54-9eee8bab4115",
+        "resourceVersion": "22607",
+        "creationTimestamp": "2026-05-13T20:05:18Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:18Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend-6694d9f46d",
+        "uid": "6c9df6d5-1871-4a9c-936a-85da74be8ca1",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22601"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-backend-6694d9f46d-cdgh4",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:18Z",
+      "lastTimestamp": "2026-05-13T20:05:18Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend.18af37b54780bbc6",
+        "namespace": "financial-budget",
+        "uid": "a95bfdd9-a9dc-472b-bd54-da1a99abe7ff",
+        "resourceVersion": "20923",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend",
+        "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20919"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-backend-6694d9f46d from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend.18af37b857b4904a",
+        "namespace": "financial-budget",
+        "uid": "178ea63f-ac78-4ccf-b9ea-192831645e59",
+        "resourceVersion": "21014",
+        "creationTimestamp": "2026-05-13T19:47:22Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend",
+        "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20933"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-backend-569bfc9d5d from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:22Z",
+      "lastTimestamp": "2026-05-13T19:47:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend.18af38af73c21d05",
+        "namespace": "financial-budget",
+        "uid": "f2d4b3f9-faeb-4396-96a1-51a7d89e75e1",
+        "resourceVersion": "22509",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend",
+        "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22506"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-backend-57b49484c from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-backend.18af38b2ccf27a33",
+        "namespace": "financial-budget",
+        "uid": "bd9deda2-0cf6-4ab1-b317-eddbbbdcfc94",
+        "resourceVersion": "22602",
+        "creationTimestamp": "2026-05-13T20:05:18Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:18Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-backend",
+        "uid": "7d1b4a89-d929-4f13-b796-d7b041e4aff4",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22518"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-backend-6694d9f46d from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:18Z",
+      "lastTimestamp": "2026-05-13T20:05:18Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-6865494b5b-t759h.18af37b94752bd09",
+        "namespace": "financial-budget",
+        "uid": "7a90edf5-41d6-47d8-8880-7aba183272ff",
+        "resourceVersion": "21045",
+        "creationTimestamp": "2026-05-13T19:47:26Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:26Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-6865494b5b-t759h",
+        "uid": "893dc754-f212-4345-8026-e927cc548104",
+        "apiVersion": "v1",
+        "resourceVersion": "10584",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container frontend",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:26Z",
+      "lastTimestamp": "2026-05-13T19:47:26Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-6865494b5b.18af37b9481db79d",
+        "namespace": "financial-budget",
+        "uid": "da26c47c-ff76-4198-958c-2fa25dba0f16",
+        "resourceVersion": "21048",
+        "creationTimestamp": "2026-05-13T19:47:26Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:26Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-6865494b5b",
+        "uid": "48e0fce6-e006-4980-b230-7d8caa54c361",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21041"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-frontend-6865494b5b-t759h",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:26Z",
+      "lastTimestamp": "2026-05-13T19:47:26Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af37b582b976c6",
+        "namespace": "financial-budget",
+        "uid": "f40ba878-b8ff-432d-9be7-cbdb78054f23",
+        "resourceVersion": "20951",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20946"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-frontend-68d4dd574b-z7xjv to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af37b59f4a08c6",
+        "namespace": "financial-budget",
+        "uid": "b424fcd7-7c0e-4349-83b1-1eb5079de5fd",
+        "resourceVersion": "20960",
+        "creationTimestamp": "2026-05-13T19:47:11Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:11Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20948",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Pulling",
+      "message": "Pulling image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:fd2313ca30652860284f00cbcd89383904cfd28c\"",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:11Z",
+      "lastTimestamp": "2026-05-13T19:47:11Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af37b7bd2111ba",
+        "namespace": "financial-budget",
+        "uid": "0bdef0c5-3ea7-480c-93fb-63f8409b094e",
+        "resourceVersion": "20979",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20948",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Pulled",
+      "message": "Successfully pulled image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:fd2313ca30652860284f00cbcd89383904cfd28c\" in 3.613s (9.09s including waiting). Image size: 26084053 bytes.",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af37b7bf5996c6",
+        "namespace": "financial-budget",
+        "uid": "04b5a8a1-01d1-48e9-96ea-702f94ef9711",
+        "resourceVersion": "20980",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20948",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af37b7c567d944",
+        "namespace": "financial-budget",
+        "uid": "6f152769-5a5b-47bb-b48b-bdd8f9566e0f",
+        "resourceVersion": "20981",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20948",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv.18af38b3bbaaf08c",
+        "namespace": "financial-budget",
+        "uid": "e8de2181-6bde-49fe-8aa4-104ae79f00a3",
+        "resourceVersion": "22631",
+        "creationTimestamp": "2026-05-13T20:05:22Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b-z7xjv",
+        "uid": "3e6ff8e5-0c38-42f8-ae51-35211e685412",
+        "apiVersion": "v1",
+        "resourceVersion": "20948",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container frontend",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:22Z",
+      "lastTimestamp": "2026-05-13T20:05:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b.18af37b581957952",
+        "namespace": "financial-budget",
+        "uid": "fd255125-fcc7-46f0-9172-9aa5cc9e0f1d",
+        "resourceVersion": "20947",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b",
+        "uid": "58c59010-81fa-459a-9046-4c96ac43db20",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20943"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-frontend-68d4dd574b-z7xjv",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-68d4dd574b.18af38b3bc5b8109",
+        "namespace": "financial-budget",
+        "uid": "284a594c-df57-423d-98e7-9f95e23a461b",
+        "resourceVersion": "22635",
+        "creationTimestamp": "2026-05-13T20:05:22Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-68d4dd574b",
+        "uid": "58c59010-81fa-459a-9046-4c96ac43db20",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22627"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-frontend-68d4dd574b-z7xjv",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:22Z",
+      "lastTimestamp": "2026-05-13T20:05:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m.18af38afbfc6a49f",
+        "namespace": "financial-budget",
+        "uid": "df4d7d4c-aeb2-45e7-a631-702726ceae3e",
+        "resourceVersion": "22535",
+        "creationTimestamp": "2026-05-13T20:05:05Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m",
+        "uid": "874d1bfd-709e-49b2-9279-cb6f0cbed56e",
+        "apiVersion": "v1",
+        "resourceVersion": "22530"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-frontend-7988c6dcbc-mzx7m to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T20:05:05Z",
+      "lastTimestamp": "2026-05-13T20:05:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m.18af38afdcdc5660",
+        "namespace": "financial-budget",
+        "uid": "faa3966d-36cc-4e29-ab72-d4e0b25f897a",
+        "resourceVersion": "22545",
+        "creationTimestamp": "2026-05-13T20:05:05Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m",
+        "uid": "874d1bfd-709e-49b2-9279-cb6f0cbed56e",
+        "apiVersion": "v1",
+        "resourceVersion": "22532",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Pulling",
+      "message": "Pulling image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:6c499e935ac6e1896f06930d9bcc134a56257122\"",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:05Z",
+      "lastTimestamp": "2026-05-13T20:05:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m.18af38b23b9c824a",
+        "namespace": "financial-budget",
+        "uid": "abdb6aad-defa-4405-b762-463664a8255b",
+        "resourceVersion": "22586",
+        "creationTimestamp": "2026-05-13T20:05:15Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m",
+        "uid": "874d1bfd-709e-49b2-9279-cb6f0cbed56e",
+        "apiVersion": "v1",
+        "resourceVersion": "22532",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Pulled",
+      "message": "Successfully pulled image \"proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend:6c499e935ac6e1896f06930d9bcc134a56257122\" in 3.802s (10.179s including waiting). Image size: 26084055 bytes.",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:15Z",
+      "lastTimestamp": "2026-05-13T20:05:15Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m.18af38b23d623f2a",
+        "namespace": "financial-budget",
+        "uid": "893f8517-943e-403f-8752-cb82d36c43e0",
+        "resourceVersion": "22587",
+        "creationTimestamp": "2026-05-13T20:05:16Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m",
+        "uid": "874d1bfd-709e-49b2-9279-cb6f0cbed56e",
+        "apiVersion": "v1",
+        "resourceVersion": "22532",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:16Z",
+      "lastTimestamp": "2026-05-13T20:05:16Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m.18af38b2419fc70d",
+        "namespace": "financial-budget",
+        "uid": "296d576a-e11e-467d-a867-34154d4c11cf",
+        "resourceVersion": "22589",
+        "creationTimestamp": "2026-05-13T20:05:16Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc-mzx7m",
+        "uid": "874d1bfd-709e-49b2-9279-cb6f0cbed56e",
+        "apiVersion": "v1",
+        "resourceVersion": "22532",
+        "fieldPath": "spec.containers{frontend}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:16Z",
+      "lastTimestamp": "2026-05-13T20:05:16Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend-7988c6dcbc.18af38afbec33898",
+        "namespace": "financial-budget",
+        "uid": "13ae81ef-e040-4766-ba32-ecb31f2b6c5c",
+        "resourceVersion": "22534",
+        "creationTimestamp": "2026-05-13T20:05:05Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend-7988c6dcbc",
+        "uid": "dbc8d39b-7b27-4490-9378-c25296543a57",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22528"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-frontend-7988c6dcbc-mzx7m",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:05Z",
+      "lastTimestamp": "2026-05-13T20:05:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend.18af37b5811783ed",
+        "namespace": "financial-budget",
+        "uid": "6e22ab2e-0222-470b-8bfe-aab3b7050e8f",
+        "resourceVersion": "20944",
+        "creationTimestamp": "2026-05-13T19:47:10Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend",
+        "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20942"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-frontend-68d4dd574b from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:10Z",
+      "lastTimestamp": "2026-05-13T19:47:10Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend.18af37b946a89d26",
+        "namespace": "financial-budget",
+        "uid": "07724cd0-373b-41e5-9440-0197808132c3",
+        "resourceVersion": "21044",
+        "creationTimestamp": "2026-05-13T19:47:26Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:26Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend",
+        "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20954"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-frontend-6865494b5b from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:26Z",
+      "lastTimestamp": "2026-05-13T19:47:26Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend.18af38afbe5faaa1",
+        "namespace": "financial-budget",
+        "uid": "620c6dd9-7dd5-4f9e-8cdd-ca39a60708ae",
+        "resourceVersion": "22529",
+        "creationTimestamp": "2026-05-13T20:05:05Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend",
+        "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22527"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-frontend-7988c6dcbc from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:05Z",
+      "lastTimestamp": "2026-05-13T20:05:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend.18af38b3baeaaf53",
+        "namespace": "financial-budget",
+        "uid": "6e49bc9e-ef21-4861-bbef-4bd7d4239df2",
+        "resourceVersion": "22628",
+        "creationTimestamp": "2026-05-13T20:05:22Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:22Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-frontend",
+        "uid": "a92728a9-0fb8-471c-9701-fbbae3e81c22",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22543"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-frontend-68d4dd574b from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:22Z",
+      "lastTimestamp": "2026-05-13T20:05:22Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt.18af38295d431ca7",
+        "namespace": "financial-budget",
+        "uid": "4a323ffc-57d4-4d13-9df8-80882fd79fa3",
+        "resourceVersion": "21695",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt",
+        "uid": "8185d0cf-02f2-406c-8086-9655f94edbc3",
+        "apiVersion": "v1",
+        "resourceVersion": "21691"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-sdk-578ffd5cf7-5v9xt to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt.18af382978df4e79",
+        "namespace": "financial-budget",
+        "uid": "3cb13035-f9ff-4e77-9ae8-424e05a1c9c6",
+        "resourceVersion": "21701",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt",
+        "uid": "8185d0cf-02f2-406c-8086-9655f94edbc3",
+        "apiVersion": "v1",
+        "resourceVersion": "21692",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Pulled",
+      "message": "Container image \"proxy.replicated.com/library/replicated-sdk-image:1.19.3\" already present on machine and can be accessed by the pod",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt.18af38297a031995",
+        "namespace": "financial-budget",
+        "uid": "369848d3-da85-47f8-97c1-62d09543fdd9",
+        "resourceVersion": "21702",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt",
+        "uid": "8185d0cf-02f2-406c-8086-9655f94edbc3",
+        "apiVersion": "v1",
+        "resourceVersion": "21692",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt.18af38297f708acd",
+        "namespace": "financial-budget",
+        "uid": "a8e6819f-d8e6-40bd-b262-7614042eeae1",
+        "resourceVersion": "21703",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt",
+        "uid": "8185d0cf-02f2-406c-8086-9655f94edbc3",
+        "apiVersion": "v1",
+        "resourceVersion": "21692",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt.18af38b216631ddb",
+        "namespace": "financial-budget",
+        "uid": "5f40405d-b599-4823-a6d0-4093756a9686",
+        "resourceVersion": "22576",
+        "creationTimestamp": "2026-05-13T20:05:15Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7-5v9xt",
+        "uid": "8185d0cf-02f2-406c-8086-9655f94edbc3",
+        "apiVersion": "v1",
+        "resourceVersion": "21692",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container replicated",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:15Z",
+      "lastTimestamp": "2026-05-13T20:05:15Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7.18af38295cabcb8d",
+        "namespace": "financial-budget",
+        "uid": "13262f97-7285-4ca4-b2eb-826926691d5e",
+        "resourceVersion": "21693",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7",
+        "uid": "c5ed489b-c21e-489a-bd0b-531fd0fe623f",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21688"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-sdk-578ffd5cf7-5v9xt",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-578ffd5cf7.18af38b2165a6145",
+        "namespace": "financial-budget",
+        "uid": "0e378e5c-2305-41c2-a5ba-1b647deef50f",
+        "resourceVersion": "22575",
+        "creationTimestamp": "2026-05-13T20:05:15Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-578ffd5cf7",
+        "uid": "c5ed489b-c21e-489a-bd0b-531fd0fe623f",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22568"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-sdk-578ffd5cf7-5v9xt",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:15Z",
+      "lastTimestamp": "2026-05-13T20:05:15Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl.18af38af528c39ab",
+        "namespace": "financial-budget",
+        "uid": "94caf0a4-d823-4622-b017-a4e253980762",
+        "resourceVersion": "22498",
+        "creationTimestamp": "2026-05-13T20:05:03Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:03Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl",
+        "uid": "71fc8f50-4737-4f23-989a-4d28fe82b7ab",
+        "apiVersion": "v1",
+        "resourceVersion": "22493"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-sdk-64d7bcdff5-8r5wl to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T20:05:03Z",
+      "lastTimestamp": "2026-05-13T20:05:03Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl.18af38af6d40a710",
+        "namespace": "financial-budget",
+        "uid": "4048bbd1-a19e-4f4f-b5ab-9313fe72dd80",
+        "resourceVersion": "22503",
+        "creationTimestamp": "2026-05-13T20:05:03Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:03Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl",
+        "uid": "71fc8f50-4737-4f23-989a-4d28fe82b7ab",
+        "apiVersion": "v1",
+        "resourceVersion": "22494",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Pulled",
+      "message": "Container image \"proxy.replicated.com/library/replicated-sdk-image:1.19.3\" already present on machine and can be accessed by the pod",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:03Z",
+      "lastTimestamp": "2026-05-13T20:05:03Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl.18af38af6dfdbec7",
+        "namespace": "financial-budget",
+        "uid": "520b6835-9697-4929-847e-98cbadc27a6b",
+        "resourceVersion": "22504",
+        "creationTimestamp": "2026-05-13T20:05:03Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:03Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl",
+        "uid": "71fc8f50-4737-4f23-989a-4d28fe82b7ab",
+        "apiVersion": "v1",
+        "resourceVersion": "22494",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:03Z",
+      "lastTimestamp": "2026-05-13T20:05:03Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl.18af38af7232df66",
+        "namespace": "financial-budget",
+        "uid": "41f237e2-7279-41e6-aec9-be2c0f901751",
+        "resourceVersion": "22505",
+        "creationTimestamp": "2026-05-13T20:05:04Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:04Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-64d7bcdff5-8r5wl",
+        "uid": "71fc8f50-4737-4f23-989a-4d28fe82b7ab",
+        "apiVersion": "v1",
+        "resourceVersion": "22494",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T20:05:04Z",
+      "lastTimestamp": "2026-05-13T20:05:04Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-64d7bcdff5.18af38af50f27955",
+        "namespace": "financial-budget",
+        "uid": "6ae278a5-8a8f-4fda-a783-55b0c9d3a437",
+        "resourceVersion": "22495",
+        "creationTimestamp": "2026-05-13T20:05:03Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:03Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-64d7bcdff5",
+        "uid": "e3efad82-388b-498e-a53a-cbdaa4e98b47",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22490"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-sdk-64d7bcdff5-8r5wl",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:03Z",
+      "lastTimestamp": "2026-05-13T20:05:03Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-779d8c584f-f9g84.18af37b7dfdd657f",
+        "namespace": "financial-budget",
+        "uid": "867a7fac-8c8f-4a8a-9042-0d4c9b30ba7d",
+        "resourceVersion": "20993",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-779d8c584f-f9g84",
+        "uid": "dd872cb4-bb4b-4270-87f1-6967725db410",
+        "apiVersion": "v1",
+        "resourceVersion": "10538",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container replicated",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-779d8c584f.18af37b7e05df1dc",
+        "namespace": "financial-budget",
+        "uid": "deae3bf5-e48d-412e-8567-3e37cf949d87",
+        "resourceVersion": "20994",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-779d8c584f",
+        "uid": "9fd37692-fa9a-4467-ad1e-3a7d911e2288",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20986"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-sdk-779d8c584f-f9g84",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr.18af37b527da1a5c",
+        "namespace": "financial-budget",
+        "uid": "1b68a572-971f-49a2-85a4-9c265a419579",
+        "resourceVersion": "20913",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr",
+        "uid": "a5609909-f5ea-45f1-a496-7759cbd552e1",
+        "apiVersion": "v1",
+        "resourceVersion": "20909"
+      },
+      "reason": "Scheduled",
+      "message": "Successfully assigned financial-budget/financial-budget-sdk-7fdcdb4f55-qfvnr to 1b3bd0d71-control-plane",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr.18af37b5442da7a1",
+        "namespace": "financial-budget",
+        "uid": "dd0c66d8-0e69-497d-8583-bf9dc6deff27",
+        "resourceVersion": "20917",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr",
+        "uid": "a5609909-f5ea-45f1-a496-7759cbd552e1",
+        "apiVersion": "v1",
+        "resourceVersion": "20912",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Pulled",
+      "message": "Container image \"proxy.replicated.com/library/replicated-sdk-image:1.19.3\" already present on machine and can be accessed by the pod",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr.18af37b5456fc2cd",
+        "namespace": "financial-budget",
+        "uid": "6b33d58c-13a0-4a9d-9500-993e3613d9f8",
+        "resourceVersion": "20918",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr",
+        "uid": "a5609909-f5ea-45f1-a496-7759cbd552e1",
+        "apiVersion": "v1",
+        "resourceVersion": "20912",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Created",
+      "message": "Container created",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr.18af37b54a7274f7",
+        "namespace": "financial-budget",
+        "uid": "231530bb-4da8-4a4d-a329-98229f58cbbc",
+        "resourceVersion": "20929",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr",
+        "uid": "a5609909-f5ea-45f1-a496-7759cbd552e1",
+        "apiVersion": "v1",
+        "resourceVersion": "20912",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Started",
+      "message": "Container started",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr.18af382c37758fdd",
+        "namespace": "financial-budget",
+        "uid": "768e6d04-e47b-4b0e-928e-2e28a7826bc1",
+        "resourceVersion": "21732",
+        "creationTimestamp": "2026-05-13T19:55:40Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:40Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:reportingInstance": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Pod",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55-qfvnr",
+        "uid": "a5609909-f5ea-45f1-a496-7759cbd552e1",
+        "apiVersion": "v1",
+        "resourceVersion": "20912",
+        "fieldPath": "spec.containers{replicated}"
+      },
+      "reason": "Killing",
+      "message": "Stopping container replicated",
+      "source": {
+        "component": "kubelet",
+        "host": "1b3bd0d71-control-plane"
+      },
+      "firstTimestamp": "2026-05-13T19:55:40Z",
+      "lastTimestamp": "2026-05-13T19:55:40Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "kubelet",
+      "reportingInstance": "1b3bd0d71-control-plane"
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55.18af37b5273956fb",
+        "namespace": "financial-budget",
+        "uid": "2ea850c7-6e55-406a-8911-3ebaa5772d32",
+        "resourceVersion": "20910",
+        "creationTimestamp": "2026-05-13T19:47:09Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55",
+        "uid": "89b6c614-dfc7-4bee-b2d1-8c78caf55f87",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20905"
+      },
+      "reason": "SuccessfulCreate",
+      "message": "Created pod: financial-budget-sdk-7fdcdb4f55-qfvnr",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:09Z",
+      "lastTimestamp": "2026-05-13T19:47:09Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk-7fdcdb4f55.18af382c37b58d21",
+        "namespace": "financial-budget",
+        "uid": "299f9a1b-f882-4713-b94b-ef6b86efd1f8",
+        "resourceVersion": "21734",
+        "creationTimestamp": "2026-05-13T19:55:40Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:40Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "ReplicaSet",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk-7fdcdb4f55",
+        "uid": "89b6c614-dfc7-4bee-b2d1-8c78caf55f87",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21728"
+      },
+      "reason": "SuccessfulDelete",
+      "message": "Deleted pod: financial-budget-sdk-7fdcdb4f55-qfvnr",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:55:40Z",
+      "lastTimestamp": "2026-05-13T19:55:40Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af37b522a7438c",
+        "namespace": "financial-budget",
+        "uid": "b9e42ca2-fbcd-44f6-a06c-73d0da4bbe11",
+        "resourceVersion": "20907",
+        "creationTimestamp": "2026-05-13T19:47:08Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:08Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20904"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-sdk-7fdcdb4f55 from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:08Z",
+      "lastTimestamp": "2026-05-13T19:47:08Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af37b7de551547",
+        "namespace": "financial-budget",
+        "uid": "5e7a0a22-1c5e-4ff7-934c-78d95226f1d3",
+        "resourceVersion": "20988",
+        "creationTimestamp": "2026-05-13T19:47:20Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:47:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "20916"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-sdk-779d8c584f from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:47:20Z",
+      "lastTimestamp": "2026-05-13T19:47:20Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af38295b802bb7",
+        "namespace": "financial-budget",
+        "uid": "d96b1da8-5856-4bb2-b381-00375f1d232f",
+        "resourceVersion": "21689",
+        "creationTimestamp": "2026-05-13T19:55:28Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21687"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-sdk-578ffd5cf7 from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:55:28Z",
+      "lastTimestamp": "2026-05-13T19:55:28Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af382c36703772",
+        "namespace": "financial-budget",
+        "uid": "235bdfce-dd0d-4dc7-9656-86a05e19e772",
+        "resourceVersion": "21730",
+        "creationTimestamp": "2026-05-13T19:55:40Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T19:55:40Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "21699"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-sdk-7fdcdb4f55 from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T19:55:40Z",
+      "lastTimestamp": "2026-05-13T19:55:40Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af38af4f893c85",
+        "namespace": "financial-budget",
+        "uid": "55a24b25-3032-4966-863b-642f921b2720",
+        "resourceVersion": "22492",
+        "creationTimestamp": "2026-05-13T20:05:03Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:03Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22489"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled up replica set financial-budget-sdk-64d7bcdff5 from 0 to 1",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:03Z",
+      "lastTimestamp": "2026-05-13T20:05:03Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    },
+    {
+      "kind": "Event",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk.18af38b215a1d490",
+        "namespace": "financial-budget",
+        "uid": "afabc5a9-ee53-414f-ba71-5a04daf5e70c",
+        "resourceVersion": "22569",
+        "creationTimestamp": "2026-05-13T20:05:15Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T20:05:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {},
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:reportingComponent": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Deployment",
+        "namespace": "financial-budget",
+        "name": "financial-budget-sdk",
+        "uid": "d47b897f-0d86-4863-8c9b-02be9f3bd985",
+        "apiVersion": "apps/v1",
+        "resourceVersion": "22501"
+      },
+      "reason": "ScalingReplicaSet",
+      "message": "Scaled down replica set financial-budget-sdk-578ffd5cf7 from 1 to 0",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "firstTimestamp": "2026-05-13T20:05:15Z",
+      "lastTimestamp": "2026-05-13T20:05:15Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": ""
+    }
+  ]
+}

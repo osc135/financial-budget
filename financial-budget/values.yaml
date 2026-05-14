@@ -1,0 +1,191 @@
+backend:
+  image:
+    repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
+    tag: f11f5b8ae10e83d977979c778f468c10ffdddef8
+    pullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+  livenessProbe:
+    enabled: true
+    path: /health
+    port: 8000
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  readinessProbe:
+    enabled: true
+    path: /health
+    port: 8000
+    initialDelaySeconds: 5
+    periodSeconds: 5
+frontend:
+  image:
+    repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
+    tag: f11f5b8ae10e83d977979c778f468c10ffdddef8
+    pullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+  livenessProbe:
+    enabled: true
+    path: /
+    port: 80
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  readinessProbe:
+    enabled: true
+    path: /
+    port: 80
+    initialDelaySeconds: 5
+    periodSeconds: 5
+database:
+  embedded:
+    enabled: true
+  external:
+    host: ""
+    port: 5432
+    username: ""
+    password: ""
+    database: ""
+postgresql:
+  enabled: true
+  image:
+    registry: proxy.budget-helping.com/proxy/financial-budget/index.docker.io
+    repository: bitnami/postgresql
+    tag: latest
+  auth:
+    username: budgetuser
+    password: budgetpass
+    database: budgetdb
+  primary:
+    persistence:
+      enabled: true
+      size: 1Gi
+redis:
+  enabled: true
+  architecture: standalone
+  image:
+    registry: proxy.budget-helping.com/proxy/financial-budget/index.docker.io
+    repository: bitnami/redis
+    tag: latest
+  auth:
+    enabled: false
+tls:
+  enabled: true
+  existingSecret: ""
+  auto: false
+ingress:
+  enabled: false
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: app.budget-helping.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: ""
+      hosts:
+        - app.budget-helping.com
+cloudflared:
+  enabled: true
+  tunnelToken: ""
+imagePullSecrets:
+  - name: enterprise-pull-secret
+global:
+  imagePullSecrets:
+    - name: enterprise-pull-secret
+  replicated:
+    channelName: Unstable
+    customerEmail: olivia+test@replicated.com
+    customerName: Test Customer
+    dockerconfigjson: eyJhdXRocyI6eyJwcm94eS5idWRnZXQtaGVscGluZy5jb20iOnsiYXV0aCI6Ik0wUlRaa2RIYzBGblNtaFZjMGQyZUV0Q1lWUkxUVE4xVnpaRU9qTkVVMlpIUjNOQlowcG9WWE5IZG5oTFFtRlVTMDB6ZFZjMlJBPT0ifSwicHJveHkucmVwbGljYXRlZC5jb20iOnsiYXV0aCI6Ik0wUlRaa2RIYzBGblNtaFZjMGQyZUV0Q1lWUkxUVE4xVnpaRU9qTkVVMlpIUjNOQlowcG9WWE5IZG5oTFFtRlVTMDB6ZFZjMlJBPT0ifSwicmVnaXN0cnkucmVwbGljYXRlZC5jb20iOnsiYXV0aCI6Ik0wUlRaa2RIYzBGblNtaFZjMGQyZUV0Q1lWUkxUVE4xVnpaRU9qTkVVMlpIUjNOQlowcG9WWE5IZG5oTFFtRlVTMDB6ZFZjMlJBPT0ifX19
+    licenseFields:
+      custom_category_enabled:
+        name: custom_category_enabled
+        title: Custom Categories
+        description: ""
+        value: false
+        valueType: Boolean
+        signature:
+          v1: LbXrTEPmwh6R5jNZrIdYQN6f0lo34WlHr/BbF2zPeM5LjVmtNnnigf5auNmuvSZXlt2soHTCuVSKaGWMA+6TubhFa2EOgWhFAna7aa4aDKW1F8/016puIOaXXOx7uhlIGTXH0TlKaCTAeR83hQVJAK06tcEjggmm3jhdrN/Sw+I8fFfcxuiam9gt63T/uk+fJy63hFa7E50lWT+HkHUYOzg3BPLk7Kxzc6y5JphlZdzjykUylRZeZiRiuhNp8wdd1J9qcstClZEzTMLY4LzxnHtpkTNbPEufQpXBkYQ5AhLGUjk+HVMNCHoJoA/McUqfrDg0nlntstcrBS2OyISDqQ==
+      expires_at:
+        name: expires_at
+        title: Expiration
+        description: License Expiration
+        value: ""
+        valueType: String
+        signature:
+          v1: B8aQmnXPxa731mVRyqw6sqGs9pbOY8T8O6HrxFss5mQfBsAMs8MVbQ+z01A7CGGvKbIoO4Pz4NKtxwyNR+cyhjGd+ZeUP570Ktn/PyZxqQduKVuUM/wEJuWZX/GA4EwaMqVj2Fo66AAM5ngcrU7+vFjBn3Ahw1/9DkSy35SuN7WzWjTB0zIOF0KVwRXVrRdtpyuarL7M6YeA4VQWbLz77oPL92DNbmi/Duqg7KIKazwQiOv/DvG1wu6qhmS3ANdwHQka4SAu2Y351yeSKXtRbOIW0NniOS7sP3PSZFhlQrmZet1dNDnhK6MYAzQd8+HQ0IQOzFsYnPyzpL2IrAJ4Ow==
+    licenseID: 3DSfGGsAgJhUsGvxKBaTKM3uW6D
+    licenseType: trial
+service:
+  type: ClusterIP
+financial-budget-sdk:
+  appName: Financial-Budget
+  channelID: 3DSFSLL0Inuk21Ej0nqdzrh8fDI
+  channelName: Unstable
+  channelSequence: 25
+  integration:
+    enabled: false
+  license: |
+    apiVersion: kots.io/v1beta1
+    kind: License
+    metadata:
+        name: testcustomer
+    spec:
+        appSlug: financial-budget
+        channelID: 3DSFSLL0Inuk21Ej0nqdzrh8fDI
+        channelName: Unstable
+        channels:
+            - channelID: 3DSFSLL0Inuk21Ej0nqdzrh8fDI
+              channelName: Unstable
+              channelSlug: unstable
+              endpoint: https://replicated.app
+              isDefault: true
+              isSemverRequired: true
+              replicatedProxyDomain: proxy.budget-helping.com
+        customerEmail: olivia+test@replicated.com
+        customerName: Test Customer
+        endpoint: https://replicated.app
+        entitlements:
+            custom_category_enabled:
+                signature:
+                    v1: bYM/WMZqlqy3OTyS9c3nQUdSKkYAdIVlNdueZbKD4wMM+dZsUEcPCcMJZDp4g+o1ZPslrkW+MiVymghCzrcxyI9nZXHDdew+/40HSdHxrA7BqitwfMiQsbbU+QhlVD2hrSRhPWKa0e4c4OCy+0To1rMPlPqY1221SwQ05yAb7D8PfjEeHmH9fIoLieGOOHrucHa6VwMU9KOQUrWVIKDCAsIVGOnW3sICl8wLpXUCJEY48suvFGa3evlHZMfCxswggVooasXbxbJ7mjHN2xA0EWOW94APYS2E8O/WqEx/5xau9QbDn17JT1oEvu6DzFN1hadkXuYV084aXMGPm81fQQ==
+                title: Custom Categories
+                value: false
+                valueType: Boolean
+            expires_at:
+                description: License Expiration
+                signature:
+                    v1: a3jvTvfo1Gyt6Vt11+UL342ewpoT8EOObOUQZ9gUfqokozaNRVOIwLJylJ0DvYdgMvnCo44t/+mZBetWOrrATYrHObEiUnycBZh1lhb53LvcCWJKjA2fP8oH/WnevM4tXy8byEZ5sF6gkTIHDp9sAq4AmjdkJJpA2Z0ajnlJhieovE8KHghFjA9WN6m1pK4Q1PHfoFhlKHy6BUbQYPwdwBF39D3I46+Kl4Bj95gIRhk+TwmEGhQMpVuk5sl2mx545mXUJj55+Ht4dewZXp7wTVwFKm9QCTz/LH3JKHjkiyP4hNPb7PJnvtSzltIMfuotwBU7kCHUQkFUXMRZ0RTAjg==
+                title: Expiration
+                value: ""
+                valueType: String
+        isAirgapSupported: true
+        isEmbeddedClusterDownloadEnabled: true
+        isEmbeddedClusterMultiNodeEnabled: true
+        isSemverRequired: true
+        isSupportBundleUploadSupported: true
+        licenseID: 3DSfGGsAgJhUsGvxKBaTKM3uW6D
+        licenseSequence: 22
+        licenseType: trial
+        replicatedProxyDomain: proxy.budget-helping.com
+        signature: eyJsaWNlbnNlRGF0YSI6ImV5SmhjR2xXWlhKemFXOXVJam9pYTI5MGN5NXBieTkyTVdKbGRHRXhJaXdpYTJsdVpDSTZJa3hwWTJWdWMyVWlMQ0p0WlhSaFpHRjBZU0k2ZXlKdVlXMWxJam9pZEdWemRHTjFjM1J2YldWeUluMHNJbk53WldNaU9uc2liR2xqWlc1elpVbEVJam9pTTBSVFprZEhjMEZuU21oVmMwZDJlRXRDWVZSTFRUTjFWelpFSWl3aWJHbGpaVzV6WlZSNWNHVWlPaUowY21saGJDSXNJbU4xYzNSdmJXVnlUbUZ0WlNJNklsUmxjM1FnUTNWemRHOXRaWElpTENKaGNIQlRiSFZuSWpvaVptbHVZVzVqYVdGc0xXSjFaR2RsZENJc0ltTm9ZVzV1Wld4SlJDSTZJak5FVTBaVFRFd3dTVzUxYXpJeFJXb3dibkZrZW5Kb09HWkVTU0lzSW1Ob1lXNXVaV3hPWVcxbElqb2lWVzV6ZEdGaWJHVWlMQ0pqZFhOMGIyMWxja1Z0WVdsc0lqb2liMnhwZG1saEszUmxjM1JBY21Wd2JHbGpZWFJsWkM1amIyMGlMQ0pqYUdGdWJtVnNjeUk2VzNzaVkyaGhibTVsYkVsRUlqb2lNMFJUUmxOTVREQkpiblZyTWpGRmFqQnVjV1I2Y21nNFprUkpJaXdpWTJoaGJtNWxiRk5zZFdjaU9pSjFibk4wWVdKc1pTSXNJbU5vWVc1dVpXeE9ZVzFsSWpvaVZXNXpkR0ZpYkdVaUxDSnBjMFJsWm1GMWJIUWlPblJ5ZFdVc0ltVnVaSEJ2YVc1MElqb2lhSFIwY0hNNkx5OXlaWEJzYVdOaGRHVmtMbUZ3Y0NJc0luSmxjR3hwWTJGMFpXUlFjbTk0ZVVSdmJXRnBiaUk2SW5CeWIzaDVMbUoxWkdkbGRDMW9aV3h3YVc1bkxtTnZiU0lzSW1selUyVnRkbVZ5VW1WeGRXbHlaV1FpT25SeWRXVjlYU3dpYkdsalpXNXpaVk5sY1hWbGJtTmxJam95TWl3aVpXNWtjRzlwYm5RaU9pSm9kSFJ3Y3pvdkwzSmxjR3hwWTJGMFpXUXVZWEJ3SWl3aWNtVndiR2xqWVhSbFpGQnliM2g1Ukc5dFlXbHVJam9pY0hKdmVIa3VZblZrWjJWMExXaGxiSEJwYm1jdVkyOXRJaXdpWlc1MGFYUnNaVzFsYm5SeklqcDdJbU4xYzNSdmJWOWpZWFJsWjI5eWVWOWxibUZpYkdWa0lqcDdJblJwZEd4bElqb2lRM1Z6ZEc5dElFTmhkR1ZuYjNKcFpYTWlMQ0oyWVd4MVpTSTZabUZzYzJVc0luWmhiSFZsVkhsd1pTSTZJa0p2YjJ4bFlXNGlMQ0p6YVdkdVlYUjFjbVVpT25zaWRqRWlPaUppV1UwdlYwMWFjV3h4ZVROUFZIbFRPV016YmxGVlpGTkxhMWxCWkVsV2JFNWtkV1ZhWWt0RU5IZE5UU3RrV25OVlJXTlFRMk5OU2xwRWNEUm5LMjh4V2xCemJISnJWeXROYVZaNWJXZG9RM3B5WTNoNVNUbHVXbGhJUkdSbGR5c3ZOREJJVTJSSWVISkJOMEp4YVhSM1prMXBVWE5pWWxVclVXaHNWa1F5YUhKVFVtaFFWMHRoTUdVMFl6UlBRM2tyTUZSdk1YSk5VR3hRY1ZreE1qSXhVM2RSTURWNVFXSTNSRGhRWm1wRlpVaHRTRGxtU1c5TWFXVkhUMDlJY25WalNHRTJWbmROVlRsTFQxRlZjbGRXU1V0RVEwRnpTVlpIVDI1WE0zTkpRMnc0ZDB4d1dGVkRTa1ZaTkRoemRYWkdSMkV6Wlhac1NGcE5aa040YzNkbloxWnZiMkZ6V0dKNFlrbzNiV3BJVGpKNFFUQkZWMDlYT1RSQlVGbFRNa1U0VHk5WGNVVjRMelY0WVhVNVVXSkViakUzU2xReGIwVjJkVFpFZWtaT01XaGhaR3RZZFZsV01EZzBZVmhOUjFCdE9ERm1VVkU5UFNKOWZTd2laWGh3YVhKbGMxOWhkQ0k2ZXlKMGFYUnNaU0k2SWtWNGNHbHlZWFJwYjI0aUxDSmtaWE5qY21sd2RHbHZiaUk2SWt4cFkyVnVjMlVnUlhod2FYSmhkR2x2YmlJc0luWmhiSFZsSWpvaUlpd2lkbUZzZFdWVWVYQmxJam9pVTNSeWFXNW5JaXdpYzJsbmJtRjBkWEpsSWpwN0luWXhJam9pWVROcWRsUjJabTh4UjNsME5sWjBNVEVyVlV3ek5ESmxkM0J2VkRoRlQwOWlUMVZSV2psblZXWnhiMnR2ZW1GT1VsWlBTWGRNU25sc1NqQkVkbGxrWjAxMmJrTnZORFIwTHl0dFdrSmxkRmRQY25KQlZGbHlTRTlpUldsVmJubGpRbHBvTVd4b1lqVXpUSFpqUTFkS1MycEJNbVpRT0c5SUwxZHVaWFpOTkhSWWVUaGllVVZhTlhOR05tZHJWRWxJUkhBNWMwRnhORUZ0YW1SclNrcHdRVEphTUdGcWJteEthR2xsYjNaRk9FdElaMmhHYWtFNVYwNDJiVEZ3U3pSUk1WQklabTlHYUd4TFNIazJRbFZpVVZsUWQyUjNRa1l6T1VRelNUUTJLMHRzTkVKcU9UVm5TVkpvYXl0VWQyMUZSMmhSVFhCV2RXczFjMnd5YlhnMU5EVnRXRlZLYWpVMUswaDBOR1JsZDFwWWNEZDNWRlozUmt0dE9WRkRWSG92VEVnelNrdElhbXRwZVZBMGFFNVFZamRRU201MmRGTjZiSFJKVFdaMWIzUjNRbFUzYTBOSVZWRnJSbFZZVFZKYU1GSlVRV3BuUFQwaWZYMTlMQ0pwYzBGcGNtZGhjRk4xY0hCdmNuUmxaQ0k2ZEhKMVpTd2lhWE5UZFhCd2IzSjBRblZ1Wkd4bFZYQnNiMkZrVTNWd2NHOXlkR1ZrSWpwMGNuVmxMQ0pwYzBWdFltVmtaR1ZrUTJ4MWMzUmxja1J2ZDI1c2IyRmtSVzVoWW14bFpDSTZkSEoxWlN3aWFYTkZiV0psWkdSbFpFTnNkWE4wWlhKTmRXeDBhVTV2WkdWRmJtRmliR1ZrSWpwMGNuVmxMQ0pwYzFObGJYWmxjbEpsY1hWcGNtVmtJanAwY25WbGZYMD0iLCJpbm5lclNpZ25hdHVyZSI6ImV5SnNhV05sYm5ObFUybG5ibUYwZFhKbElqb2lTa2hyWjNSRFprdGtMemhuWmxKWlEyaHRjV3htWTJWSVVHNWFOemxQVDBwMVVHdFlMMUp3YzJoTlQwRTNlSEpuVm1KMVVUbEdMM2xEY0doUWVrRTFRVGRZWlhkYU5YWlNLMHhYWkVWVmIyOVpOVWxtWkRBeFJsZHpjM1pLZUdsT01EbEVZbEYzUzNoMVZuVjVPREpKVVdaeWRubFZUV1JRY1dkVlZWWmhjRUZMU1cxMVVEQXlTaTl5ZGpFMlltVTRaRGRMUTJsVlZtZ3dWemhqV0haSlduWkJLMjlrZEdGcGVscEpNVk5CZGt3cmNubDBRMWQzTUVkVWVDOHhiMkZ4WVRsaVZuZEhaVUl3TkZNNWRuaDRPV2w2UlRaTWVHUjNSRzAxT1ZoRFIxSmpSemRrY1ZaR1R6UlBhRTQ0U2xsWlZYaDNTRVZPVUU1dFJYcFdkRk52TkZwdFlXMUtiRVEwWm14elowazVRV2R0ZEdSTlZHMHdjVWh2VmxGMVUyZEtNbXBTTTIweE9EWTBXbFZSUkZGME5qbEdWRWh1THpCSVVYWk1VR3hrVWxWUlZtVTRibk0zVWpFclRERTFTRXRsVEZocmNFRkJQVDBpTENKd2RXSnNhV05MWlhraU9pSXRMUzB0TFVKRlIwbE9JRkJWUWt4SlF5QkxSVmt0TFMwdExWeHVUVWxKUWtscVFVNUNaMnR4YUd0cFJ6bDNNRUpCVVVWR1FVRlBRMEZST0VGTlNVbENRMmRMUTBGUlJVRTVTMFYxZEdoRlQySkphRFpZT0hOWk1UUnNkMXh1TVdnd1kwMVBabnBRUlhoa1pHZGFibFZEZEc1MWFWcEZaR2t2YlhGdmRHOUlhMGt2Y0RnNFYzUkZhMVZsWkVwNE5USmpjRll6YkZOWFowcG9OVFY0UVZ4dWMyTmFOSHBoTWxOcFJIcFdZV0pqVWxSQ1dVMXZiSGhoT1RkMFJHSXhlalo1VFcxNUwyTnhZblF5WVZkc1V6WlFSRmRFTlZkSU1EbGFjVWRoU21wc2RWeHViMW81V1haSVpqUjRTMEV3UkU1TlIwTjRVVUl5TkZKeWJYZExOSFpJVjJOMVowMURWMGxCYTBwQ2VUUmhZMWQ1VkM5alkyOHpWbGhyVHpFelNEWlFRVnh1ZUdocmJVNHhPV3RRZG5CalVqZElkRkZSWTFoUVduVnJZVFZSVEhwRFIzaHpSR1o1VEhwa2JUWk1WVlJIVkZOTlVYVnlXWEU1TlZkcldGWkxkR0VyVWx4dWRrcERkVGt2VlVGV05rOXZjazVDTjFSU01sVlRMM1UzVWpoM2MwNWFNa2RNUzBsaFIwdE1RMDEzYURWbVNtdDFRVzVCTUdaTE5rSk1lbUZuU0RKR2NWeHVOMUZKUkVGUlFVSmNiaTB0TFMwdFJVNUVJRkJWUWt4SlF5QkxSVmt0TFMwdExWeHVJaXdpYTJWNVUybG5ibUYwZFhKbElqb2laWGxLZW1GWFpIVlpXRkl4WTIxVmFVOXBTa1pqUm1SMVpWZDRObUl6VW5GbGFsSlpXbGRHVDFWWE5VdGtNSFJTWWxWYVRFNHpaREZqZVhSSFlubDBVRTR3WnpGamJrSXpaREZzUjA1V1VYcGhWemd4V201S1RsWXdTVFZUU0doQ1ZsVjRTazVVU1RKa2JGWjJVMnhvUkZRd2NGaE9WWGhUVG14V1FsTXpUbXRSYm1SeVVURldhV0ZzVG5WVGExWm9XV3hvZEZSdGVHOWtXR3h4VTFWV1FsbHJlRlZhU0djelpIcEdVR0pXVW5kUFJVWnNWRWRrYW1WdGNFbGplVGxMV1RGR05WSlVTWHBrVjI5MlVtMVNNMHN6U201V01Ga3pUSHBDVDFwVmVFTkxla2w1WWpJNVRXSldUa2hSTVZKQ1VXNVNSVkpzU1hwU1JrcGFUWHBPYUZReGEzcE1NRnB4V2xSb1RGTXdPVFJMTTFvMFlXNUdUMUpVYkhCWlYxcDNWMVphYjFaRlZuRmlTRVp5Vm5wS1QyTnRVbTFXYWxwcFpHNVNUMDR3UmpGV01HTjNUV3R3YkZrd1pFVlpNVVpFWkd0amVGUlVTbEJhYW1oWFZqTldWVXg2VWpSU2JXUkdUMVY0UlZadVJuRlZWa0pvWVd4Q2JXSkhOWGRQUTNSVFVXdHdZVnB0ZEhkWGEzUmFZVlJLY0ZkcWFFcFZSVkpVVkd0T1lWSlRkR2hpYTJ4R1UxVTFlbUV5UmxST1V6a3hXbXBTTTA5R1pIRlNWRUpaVlZac1MyTXdXbXBsVms1VVdXdDRhVll3TlRWVlZrNXVVbGMwZVU5VlJUbFFVMGx6U1cxa2MySXlTbWhpUlhSc1pWVnNhMGxxYjJsWmJWSnNXbFJWTWs1VVdYZFpNbHBwVGtST2FrOVhTWGxQUjBwdFQxUm9iRmxYVG1oYWJVVXlUa1JaYVdaUlBUMGlmUT09In0=
+  parentChartURL: oci://registry.replicated.com/financial-budget/unstable/financial-budget
+  releaseCreatedAt: "2026-05-13T18:26:14Z"
+  releaseImages: []
+  releaseNotes: ""
+  releaseSequence: 55
+  replicatedAppEndpoint: https://replicated.app
+  versionLabel: 0.28.0

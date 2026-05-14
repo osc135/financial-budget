@@ -1,0 +1,15 @@
+{
+  "response": {
+    "status": 200,
+    "body": "{\"status\":\"ok\"}",
+    "headers": {
+      "Content-Length": "15",
+      "Content-Type": "application/json",
+      "Date": "Wed, 13 May 2026 21:30:12 GMT",
+      "Server": "uvicorn"
+    },
+    "raw_json": {
+      "status": "ok"
+    }
+  }
+}

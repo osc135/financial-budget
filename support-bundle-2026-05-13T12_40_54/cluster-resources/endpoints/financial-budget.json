@@ -1,0 +1,513 @@
+{
+  "kind": "EndpointsList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "11089"
+  },
+  "items": [
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "backend",
+        "namespace": "financial-budget",
+        "uid": "e0fac287-6f1a-4e23-9c5d-1a75e46cbd0b",
+        "resourceVersion": "10684",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget",
+          "app.kubernetes.io/version": "07e0a88bdd9ed7e0fd00e545bd3f6f6026a77205",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "financial-budget-0.27.0"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T17:36:30Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.24",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-backend-569bfc9d5d-wldkl",
+                "uid": "59b9dae2-96f3-47df-bc17-c999d7be1945"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "http",
+              "port": 8000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend",
+        "namespace": "financial-budget",
+        "uid": "760e684b-ad81-42ce-b1c1-18dd6156e549",
+        "resourceVersion": "10653",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget",
+          "app.kubernetes.io/version": "07e0a88bdd9ed7e0fd00e545bd3f6f6026a77205",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "financial-budget-0.27.0"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T17:36:25Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.25",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-frontend-6865494b5b-t759h",
+                "uid": "893dc754-f212-4345-8026-e927cc548104"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "http",
+              "port": 80,
+              "protocol": "TCP"
+            },
+            {
+              "name": "https",
+              "port": 443,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-postgresql",
+        "namespace": "financial-budget",
+        "uid": "17c5f622-6096-495d-8d50-ce77a02bdf2c",
+        "resourceVersion": "1989",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "postgresql-15.5.0"
+        },
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-05-13T15:51:39Z"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:51:39Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/last-change-trigger-time": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.15",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-postgresql-0",
+                "uid": "8f3bcb5b-aa0d-489c-a0a0-adcfe66b86f9"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "tcp-postgresql",
+              "port": 5432,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-postgresql-hl",
+        "namespace": "financial-budget",
+        "uid": "61ee879c-1b1a-4686-8f2e-ea9552158eb4",
+        "resourceVersion": "1940",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "postgresql-15.5.0",
+          "service.kubernetes.io/headless": ""
+        },
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-05-13T15:50:17Z"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:51:17Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/last-change-trigger-time": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {},
+                  "f:service.kubernetes.io/headless": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.15",
+              "hostname": "financial-budget-postgresql-0",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-postgresql-0",
+                "uid": "8f3bcb5b-aa0d-489c-a0a0-adcfe66b86f9"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "tcp-postgresql",
+              "port": 5432,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-headless",
+        "namespace": "financial-budget",
+        "uid": "9895fcce-5442-450b-b334-c965051473f2",
+        "resourceVersion": "1965",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "redis-19.6.0",
+          "service.kubernetes.io/headless": ""
+        },
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-05-13T15:51:29Z"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:51:29Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/last-change-trigger-time": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {},
+                  "f:service.kubernetes.io/headless": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.14",
+              "hostname": "financial-budget-redis-master-0",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-redis-master-0",
+                "uid": "0b507696-1911-4c8a-94ab-29b4a509684e"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "tcp-redis",
+              "port": 6379,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-master",
+        "namespace": "financial-budget",
+        "uid": "7bbfb90e-a46d-4bf1-8809-a4fadc3aa197",
+        "resourceVersion": "1967",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "master",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-05-13T15:51:29Z"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:51:29Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/last-change-trigger-time": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.14",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-redis-master-0",
+                "uid": "0b507696-1911-4c8a-94ab-29b4a509684e"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "tcp-redis",
+              "port": 6379,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk",
+        "namespace": "financial-budget",
+        "uid": "3f2cedab-9dfc-4ce3-9f90-9a118ddd1221",
+        "resourceVersion": "10622",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T17:36:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  ".": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.23",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "financial-budget",
+                "name": "financial-budget-sdk-779d8c584f-f9g84",
+                "uid": "dd872cb4-bb4b-4270-87f1-6967725db410"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "http",
+              "port": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

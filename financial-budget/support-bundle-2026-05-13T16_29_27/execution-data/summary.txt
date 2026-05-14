@@ -1,0 +1,36 @@
+============ Collectors summary =============
+Succeeded (S), eXcluded (X), Failed (F)
+=============================================
+cluster-resources (S)                                                          : 36,294ms
+logs/app.kubernetes.io/component=backend (S)                                   : 1,024ms
+logs/app.kubernetes.io/component=primary,app.kubernetes.io/name=postgresql (S) : 727ms
+logs/app.kubernetes.io/component=frontend (S)                                  : 725ms
+logs/app.kubernetes.io/component=cloudflared (S)                               : 628ms
+logs/app.kubernetes.io/component=master,app.kubernetes.io/name=redis (S)       : 596ms
+exec/replicated-app-updates (S)                                                : 154ms
+logs/replicated-logs (S)                                                       : 151ms
+logs/app.kubernetes.io/name=financial-budget-sdk (S)                           : 147ms
+exec/replicated-app-history (S)                                                : 146ms
+secret (S)                                                                     : 146ms
+exec/replicated-license-info (S)                                               : 145ms
+exec/replicated-app-info (S)                                                   : 145ms
+cluster-info (S)                                                               : 144ms
+http/backend-health (S)                                                        : 121ms
+
+============ Redactors summary =============
+In-cluster collectors : 300ms
+
+============= Analyzers summary =============
+Succeeded (S), eXcluded (X), Failed (F)
+=============================================
+Backend Deployment Ready (S)        : 0ms
+PostgreSQL StatefulSet Ready (S)    : 0ms
+Frontend Deployment Ready (S)       : 0ms
+Replicated SDK Deployment Ready (S) : 0ms
+License Query Failures (S)          : 0ms
+Cloudflared Tunnel Ready (S)        : 0ms
+Redis StatefulSet Ready (S)         : 0ms
+Backend Health Endpoint (S)         : 0ms
+Replicated SDK App Status (F)       : 0ms
+
+Duration: 46,763ms

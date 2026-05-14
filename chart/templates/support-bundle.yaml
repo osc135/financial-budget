@@ -168,16 +168,16 @@ stringData:
               - pass:
                   message: "Replicated SDK deployment is healthy with ready replicas."
 
-        # 3.5: License query failure pattern analyzer
+        # 3.5: App-specific budget data corruption analyzer
         - textAnalyze:
-            checkName: License Query Failures
+            checkName: Invalid Budget Income Data
             fileName: "*/backend.log"
-            regex: 'Failed to query license field'
+            regex: 'Invalid budget data: monthly income is'
             outcomes:
               - fail:
                   when: "true"
-                  message: "Backend cannot query license fields from the Replicated SDK. License entitlements (custom categories, etc.) cannot be verified. Check that the Replicated SDK pod is Running and the SDK service is accessible."
+                  message: "Corrupted budget data detected: a budget record has zero or negative monthly income. This breaks the 50/30/20 rule calculations. This typically indicates data corruption or a direct database mutation that bypassed API validation. Check the backend logs for the specific user ID, then inspect the budgets table in PostgreSQL for invalid records."
               - pass:
-                  message: "No license query failures found in application logs."
+                  message: "No corrupted budget income data detected. All budget records have valid positive monthly income values."
 
 

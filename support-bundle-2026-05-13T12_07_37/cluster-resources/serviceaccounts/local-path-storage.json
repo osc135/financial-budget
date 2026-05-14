@@ -1,0 +1,51 @@
+{
+  "kind": "ServiceAccountList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "8352"
+  },
+  "items": [
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "default",
+        "namespace": "local-path-storage",
+        "uid": "87ab5e5c-2715-4e43-bfe0-ea43c1436e93",
+        "resourceVersion": "328",
+        "creationTimestamp": "2026-05-13T15:37:00Z"
+      }
+    },
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "local-path-provisioner-service-account",
+        "namespace": "local-path-storage",
+        "uid": "4f9e4ad3-9d49-48b1-9553-5fbb78717cfe",
+        "resourceVersion": "289",
+        "creationTimestamp": "2026-05-13T15:36:57Z",
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"ServiceAccount\",\"metadata\":{\"annotations\":{},\"name\":\"local-path-provisioner-service-account\",\"namespace\":\"local-path-storage\"}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "kubectl-client-side-apply",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:36:57Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

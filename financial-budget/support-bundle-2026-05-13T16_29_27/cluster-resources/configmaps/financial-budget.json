@@ -1,0 +1,217 @@
+{
+  "kind": "ConfigMapList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "30042"
+  },
+  "items": [
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-configuration",
+        "namespace": "financial-budget",
+        "uid": "efe1b7f8-418c-4e92-95e5-c2030527be2c",
+        "resourceVersion": "1652",
+        "creationTimestamp": "2026-05-13T15:50:12Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                "f:master.conf": {},
+                "f:redis.conf": {},
+                "f:replica.conf": {}
+              },
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "master.conf": "dir /data\n# User-supplied master configuration:\nrename-command FLUSHDB \"\"\nrename-command FLUSHALL \"\"\n# End of master configuration",
+        "redis.conf": "# User-supplied common configuration:\n# Enable AOF https://redis.io/topics/persistence#append-only-file\nappendonly yes\n# Disable RDB persistence, AOF persistence already enabled.\nsave \"\"\n# End of common configuration",
+        "replica.conf": "dir /data\n# User-supplied replica configuration:\nrename-command FLUSHDB \"\"\nrename-command FLUSHALL \"\"\n# End of replica configuration"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-health",
+        "namespace": "financial-budget",
+        "uid": "bddcbea2-f362-4e88-91ff-84f98a5088af",
+        "resourceVersion": "1653",
+        "creationTimestamp": "2026-05-13T15:50:12Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                "f:ping_liveness_local.sh": {},
+                "f:ping_liveness_local_and_master.sh": {},
+                "f:ping_liveness_master.sh": {},
+                "f:ping_readiness_local.sh": {},
+                "f:ping_readiness_local_and_master.sh": {},
+                "f:ping_readiness_master.sh": {}
+              },
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "ping_liveness_local.sh": "#!/bin/bash\n\n[[ -f $REDIS_PASSWORD_FILE ]] \u0026\u0026 export REDIS_PASSWORD=***HIDDEN***; then\n  echo \"Timed out\"\n  exit 1\nfi\nresponseFirstWord=$(echo $response | head -n1 | awk '{print $1;}')\nif [ \"$response\" != \"PONG\" ] \u0026\u0026 [ \"$responseFirstWord\" != \"LOADING\" ] \u0026\u0026 [ \"$responseFirstWord\" != \"MASTERDOWN\" ]; then\n  echo \"$response\"\n  exit 1\nfi",
+        "ping_liveness_local_and_master.sh": "script_dir=\"$(dirname \"$0\")\"\nexit_status=0\n\"$script_dir/ping_liveness_local.sh\" $1 || exit_status=$?\n\"$script_dir/ping_liveness_master.sh\" $1 || exit_status=$?\nexit $exit_status",
+        "ping_liveness_master.sh": "#!/bin/bash\n\n[[ -f $REDIS_MASTER_PASSWORD_FILE ]] \u0026\u0026 export REDIS_MASTER_PASSWORD=***HIDDEN***; then\n  echo \"Timed out\"\n  exit 1\nfi\nresponseFirstWord=$(echo $response | head -n1 | awk '{print $1;}')\nif [ \"$response\" != \"PONG\" ] \u0026\u0026 [ \"$responseFirstWord\" != \"LOADING\" ]; then\n  echo \"$response\"\n  exit 1\nfi",
+        "ping_readiness_local.sh": "#!/bin/bash\n\n[[ -f $REDIS_PASSWORD_FILE ]] \u0026\u0026 export REDIS_PASSWORD=***HIDDEN***; then\n  echo \"Timed out\"\n  exit 1\nfi\nif [ \"$response\" != \"PONG\" ]; then\n  echo \"$response\"\n  exit 1\nfi",
+        "ping_readiness_local_and_master.sh": "script_dir=\"$(dirname \"$0\")\"\nexit_status=0\n\"$script_dir/ping_readiness_local.sh\" $1 || exit_status=$?\n\"$script_dir/ping_readiness_master.sh\" $1 || exit_status=$?\nexit $exit_status",
+        "ping_readiness_master.sh": "#!/bin/bash\n\n[[ -f $REDIS_MASTER_PASSWORD_FILE ]] \u0026\u0026 export REDIS_MASTER_PASSWORD=***HIDDEN***; then\n  echo \"Timed out\"\n  exit 1\nfi\nif [ \"$response\" != \"PONG\" ]; then\n  echo \"$response\"\n  exit 1\nfi"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-scripts",
+        "namespace": "financial-budget",
+        "uid": "b1c0c3af-c457-4c6e-88e8-bfc516121369",
+        "resourceVersion": "1651",
+        "creationTimestamp": "2026-05-13T15:50:12Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                "f:start-master.sh": {}
+              },
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "start-master.sh": "#!/bin/bash\n\n[[ -f $REDIS_PASSWORD_FILE ]] \u0026\u0026 export REDIS_PASSWORD=***HIDDEN***;then\n    cp /opt/bitnami/redis/mounted-etc/master.conf /opt/bitnami/redis/etc/master.conf\nfi\nif [[ -f /opt/bitnami/redis/mounted-etc/redis.conf ]];then\n    cp /opt/bitnami/redis/mounted-etc/redis.conf /opt/bitnami/redis/etc/redis.conf\nfi\nARGS=(\"--port\" \"${REDIS_PORT}\")\nARGS+=(\"--protected-mode\" \"no\")\nARGS+=(\"--include\" \"/opt/bitnami/redis/etc/redis.conf\")\nARGS+=(\"--include\" \"/opt/bitnami/redis/etc/master.conf\")\nexec redis-server \"${ARGS[@]}\"\n"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kube-root-ca.crt",
+        "namespace": "financial-budget",
+        "uid": "559e483b-a292-4125-8b0f-ee4a4a4bc829",
+        "resourceVersion": "1627",
+        "creationTimestamp": "2026-05-13T15:50:10Z",
+        "annotations": {
+          "kubernetes.io/description": "Contains a CA bundle that can be used to verify the kube-apiserver when using internal endpoints such as the internal service IP or kubernetes.default.svc. No other usage is guaranteed across distributions of Kubernetes clusters."
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                ".": {},
+                "f:ca.crt": {}
+              },
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubernetes.io/description": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "ca.crt": "-----BEGIN CERTIFICATE-----\nMIIDBTCCAe2gAwIBAgIINy7OrAeIDhEwDQYJKoZIhvcNAQELBQAwFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczAeFw0yNjA1MTMxNTMxNDVaFw0zNjA1MTAxNTM2NDVaMBUx\nEzARBgNVBAMTCmt1YmVybmV0ZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQDnjA5CZIBzYcEX9z32PGL9YGUxosGRWX14IG4BwAiKJMyOF5Kh5mEzBrDh\nSi3RYonU9gsxZYzmjiIge8cr3/9HHXdG/F5bIAqXTt9zwSSgrFoQiZRrnvBmpUNm\nkroiQsR3HMFsnCO7j/wRftWyQo3vMALAswC23VjqC0YcAVHLqqtHtzRd8Egy4HeI\nfJRLrCZAJu9JpgfFcTHa3ez+/dT3GjC4P7G9XmUg0yNhwdn12H38zP75OTx4uv/q\nki6cUNp3BBgJF6LfouTKktfp5p0nId/gQmSwxN2ZHgVImA+CqGY/TN/Af1LpNwB+\n307Zd2DKPxFhocqhkuIQNS3dH6VpAgMBAAGjWTBXMA4GA1UdDwEB/wQEAwICpDAP\nBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTsr8sWINGgZlX2zM+KTE0MGnc1tzAV\nBgNVHREEDjAMggprdWJlcm5ldGVzMA0GCSqGSIb3DQEBCwUAA4IBAQBSfqE+sztY\n/w/A7q1r5spWxFzkSrCULFv/pjuYS4J2Wj8UFh8aVnuTWN9NqdmZZuQZufbqzOfO\n9DcW3x/CCvBZqZ3U5H+K4Cvgqthhlr2LRDnO9FcNyf932IgpaZMgIgGegdCearUM\n2UdLYVvEyNVsxgkxicXJDBBum3iooGZiqMLg/tExA1Og1Nc0kNCSOr3QbLrl8YbK\nQ4YSf5CsmE84XnzrqOX+HgYelt2kNrMmqq56QFBLVJyS4TVeKcEfGKYhgHXuDcL9\nBCTNcD6Y4K0fvHIbIEkqvNqJT4kN4ZVTL0hco1EnA6Hap0thS1Q6kcDzUE4ansMr\nKJcBm1VyrXff\n-----END CERTIFICATE-----\n"
+      }
+    }
+  ]
+}

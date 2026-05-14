@@ -1,0 +1,89 @@
+{
+  "kind": "ConfigMapList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "30043"
+  },
+  "items": [
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "cluster-info",
+        "namespace": "kube-public",
+        "uid": "185be169-355d-4d90-80aa-5af2ea3fc6b9",
+        "resourceVersion": "338",
+        "creationTimestamp": "2026-05-13T15:36:55Z",
+        "managedFields": [
+          {
+            "manager": "kubeadm",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:36:55Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                ".": {},
+                "f:kubeconfig": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:37:00Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                "f:jws-kubeconfig-abcdef": {}
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "jws-kubeconfig-abcdef": "eyJhbGciOiJIUzI1NiIsImtpZCI6ImFiY2RlZiJ9..pEeyxtOvosimr0k_42O9Wj1ULIWLJcDIiBkNkwaAXm4",
+        "kubeconfig": "apiVersion: v1\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTnk3T3JBZUlEaEV3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBMU1UTXhOVE14TkRWYUZ3MHpOakExTVRBeE5UTTJORFZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURuakE1Q1pJQnpZY0VYOXozMlBHTDlZR1V4b3NHUldYMTRJRzRCd0FpS0pNeU9GNUtoNW1FekJyRGgKU2kzUllvblU5Z3N4Wll6bWppSWdlOGNyMy85SEhYZEcvRjViSUFxWFR0OXp3U1NnckZvUWlaUnJudkJtcFVObQprcm9pUXNSM0hNRnNuQ083ai93UmZ0V3lRbzN2TUFMQXN3QzIzVmpxQzBZY0FWSExxcXRIdHpSZDhFZ3k0SGVJCmZKUkxyQ1pBSnU5SnBnZkZjVEhhM2V6Ky9kVDNHakM0UDdHOVhtVWcweU5od2RuMTJIMzh6UDc1T1R4NHV2L3EKa2k2Y1VOcDNCQmdKRjZMZm91VEtrdGZwNXAwbklkL2dRbVN3eE4yWkhnVkltQStDcUdZL1ROL0FmMUxwTndCKwozMDdaZDJES1B4RmhvY3Foa3VJUU5TM2RINlZwQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUc3I4c1dJTkdnWmxYMnpNK0tURTBNR25jMXR6QVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQlNmcUUrc3p0WQovdy9BN3ExcjVzcFd4RnprU3JDVUxGdi9wanVZUzRKMldqOFVGaDhhVm51VFdOOU5xZG1aWnVRWnVmYnF6T2ZPCjlEY1czeC9DQ3ZCWnFaM1U1SCtLNEN2Z3F0aGhscjJMUkRuTzlGY055ZjkzMklncGFaTWdJZ0dlZ2RDZWFyVU0KMlVkTFlWdkV5TlZzeGdreGljWEpEQkJ1bTNpb29HWmlxTUxnL3RFeEExT2cxTmMwa05DU09yM1FiTHJsOFliSwpRNFlTZjVDc21FODRYbnpycU9YK0hnWWVsdDJrTnJNbXFxNTZRRkJMVkp5UzRUVmVLY0VmR0tZaGdIWHVEY0w5CkJDVE5jRDZZNEswZnZISWJJRWtxdk5xSlQ0a040WlZUTDBoY28xRW5BNkhhcDB0aFMxUTZrY0R6VUU0YW5zTXIKS0pjQm0xVnlyWGZmCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\n    server: https://1b3bd0d71-control-plane:6443\n  name: \"\"\ncontexts: null\ncurrent-context: \"\"\nkind: Config\nusers: null\n"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kube-root-ca.crt",
+        "namespace": "kube-public",
+        "uid": "f1d494b6-7781-413f-9511-faea110d5cad",
+        "resourceVersion": "320",
+        "creationTimestamp": "2026-05-13T15:37:00Z",
+        "annotations": {
+          "kubernetes.io/description": "Contains a CA bundle that can be used to verify the kube-apiserver when using internal endpoints such as the internal service IP or kubernetes.default.svc. No other usage is guaranteed across distributions of Kubernetes clusters."
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:37:00Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:data": {
+                ".": {},
+                "f:ca.crt": {}
+              },
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubernetes.io/description": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "ca.crt": "-----BEGIN CERTIFICATE-----\nMIIDBTCCAe2gAwIBAgIINy7OrAeIDhEwDQYJKoZIhvcNAQELBQAwFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczAeFw0yNjA1MTMxNTMxNDVaFw0zNjA1MTAxNTM2NDVaMBUx\nEzARBgNVBAMTCmt1YmVybmV0ZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQDnjA5CZIBzYcEX9z32PGL9YGUxosGRWX14IG4BwAiKJMyOF5Kh5mEzBrDh\nSi3RYonU9gsxZYzmjiIge8cr3/9HHXdG/F5bIAqXTt9zwSSgrFoQiZRrnvBmpUNm\nkroiQsR3HMFsnCO7j/wRftWyQo3vMALAswC23VjqC0YcAVHLqqtHtzRd8Egy4HeI\nfJRLrCZAJu9JpgfFcTHa3ez+/dT3GjC4P7G9XmUg0yNhwdn12H38zP75OTx4uv/q\nki6cUNp3BBgJF6LfouTKktfp5p0nId/gQmSwxN2ZHgVImA+CqGY/TN/Af1LpNwB+\n307Zd2DKPxFhocqhkuIQNS3dH6VpAgMBAAGjWTBXMA4GA1UdDwEB/wQEAwICpDAP\nBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTsr8sWINGgZlX2zM+KTE0MGnc1tzAV\nBgNVHREEDjAMggprdWJlcm5ldGVzMA0GCSqGSIb3DQEBCwUAA4IBAQBSfqE+sztY\n/w/A7q1r5spWxFzkSrCULFv/pjuYS4J2Wj8UFh8aVnuTWN9NqdmZZuQZufbqzOfO\n9DcW3x/CCvBZqZ3U5H+K4Cvgqthhlr2LRDnO9FcNyf932IgpaZMgIgGegdCearUM\n2UdLYVvEyNVsxgkxicXJDBBum3iooGZiqMLg/tExA1Og1Nc0kNCSOr3QbLrl8YbK\nQ4YSf5CsmE84XnzrqOX+HgYelt2kNrMmqq56QFBLVJyS4TVeKcEfGKYhgHXuDcL9\nBCTNcD6Y4K0fvHIbIEkqvNqJT4kN4ZVTL0hco1EnA6Hap0thS1Q6kcDzUE4ansMr\nKJcBm1VyrXff\n-----END CERTIFICATE-----\n"
+      }
+    }
+  ]
+}

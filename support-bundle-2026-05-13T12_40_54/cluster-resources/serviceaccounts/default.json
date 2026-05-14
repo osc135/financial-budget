@@ -1,0 +1,20 @@
+{
+  "kind": "ServiceAccountList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "11091"
+  },
+  "items": [
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "default",
+        "namespace": "default",
+        "uid": "6fcc8210-b442-4ed9-a845-cd60ffed19bf",
+        "resourceVersion": "324",
+        "creationTimestamp": "2026-05-13T15:37:00Z"
+      }
+    }
+  ]
+}

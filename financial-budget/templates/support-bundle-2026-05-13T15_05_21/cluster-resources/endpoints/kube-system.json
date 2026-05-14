@@ -1,0 +1,97 @@
+{
+  "kind": "EndpointsList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "22692"
+  },
+  "items": [
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kube-dns",
+        "namespace": "kube-system",
+        "uid": "dd8fc091-f7e6-491b-be92-f606c3e9311a",
+        "resourceVersion": "496",
+        "creationTimestamp": "2026-05-13T15:37:00Z",
+        "labels": {
+          "endpoints.kubernetes.io/managed-by": "endpoint-controller",
+          "k8s-app": "kube-dns",
+          "kubernetes.io/cluster-service": "true",
+          "kubernetes.io/name": "CoreDNS"
+        },
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-05-13T15:37:16Z"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:37:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/last-change-trigger-time": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:endpoints.kubernetes.io/managed-by": {},
+                  "f:k8s-app": {},
+                  "f:kubernetes.io/cluster-service": {},
+                  "f:kubernetes.io/name": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "10.244.0.2",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "kube-system",
+                "name": "coredns-7d764666f9-qvbdm",
+                "uid": "959411d4-b7f1-47d9-8207-2db9d3819690"
+              }
+            },
+            {
+              "ip": "10.244.0.4",
+              "nodeName": "1b3bd0d71-control-plane",
+              "targetRef": {
+                "kind": "Pod",
+                "namespace": "kube-system",
+                "name": "coredns-7d764666f9-vjgt6",
+                "uid": "db15c66a-6e20-4c13-8b14-701a32a11eae"
+              }
+            }
+          ],
+          "ports": [
+            {
+              "name": "metrics",
+              "port": 9153,
+              "protocol": "TCP"
+            },
+            {
+              "name": "dns-tcp",
+              "port": 53,
+              "protocol": "TCP"
+            },
+            {
+              "name": "dns",
+              "port": 53,
+              "protocol": "UDP"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

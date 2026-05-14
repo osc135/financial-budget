@@ -1,0 +1,22 @@
+[
+    {
+        "name": "backend.health.endpoint",
+        "labels": {
+            "desiredPosition": "1",
+            "iconKey": "kubernetes_text_analyze",
+            "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+        },
+        "insight": {
+            "name": "backend.health.endpoint",
+            "labels": {
+                "iconKey": "kubernetes_text_analyze",
+                "iconUri": "https://troubleshoot.sh/images/analyzer-icons/text-analyze.svg"
+            },
+            "primary": "Backend Health Endpoint",
+            "detail": "No matching files",
+            "severity": "warn"
+        },
+        "severity": "warn",
+        "analyzerSpec": ""
+    }
+]

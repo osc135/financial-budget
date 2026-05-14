@@ -1,0 +1,17 @@
+{{- if and .Values.ingress.enabled .Values.tls.auto }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "financial-budget.fullname" . }}-tls-auto
+  labels:
+    {{- include "financial-budget.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "financial-budget.fullname" . }}-tls-auto
+  issuerRef:
+    name: letsencrypt-cloudflare
+    kind: ClusterIssuer
+  dnsNames:
+    {{- range .Values.ingress.hosts }}
+    - {{ .host }}
+    {{- end }}
+{{- end }}

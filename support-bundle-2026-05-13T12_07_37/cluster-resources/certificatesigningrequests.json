@@ -1,0 +1,102 @@
+{
+  "kind": "CertificateSigningRequestList",
+  "apiVersion": "certificates.k8s.io/v1",
+  "metadata": {
+    "resourceVersion": "8353"
+  },
+  "items": [
+    {
+      "kind": "CertificateSigningRequest",
+      "apiVersion": "certificates.k8s.io/v1",
+      "metadata": {
+        "name": "csr-66frj",
+        "generateName": "csr-",
+        "uid": "26025ca5-5b50-4904-99e2-54abcf3668ab",
+        "resourceVersion": "340",
+        "creationTimestamp": "2026-05-13T15:36:53Z",
+        "managedFields": [
+          {
+            "manager": "kubelet",
+            "operation": "Update",
+            "apiVersion": "certificates.k8s.io/v1",
+            "time": "2026-05-13T15:36:53Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:generateName": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "certificates.k8s.io/v1",
+            "time": "2026-05-13T15:37:01Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:conditions": {
+                  ".": {},
+                  "k:{\"type\":\"Approved\"}": {
+                    ".": {},
+                    "f:lastTransitionTime": {},
+                    "f:lastUpdateTime": {},
+                    "f:message": {},
+                    "f:reason": {},
+                    "f:status": {},
+                    "f:type": {}
+                  }
+                }
+              }
+            },
+            "subresource": "approval"
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "certificates.k8s.io/v1",
+            "time": "2026-05-13T15:37:01Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:certificate": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "request": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQkFUQ0Jwd0lCQURCRk1SVXdFd1lEVlFRS0V3eHplWE4wWlcwNmJtOWtaWE14TERBcUJnTlZCQU1USTNONQpjM1JsYlRwdWIyUmxPakZpTTJKa01HUTNNUzFqYjI1MGNtOXNMWEJzWVc1bE1Ga3dFd1lIS29aSXpqMENBUVlJCktvWkl6ajBEQVFjRFFnQUVXNWVscUlTbGNxU2cxTTFFcDZHRExyeEptTU4xNDNEMk4rbXdub3BoOVhPVHJjZHQKWWpKYjlHRXRZK0FLK1p2U2NvTVZBbzVRRVcyRUU4QVFJU2ZkT3FBQU1Bb0dDQ3FHU000OUJBTUNBMGtBTUVZQwpJUURXWlQ5U2FXVGdRODVmYk44OEJHcWxTdHNwdUhFS0U3c2pPV0FuMEVnV1VnSWhBUHFCbUN4Q0tGR1JSNkVoCitvZ2haL1AwY2Q5ZFlnT29OWXViS0FxNXZVTDMKLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==",
+        "signerName": "kubernetes.io/kube-apiserver-client-kubelet",
+        "usages": [
+          "digital signature",
+          "client auth"
+        ],
+        "username": "system:node:1b3bd0d71-control-plane",
+        "groups": [
+          "system:nodes",
+          "system:authenticated"
+        ],
+        "extra": {
+          "authentication.kubernetes.io/credential-id": [
+            "X509SHA256=6e87a5cc2ca07f5465adef89d62617ed0c0ec2555f17bd5bf9129c9fcc67ea42"
+          ]
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "type": "Approved",
+            "status": "True",
+            "reason": "AutoApproved",
+            "message": "Auto approving self kubelet client certificate after SubjectAccessReview.",
+            "lastUpdateTime": "2026-05-13T15:37:01Z",
+            "lastTransitionTime": "2026-05-13T15:37:01Z"
+          }
+        ],
+        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNjRENDQVZpZ0F3SUJBZ0lSQUxOeW0zQm9yaDdBK2JXVk11WE0zTkF3RFFZSktvWklodmNOQVFFTEJRQXcKRlRFVE1CRUdBMVVFQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBMU1UTXhOVE15TURGYUZ3MHlOekExTVRNeApOVE15TURGYU1FVXhGVEFUQmdOVkJBb1RESE41YzNSbGJUcHViMlJsY3pFc01Db0dBMVVFQXhNamMzbHpkR1Z0Ck9tNXZaR1U2TVdJelltUXdaRGN4TFdOdmJuUnliMnd0Y0d4aGJtVXdXVEFUQmdjcWhrak9QUUlCQmdncWhrak8KUFFNQkJ3TkNBQVJibDZXb2hLVnlwS0RVelVTbm9ZTXV2RW1ZdzNYamNQWTM2YkNlaW1IMWM1T3R4MjFpTWx2MApZUzFqNEFyNW05SnlneFVDamxBUmJZUVR3QkFoSjkwNm8xWXdWREFPQmdOVkhROEJBZjhFQkFNQ0I0QXdFd1lEClZSMGxCQXd3Q2dZSUt3WUJCUVVIQXdJd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JUc3I4c1cKSU5HZ1psWDJ6TStLVEUwTUduYzF0ekFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBWG9MQ016OEZSVTRKM25zUwpmMGlIOEFWTmtJczhYa1BzMHBINzloL1pTREptQTBHOGJKUkNoL2hWV1UwNHdUcWxOb0dMeW54VktRMlVHS09KClBLM0FtTUI5bTIzVG1vQU5VNFZPVGdvQkpmK0p6bDFQMUthcGpETW5PVHlzOHIwTEFpN1Azc2gyeTd1R0trNnkKQTFIbTJjZFFIdkxaL3U4cVdvUDNiT1YrYmg4aFplUmRUUE9NRStFU1VrZnNFTXZOL3hyM1lrMXQvTFZtM3hmeQpvSkZZQWJ4MFlSMUNzdVBRMUllOWt0b3pHUmxRbzltMTBiTXBGUndhOTBTTE11eVlKcWNqelBYaW5SZUx2VTZwCklqYTBoSkthRU1qRWFQV0FqSDZiRVpzY25YMU9wNUhtNld6VC80OUVsNnA3M1J0Nzg2OHFWUVg1SWxEcjhKTkgKNFFheXd3PT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+      }
+    }
+  ]
+}

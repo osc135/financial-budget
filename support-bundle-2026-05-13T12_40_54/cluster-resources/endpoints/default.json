@@ -1,0 +1,57 @@
+{
+  "kind": "EndpointsList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "11089"
+  },
+  "items": [
+    {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kubernetes",
+        "namespace": "default",
+        "uid": "3c25ce48-9259-4a95-8a5e-aa2d46208017",
+        "resourceVersion": "205",
+        "creationTimestamp": "2026-05-13T15:36:54Z",
+        "labels": {
+          "endpointslice.kubernetes.io/skip-mirror": "true"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-apiserver",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:36:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  ".": {},
+                  "f:endpointslice.kubernetes.io/skip-mirror": {}
+                }
+              },
+              "f:subsets": {}
+            }
+          }
+        ]
+      },
+      "subsets": [
+        {
+          "addresses": [
+            {
+              "ip": "172.18.0.2"
+            }
+          ],
+          "ports": [
+            {
+              "name": "https",
+              "port": 6443,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

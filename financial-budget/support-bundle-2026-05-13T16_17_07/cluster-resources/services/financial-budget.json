@@ -1,0 +1,652 @@
+{
+  "kind": "ServiceList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "29024"
+  },
+  "items": [
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "backend",
+        "namespace": "financial-budget",
+        "uid": "3f7e06d7-35e1-4d92-82f8-e82ca9a5c8c3",
+        "resourceVersion": "28265",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget",
+          "app.kubernetes.io/version": "b59122119e0333c305db984def47e32a55102a26",
+          "helm.sh/chart": "financial-budget-0.41.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T21:09:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:ports": {
+                  "k:{\"port\":8000,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:protocol": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "http",
+            "protocol": "TCP",
+            "port": 8000,
+            "targetPort": "http"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/component": "backend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget"
+        },
+        "clusterIP": "10.96.108.201",
+        "clusterIPs": [
+          "10.96.108.201"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-frontend",
+        "namespace": "financial-budget",
+        "uid": "4334f680-9b9a-4de9-82ce-83bb1e7189d3",
+        "resourceVersion": "28268",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget",
+          "app.kubernetes.io/version": "b59122119e0333c305db984def47e32a55102a26",
+          "helm.sh/chart": "financial-budget-0.41.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T21:09:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:ports": {
+                  "k:{\"port\":80,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:protocol": {},
+                    "f:targetPort": {}
+                  },
+                  "k:{\"port\":443,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:protocol": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "http",
+            "protocol": "TCP",
+            "port": 80,
+            "targetPort": "http"
+          },
+          {
+            "name": "https",
+            "protocol": "TCP",
+            "port": 443,
+            "targetPort": "https"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/component": "frontend",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget"
+        },
+        "clusterIP": "10.96.125.49",
+        "clusterIPs": [
+          "10.96.125.49"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-postgresql",
+        "namespace": "financial-budget",
+        "uid": "e4a86080-b624-4c6b-a6d7-a1ecb1ddaa2f",
+        "resourceVersion": "1675",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "helm.sh/chart": "postgresql-15.5.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:ports": {
+                  "k:{\"port\":5432,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:nodePort": {},
+                    "f:port": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:sessionAffinity": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "tcp-postgresql",
+            "protocol": "TCP",
+            "port": 5432,
+            "targetPort": "tcp-postgresql"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "postgresql"
+        },
+        "clusterIP": "10.96.63.197",
+        "clusterIPs": [
+          "10.96.63.197"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-postgresql-hl",
+        "namespace": "financial-budget",
+        "uid": "cd9d8dfd-4bc7-4c3f-905b-9f7ae7f382c4",
+        "resourceVersion": "1657",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "postgresql",
+          "app.kubernetes.io/version": "16.3.0",
+          "helm.sh/chart": "postgresql-15.5.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget",
+          "service.alpha.kubernetes.io/tolerate-unready-endpoints": "true"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {},
+                  "f:service.alpha.kubernetes.io/tolerate-unready-endpoints": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:clusterIP": {},
+                "f:ports": {
+                  "k:{\"port\":5432,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:publishNotReadyAddresses": {},
+                "f:selector": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "tcp-postgresql",
+            "protocol": "TCP",
+            "port": 5432,
+            "targetPort": "tcp-postgresql"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/component": "primary",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "postgresql"
+        },
+        "clusterIP": "None",
+        "clusterIPs": [
+          "None"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "publishNotReadyAddresses": true,
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-headless",
+        "namespace": "financial-budget",
+        "uid": "8936d325-251b-4a0b-b0c6-72436dc3d733",
+        "resourceVersion": "1659",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:clusterIP": {},
+                "f:ports": {
+                  "k:{\"port\":6379,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "tcp-redis",
+            "protocol": "TCP",
+            "port": 6379,
+            "targetPort": "redis"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "redis"
+        },
+        "clusterIP": "None",
+        "clusterIPs": [
+          "None"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-redis-master",
+        "namespace": "financial-budget",
+        "uid": "02f4174f-824a-443c-98aa-165970bf5bab",
+        "resourceVersion": "1673",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/component": "master",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "redis",
+          "app.kubernetes.io/version": "7.2.5",
+          "helm.sh/chart": "redis-19.6.0"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/component": {},
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:internalTrafficPolicy": {},
+                "f:ports": {
+                  "k:{\"port\":6379,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:nodePort": {},
+                    "f:port": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:sessionAffinity": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "tcp-redis",
+            "protocol": "TCP",
+            "port": 6379,
+            "targetPort": "redis"
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/component": "master",
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "redis"
+        },
+        "clusterIP": "10.96.43.49",
+        "clusterIPs": [
+          "10.96.43.49"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "financial-budget-sdk",
+        "namespace": "financial-budget",
+        "uid": "3122c4dc-5320-4ac7-a2f7-6d3b7b0366b3",
+        "resourceVersion": "1666",
+        "creationTimestamp": "2026-05-13T15:50:13Z",
+        "labels": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "financial-budget-sdk",
+          "app.kubernetes.io/version": "1.19.3",
+          "helm.sh/chart": "financial-budget-sdk-1.19.3"
+        },
+        "annotations": {
+          "meta.helm.sh/release-name": "financial-budget",
+          "meta.helm.sh/release-namespace": "financial-budget"
+        },
+        "managedFields": [
+          {
+            "manager": "helm",
+            "operation": "Apply",
+            "apiVersion": "v1",
+            "time": "2026-05-13T15:50:13Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  "f:meta.helm.sh/release-name": {},
+                  "f:meta.helm.sh/release-namespace": {}
+                },
+                "f:labels": {
+                  "f:app.kubernetes.io/instance": {},
+                  "f:app.kubernetes.io/managed-by": {},
+                  "f:app.kubernetes.io/name": {},
+                  "f:app.kubernetes.io/version": {},
+                  "f:helm.sh/chart": {}
+                }
+              },
+              "f:spec": {
+                "f:ports": {
+                  "k:{\"port\":3000,\"protocol\":\"TCP\"}": {
+                    ".": {},
+                    "f:name": {},
+                    "f:port": {},
+                    "f:targetPort": {}
+                  }
+                },
+                "f:selector": {},
+                "f:type": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "ports": [
+          {
+            "name": "http",
+            "protocol": "TCP",
+            "port": 3000,
+            "targetPort": 3000
+          }
+        ],
+        "selector": {
+          "app.kubernetes.io/instance": "financial-budget",
+          "app.kubernetes.io/name": "financial-budget-sdk"
+        },
+        "clusterIP": "10.96.121.7",
+        "clusterIPs": [
+          "10.96.121.7"
+        ],
+        "type": "ClusterIP",
+        "sessionAffinity": "None",
+        "ipFamilies": [
+          "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "internalTrafficPolicy": "Cluster"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    }
+  ]
+}

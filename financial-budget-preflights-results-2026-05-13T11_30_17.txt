@@ -1,0 +1,27 @@
+Financial Budget Preflights Preflight Checks
+
+Check PASS
+Title: Replicated API Reachable
+Message: Successfully reached api.replicated.com. The Replicated SDK can sync with the Vendor Portal.
+
+------------
+Check PASS
+Title: Sufficient CPU
+Message: Cluster has sufficient CPU cores available, meeting the minimum requirement of 1 core.
+
+------------
+Check PASS
+Title: Sufficient Memory
+Message: Cluster has sufficient memory available, meeting the minimum requirement of 2Gi.
+
+------------
+Check PASS
+Title: Kubernetes Version
+Message: Kubernetes version meets the minimum requirement of 1.31.0.
+
+------------
+Check PASS
+Title: Supported Kubernetes Distribution
+Message: Kind cluster detected. Suitable for development and testing environments.
+
+------------
