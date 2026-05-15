@@ -100,6 +100,17 @@ ingress:
 cloudflared:
   enabled: true
   tunnelToken: ""
+ingress-nginx:
+  # Disabled by default — Helm dev installs typically have their own ingress
+  # controller. Enabled via KOTS HelmChart override for Embedded Cluster
+  # installs so the VM gets a working ingress controller out of the box.
+  enabled: false
+  controller:
+    service:
+      type: NodePort
+      nodePorts:
+        http: "80"
+        https: "443"
 imagePullSecrets:
   - name: enterprise-pull-secret
 global:
