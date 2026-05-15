@@ -1,7 +1,7 @@
 backend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
-    tag: e459833455e4e01325a8617433eb55439ac3f9ed
+    tag: eaed8d28dcca62cdea42ce45430d47957e2c5033
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -26,7 +26,7 @@ backend:
 frontend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
-    tag: e459833455e4e01325a8617433eb55439ac3f9ed
+    tag: eaed8d28dcca62cdea42ce45430d47957e2c5033
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -100,6 +100,17 @@ ingress:
 cloudflared:
   enabled: true
   tunnelToken: ""
+ingress-nginx:
+  # Disabled by default — Helm dev installs typically have their own ingress
+  # controller. Enabled via KOTS HelmChart override for Embedded Cluster
+  # installs so the VM gets a working ingress controller out of the box.
+  enabled: false
+  controller:
+    service:
+      type: NodePort
+      nodePorts:
+        http: "80"
+        https: "443"
 imagePullSecrets:
   - name: enterprise-pull-secret
 global:

@@ -8,7 +8,13 @@ spec:
     chartVersion: "0.0.0-placeholder"  # CI replaces this with the real chart version
   releaseName: financial-budget
   namespace: default
-  values: {}
+  values:
+    # ingress-nginx is bundled as a subchart. Off by default (so Helm dev
+    # installs don't get a duplicate ingress controller) and turned on here
+    # for Embedded Cluster installs so the VM has a working ingress
+    # controller for serving the app.
+    ingress-nginx:
+      enabled: true
   optionalValues:
     - when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
       recursiveMerge: true
