@@ -158,13 +158,10 @@ jobs:
         with:
           version: '3.14.0'
 
-      - name: Package Helm chart
-        id: package
+      - name: Package Helm chart into release dir
         run: |
-          helm package ./chart
-          CHART_FILE=$(ls financial-budget-*.tgz | head -1)
-          echo "chart-file=$CHART_FILE" >> $GITHUB_OUTPUT
-          echo "Packaged: $CHART_FILE"
+          helm package ./chart -d ./replicated
+          ls -la ./replicated
 
       - name: Create Replicated release
         id: create-release
@@ -172,7 +169,6 @@ jobs:
         with:
           app-slug: financial-budget
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
-          chart: ./${{ steps.package.outputs.chart-file }}
           yaml-dir: ./replicated
 
       - name: Verify release exists
