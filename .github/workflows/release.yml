@@ -116,14 +116,6 @@ jobs:
         with:
           version: '3.14.0'
 
-      - name: Package Helm chart
-        id: package
-        run: |
-          helm package ./chart
-          CHART_FILE=$(ls financial-budget-*.tgz | head -1)
-          echo "chart-file=$CHART_FILE" >> $GITHUB_OUTPUT
-          echo "Packaged: $CHART_FILE"
-
       - name: Get chart version
         id: chart-version
         run: |
@@ -131,13 +123,24 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Chart version: $VERSION"
 
+      - name: Sync chartVersion into kots-helmchart.yaml
+        run: |
+          yq e ".spec.chart.chartVersion = \"${{ steps.chart-version.outputs.version }}\"" -i replicated/kots-helmchart.yaml
+          echo "Updated kots-helmchart.yaml:"
+          grep -A1 "chart:" replicated/kots-helmchart.yaml | head -5
+
+      - name: Package Helm chart into release dir
+        run: |
+          helm package ./chart -d ./replicated
+          ls -la ./replicated
+
       - name: Create Replicated release
         id: create-release
         uses: replicatedhq/replicated-actions/create-release@v1
         with:
           app-slug: financial-budget
           api-token: ${{ secrets.REPLICATED_FINANCIAL_BUDGET }}
-          chart: ./${{ steps.package.outputs.chart-file }}
+          yaml-dir: ./replicated
 
       - name: Install Replicated CLI
         env:

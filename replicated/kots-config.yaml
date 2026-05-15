@@ -1,0 +1,28 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: financial-budget-config
+spec:
+  groups:
+    - name: cloudflare
+      title: Cloudflare Tunnel
+      description: |
+        Optional Cloudflare tunnel for exposing the app externally.
+        Leave disabled to use the cluster's ingress controller instead.
+      items:
+        - name: enable_cloudflared
+          title: Enable Cloudflare Tunnel
+          help_text: |
+            Toggle on to deploy the Cloudflare tunnel pod. You'll need
+            a tunnel token from the Cloudflare Zero Trust dashboard.
+          type: bool
+          default: "0"
+        - name: tunnel_token
+          title: Cloudflare Tunnel Token
+          help_text: |
+            From the Cloudflare Zero Trust dashboard, copy the tunnel
+            token for the tunnel you want this app to use. Stored as
+            a Kubernetes Secret.
+          type: password
+          required: true
+          when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
