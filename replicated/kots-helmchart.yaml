@@ -1,0 +1,23 @@
+apiVersion: kots.io/v1beta2
+kind: HelmChart
+metadata:
+  name: financial-budget
+spec:
+  chart:
+    name: financial-budget
+    chartVersion: "0.0.0-placeholder"  # CI replaces this with the real chart version
+  releaseName: financial-budget
+  namespace: default
+  values: {}
+  optionalValues:
+    - when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
+      recursiveMerge: true
+      values:
+        cloudflared:
+          enabled: true
+          tunnelToken: '{{repl ConfigOption "tunnel_token"}}'
+    - when: '{{repl ConfigOptionEquals "enable_cloudflared" "0"}}'
+      recursiveMerge: true
+      values:
+        cloudflared:
+          enabled: false
