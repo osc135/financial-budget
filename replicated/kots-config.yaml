@@ -26,3 +26,56 @@ spec:
           type: password
           required: true
           when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
+
+    # Premium-tier feature: only shown when the customer's license has
+    # `external_db_enabled: true`. KOTS hides the entire group from the
+    # config screen when the LicenseFieldValue evaluates to false.
+    - name: database
+      title: Database
+      description: |
+        Connect to an external PostgreSQL instance instead of the
+        bundled in-cluster database. Available on Premium licenses.
+      when: '{{repl LicenseFieldValue "external_db_enabled" | ParseBool}}'
+      items:
+        - name: database_mode
+          title: Database Mode
+          help_text: |
+            Use the embedded PostgreSQL deployed alongside the app,
+            or point the app at your own external PostgreSQL.
+          type: radio
+          default: embedded
+          items:
+            - name: embedded
+              title: Use embedded PostgreSQL
+            - name: external
+              title: Use external PostgreSQL
+        - name: external_db_host
+          title: Host
+          help_text: Hostname or IP of your external PostgreSQL server.
+          type: text
+          required: true
+          when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
+        - name: external_db_port
+          title: Port
+          help_text: PostgreSQL port. Defaults to 5432.
+          type: text
+          default: "5432"
+          when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
+        - name: external_db_name
+          title: Database Name
+          help_text: Name of the database to connect to.
+          type: text
+          required: true
+          when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
+        - name: external_db_username
+          title: Username
+          help_text: Username for the external PostgreSQL connection.
+          type: text
+          required: true
+          when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
+        - name: external_db_password
+          title: Password
+          help_text: Password for the external PostgreSQL connection.
+          type: password
+          required: true
+          when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
