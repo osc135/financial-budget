@@ -45,3 +45,21 @@ spec:
       values:
         cloudflared:
           enabled: false
+    # When the customer chooses external PostgreSQL on the config screen,
+    # disable the bundled subchart and route the app at their database.
+    # Gated upstream by the LicenseFieldValue on the Database config group,
+    # so customers without the entitlement never see these options.
+    - when: '{{repl ConfigOptionEquals "database_mode" "external"}}'
+      recursiveMerge: true
+      values:
+        database:
+          embedded:
+            enabled: false
+          external:
+            host: '{{repl ConfigOption "external_db_host"}}'
+            port: '{{repl ConfigOption "external_db_port"}}'
+            database: '{{repl ConfigOption "external_db_name"}}'
+            username: '{{repl ConfigOption "external_db_username"}}'
+            password: '{{repl ConfigOption "external_db_password"}}'
+        postgresql:
+          enabled: false
