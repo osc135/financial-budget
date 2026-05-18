@@ -8,6 +8,24 @@ spec:
     chartVersion: "0.0.0-placeholder"  # CI replaces this with the real chart version
   releaseName: financial-budget
   namespace: default
+  # builder tells KOTS the canonical source for each image at airgap build
+  # time. KOTS merges these on top of chart/values.yaml, so we only override
+  # registry/repository — the tag stays in values.yaml where CI maintains it.
+  # Without this, KOTS sees the proxy.budget-helping.com URLs in values.yaml
+  # and can't rewrite them to the in-cluster registry on airgap install.
+  builder:
+    backend:
+      image:
+        repository: ghcr.io/osc135/financial-budget-backend
+    frontend:
+      image:
+        repository: ghcr.io/osc135/financial-budget-frontend
+    postgresql:
+      image:
+        registry: docker.io
+    redis:
+      image:
+        registry: docker.io
   values:
     # ingress-nginx is bundled as a subchart. Off by default (so Helm dev
     # installs don't get a duplicate ingress controller) and turned on here
