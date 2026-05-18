@@ -4,6 +4,7 @@ metadata:
   name: financial-budget
 spec:
   title: Financial Budget
+  icon: https://raw.githubusercontent.com/osc135/financial-budget/main/replicated/icon.png
   statusInformers:
     - deployment/financial-budget-backend
     - deployment/financial-budget-frontend
