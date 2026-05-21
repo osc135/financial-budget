@@ -26,6 +26,17 @@ spec:
     redis:
       image:
         registry: docker.io
+    # ingress-nginx's admission Job uses kube-webhook-certgen to generate
+    # TLS certs for the validating webhook. KOTS auto-discovery missed it,
+    # which broke airgap installs (ImagePullBackOff on the pre-install hook).
+    ingress-nginx:
+      controller:
+        admissionWebhooks:
+          patch:
+            image:
+              registry: registry.k8s.io
+              image: ingress-nginx/kube-webhook-certgen
+              tag: v1.4.4
   values:
     # ingress-nginx is bundled as a subchart. Off by default (so Helm dev
     # installs don't get a duplicate ingress controller) and turned on here

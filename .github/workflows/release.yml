@@ -32,6 +32,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write  # required for cosign keyless OIDC signing
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,6 +48,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push backend image
+        id: build-backend
         uses: docker/build-push-action@v5
         with:
           context: ./backend
@@ -57,12 +59,21 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3.7.0
+
+      - name: Sign backend image (keyless)
+        env:
+          DIGEST: ${{ steps.build-backend.outputs.digest }}
+        run: cosign sign --yes ${{ env.BACKEND_IMAGE }}@${DIGEST}
+
   build-and-push-frontend:
     runs-on: ubuntu-latest
     if: github.actor != 'github-actions[bot]'
     permissions:
       contents: read
       packages: write
+      id-token: write  # required for cosign keyless OIDC signing
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -78,6 +89,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push frontend image
+        id: build-frontend
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
@@ -87,6 +99,14 @@ jobs:
             ${{ env.FRONTEND_IMAGE }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3.7.0
+
+      - name: Sign frontend image (keyless)
+        env:
+          DIGEST: ${{ steps.build-frontend.outputs.digest }}
+        run: cosign sign --yes ${{ env.FRONTEND_IMAGE }}@${DIGEST}
 
   package-and-promote:
     runs-on: ubuntu-latest
