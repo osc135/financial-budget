@@ -21,3 +21,5 @@ release in the Unstable channel.
 
 App icon (`replicated/icon.png`) by [Freepik](https://www.flaticon.com/free-icon/budget_11891024)
 on [Flaticon](https://www.flaticon.com/).
+
+Enterprise Portal logo: <a href="https://www.flaticon.com/free-icons/financial-plan" title="financial plan icons">Financial plan icons created by FACH - Flaticon</a>
