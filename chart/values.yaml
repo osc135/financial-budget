@@ -1,7 +1,7 @@
 backend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-backend
-    tag: 1bcd12e1839a5668cd81b8591a9074db1e911bc7
+    tag: ce93957dd95a828bb23292641c92c58662851e55
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -26,7 +26,7 @@ backend:
 frontend:
   image:
     repository: proxy.budget-helping.com/proxy/financial-budget/ghcr2.io/osc135/financial-budget-frontend
-    tag: 1bcd12e1839a5668cd81b8591a9074db1e911bc7
+    tag: ce93957dd95a828bb23292641c92c58662851e55
     pullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -118,3 +118,5 @@ global:
     - name: enterprise-pull-secret
 service:
   type: ClusterIP
+currency:
+  code: USD

@@ -52,6 +52,12 @@ spec:
     postgresql:
       auth:
         password: '{{repl ConfigOption "embedded_db_password"}}'
+    # Currency selected on the config screen flows to the backend via
+    # CURRENCY_CODE. The backend exposes /config/currency returning the
+    # formatting rules (symbol, position, decimal places, separators)
+    # so the frontend renders every amount in the chosen currency.
+    currency:
+      code: '{{repl ConfigOption "currency"}}'
   optionalValues:
     - when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
       recursiveMerge: true

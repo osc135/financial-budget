@@ -17,6 +17,31 @@ spec:
           hidden: true
           default: '{{repl RandomString 32}}'
 
+    - name: display
+      title: Display
+      description: How amounts are rendered throughout the app.
+      items:
+        - name: currency
+          title: Currency
+          help_text: |
+            Currency used for all amounts in the app. Changes symbol,
+            position (before/after the number), decimal places, and
+            thousands/decimal separators. Existing data is not converted,
+            only re-rendered.
+          type: dropdown
+          default: USD
+          items:
+            - name: USD
+              title: US Dollar ($)
+            - name: EUR
+              title: Euro (€)
+            - name: GBP
+              title: British Pound (£)
+            - name: JPY
+              title: Japanese Yen (¥)
+            - name: INR
+              title: Indian Rupee (₹)
+
     - name: cloudflare
       title: Cloudflare Tunnel
       description: |

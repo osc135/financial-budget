@@ -63,6 +63,8 @@ spec:
                   fieldPath: metadata.namespace
             - name: SUPPORT_BUNDLE_RUNNER_SA
               value: {{ include "financial-budget.fullname" . }}-bundle-runner
+            - name: CURRENCY_CODE
+              value: {{ .Values.currency.code | quote }}
           {{- if .Values.backend.livenessProbe.enabled }}
           livenessProbe:
             httpGet:

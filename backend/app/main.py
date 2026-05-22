@@ -32,6 +32,7 @@ from app.entitlements import (
     is_custom_categories_enabled, get_all_entitlements,
     get_license_status, is_license_valid, get_available_updates,
 )
+from app.currency import get_currency
 import os
 import time
 
@@ -117,6 +118,12 @@ def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Sessio
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(data={"sub": str(user.id)}, expires_delta=access_token_expires)
     return {"access_token": access_token, "token_type": "bearer", "user": {"id": user.id, "username": user.username}}
+
+
+@app.get("/config/currency")
+def config_currency():
+    """Return the currency formatting rules the operator picked at install time."""
+    return get_currency()
 
 
 @app.get("/license/entitlements")
