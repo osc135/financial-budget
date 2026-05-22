@@ -38,6 +38,10 @@ spec:
             a Kubernetes Secret.
           type: password
           required: true
+          validation:
+            regex:
+              pattern: '^eyJ[A-Za-z0-9_\-+/=]{181}$'
+              message: 'Tunnel token must be a 184-character base64-encoded JWT (starts with "eyJ"). Copy it from Cloudflare Zero Trust → Networks → Tunnels → your tunnel → Install connector.'
           when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
 
     # Premium-tier feature: only shown when the customer's license has
