@@ -1,4 +1,7 @@
+import { useCurrency, formatCurrency } from '../context/CurrencyContext';
+
 export default function SpendingProgress({ dashboard }) {
+  const currency = useCurrency();
   if (!dashboard) return null;
 
   const categories = [
@@ -22,7 +25,7 @@ export default function SpendingProgress({ dashboard }) {
             <div className="progress-header">
               <span>{cat.label}</span>
               <span style={{ color: over ? '#d0021b' : 'inherit' }}>
-                ${spent.toFixed(2)} / ${target.toFixed(2)}
+                {formatCurrency(spent, currency)} / {formatCurrency(target, currency)}
               </span>
             </div>
             <div className="progress-track">

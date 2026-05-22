@@ -118,3 +118,5 @@ global:
     - name: enterprise-pull-secret
 service:
   type: ClusterIP
+currency:
+  code: USD

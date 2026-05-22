@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useCurrency, formatCurrency } from '../context/CurrencyContext';
 import BudgetOverview from '../components/BudgetOverview';
 import SpendingProgress from '../components/SpendingProgress';
 import AddTransaction from '../components/AddTransaction';
@@ -8,6 +9,7 @@ const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export default function Dashboard() {
   const { token, logout } = useAuth();
+  const currency = useCurrency();
   const [budget, setBudget] = useState(null);
   const [dashboard, setDashboard] = useState(null);
   const [incomeInput, setIncomeInput] = useState('');
@@ -176,7 +178,7 @@ export default function Dashboard() {
                       <span className="tx-desc">{tx.description || 'No description'}</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <span className="tx-amount">${tx.amount.toFixed(2)}</span>
+                      <span className="tx-amount">{formatCurrency(tx.amount, currency)}</span>
                       <button className="btn btn-danger btn-sm" onClick={() => deleteTransaction(tx.id)}>
                         Delete
                       </button>
