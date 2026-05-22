@@ -44,6 +44,14 @@ spec:
     # controller for serving the app.
     ingress-nginx:
       enabled: true
+    # Embedded PostgreSQL password is generated once by KOTS on first
+    # install (RandomString default on the `embedded_db_password` config
+    # item) and reused on every upgrade, so the value injected into the
+    # postgresql subchart and the backend's DATABASE_URL stays stable
+    # across upgrades. Overrides the static placeholder in chart/values.yaml.
+    postgresql:
+      auth:
+        password: '{{repl ConfigOption "embedded_db_password"}}'
   optionalValues:
     - when: '{{repl ConfigOptionEquals "enable_cloudflared" "1"}}'
       recursiveMerge: true
