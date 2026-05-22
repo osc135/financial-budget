@@ -4,6 +4,19 @@ metadata:
   name: financial-budget-config
 spec:
   groups:
+    # Auto-generated secrets. All items hidden, so the whole group is
+    # invisible in the config screen. Defaults using RandomString are
+    # evaluated once on first install and persisted by KOTS, so the
+    # generated values survive upgrades.
+    - name: secrets
+      title: Secrets
+      items:
+        - name: embedded_db_password
+          title: Embedded Database Password
+          type: password
+          hidden: true
+          default: '{{repl RandomString 32}}'
+
     - name: cloudflare
       title: Cloudflare Tunnel
       description: |

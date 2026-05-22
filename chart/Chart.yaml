@@ -1,8 +1,8 @@
 apiVersion: v2
 name: financial-budget
 description: A Helm chart for Financial Budget
-version: 0.72.0
-appVersion: "13e57bf1ed602eab3dbdf25146e73bfb8c1a4365"
+version: 0.73.0
+appVersion: "ed694f220b81e044d6adb3f1a5b4021d287c5615"
 dependencies:
   - name: postgresql
     version: 15.5.0
