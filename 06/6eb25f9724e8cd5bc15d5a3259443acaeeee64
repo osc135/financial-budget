@@ -1,0 +1,21 @@
+.github/workflows/pr.yml
+  s_8df928305220f8::t_232f22b9a02284 13-28
+backend/tests/test_entitlements.py
+  s_8df928305220f8::t_232f22b9a02284 1-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "066eb25f9724e8cd5bc15d5a3259443acaeeee64",
+  "prompts": {},
+  "sessions": {
+    "s_8df928305220f8": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10eff-71fe-7eb3-ab47-b53b8c1acb81",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Bloom Dev <dev@bloom.local>"
+    }
+  }
+}
